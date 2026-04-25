@@ -206,7 +206,7 @@ nav ul {
 
 nav a {
   text-decoration: none;
-  color: #1E297A;  /* Cambiado de var(--dark) a azul primario */
+  color: #1E297A;
   font-weight: 600;
   font-size: 13px;
   transition: all 0.3s ease;
@@ -217,7 +217,6 @@ nav a {
   padding: 5px 0;
 }
 
-/* Efecto hover más elegante */
 nav a::before {
   content: '';
   position: absolute;
@@ -240,21 +239,19 @@ nav a::after {
 }
 
 nav a:hover {
-  color: var(--accent-red);  /* Rojo al hacer hover */
+  color: var(--accent-red);
   text-shadow: 0 1px 3px rgba(230, 57, 70, 0.2);
   transform: translateY(-1px);
 }
 
-/* Estilo activo para el enlace de la página actual */
 nav a.active {
-  color: var(--accent-red);  /* Rojo para el activo también */
+  color: var(--accent-red);
 }
 
 nav a.active::before {
   width: 80%;
 }
 
-/* Efecto de brillo sutil en el header */
 header::after {
   content: '';
   position: absolute;
@@ -282,17 +279,18 @@ header:hover::after {
   justify-content: center;
   border-radius: 8px;
   transition: all 0.3s ease;
-  color: #1E297A;  /* Cambiado a azul para que coincida */
+  color: #1E297A;
   position: relative;
   z-index: 1001;
   flex-shrink: 0;
 }
 
 .mobile-menu:hover {
-  background: rgba(30, 41, 122, 0.1);  /* Azul con opacidad en lugar del anterior */
+  background: rgba(30, 41, 122, 0.1);
   transform: scale(1.05);
-  color: var(--accent-red);  /* Rojo al hacer hover */
+  color: var(--accent-red);
 }
+
 /* Títulos responsivos */
 .section-title {
   font-size: clamp(0.9rem, 4vw, 1.2rem) !important;
@@ -475,7 +473,6 @@ section h2 {
   z-index: 2;
 }
 
-
 .hero h1 {
   font-size: clamp(32px, 6vw, 46px);
   font-weight: 600;
@@ -500,7 +497,6 @@ section h2 {
   display: inline-block;
 }
 
-/* Efecto de brillo adicional para h1 */
 .hero h1::before {
   content: '';
   position: absolute;
@@ -508,7 +504,6 @@ section h2 {
   left: 0;
   right: 0;
   bottom: 0;
-
   pointer-events: none;
   border-radius: 10px;
 }
@@ -530,7 +525,7 @@ section h2 {
   display: inline-block;
   padding: 5px 0;
 }
-/* ========== BOTÓN ÚNICO ========== */
+
 /* ========== BOTÓN ÚNICO ========== */
 .hero-buttons-custom {
   display: flex;
@@ -567,7 +562,6 @@ section h2 {
   overflow: hidden;
 }
 
-/* Botón primario único */
 .btn-primary-custom {
   background: linear-gradient(135deg, #e63946, #c1121f);
   color: white;
@@ -575,7 +569,6 @@ section h2 {
   position: relative;
 }
 
-/* Animación de EXPANSIÓN al hacer hover */
 .btn-primary-custom:hover {
   transform: scale(1.08);
   box-shadow: 0 8px 25px rgba(230, 57, 70, 0.5);
@@ -587,16 +580,16 @@ section h2 {
   transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-/* Efecto de clic sutil (opcional) */
 .btn-primary-custom:active {
   transform: scale(0.98);
   transition: transform 0.05s ease;
 }
-/* Certifications */
+
+/* ========== CERTIFICATIONS ========== */
 .certifications {
   background: transparent;
-  padding: 0;  /* Eliminado todo el padding */
-  margin: 0;   /* Asegurar que no haya margen */
+  padding: clamp(30px, 6vw, 50px) 20px;
+  margin: 0;
   position: relative;
   z-index: 1;
   width: 100%;
@@ -606,7 +599,7 @@ section h2 {
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
-  padding: 0;  /* Eliminar padding del contenedor */
+  padding: 0;
 }
 
 .cert-grid {
@@ -615,7 +608,7 @@ section h2 {
   align-items: center;
   flex-wrap: wrap;
   gap: clamp(20px, 4vw, 40px);
-  padding: 15px 0;  /* Padding mínimo opcional para separar un poco las imágenes */
+  padding: 15px 0;
 }
 
 .cert-item {
@@ -644,34 +637,17 @@ section h2 {
   margin: 0 auto 10px auto;
   transition: all 0.3s;
 }
-/* Título de especialización - Más junto */
-.spec-title {
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--primary-blue);
-  margin-top: 25px;
-  margin-bottom: 12px;
-  letter-spacing: 0.3px;
-}
 
-@media (max-width: 768px) {
-  .spec-title {
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 12px;
-  }
-}
-/* About Section */
+/* ========== ABOUT SECTION ========== */
 .about {
-  padding: 0;
-  margin-top: -5px;
+  padding: clamp(50px, 8vw, 80px) 20px;
+  margin: 0;
   position: relative;
   z-index: 1;
   width: 100%;
   background: white;
 }
 
-/* Degradado como overlay con opacidad */
 .about::before {
   content: '';
   position: absolute;
@@ -679,7 +655,7 @@ section h2 {
   left: 0;
   width: 100%;
   height: 100%;
-  background:  url('Degradado.jpg');
+  background: url('Degradado.jpg');
   background-size: cover;
   background-position: center;
   background-blend-mode: overlay;
@@ -696,10 +672,7 @@ section h2 {
   width: 100%;
   position: relative;
   z-index: 2;
-  padding: clamp(40px, 8vw, 80px) 20px;
 }
-
-/* El resto se mantiene igual */
 
 .about-content h2 {
   font-size: clamp(24px, 5vw, 32px);
@@ -715,7 +688,6 @@ section h2 {
   font-size: clamp(13px, 3vw, 14px);
 }
 
-/* Título de especialización */
 .spec-title {
   font-size: 15px;
   font-weight: 600;
@@ -739,7 +711,6 @@ section h2 {
   }
 }
 
-/* Items SIN fondo blanco - solo iconos y texto */
 .spec-item {
   text-align: center;
   padding: 10px 5px;
@@ -811,21 +782,20 @@ section h2 {
 }
 
 .experience-badge h3 {
-  font-size: 28px;
-  font-weight: 800;
+  font-size: clamp(20px, 5vw, 28px);
+  font-weight: 700;
   color: white;
   margin-bottom: 5px;
   line-height: 1;
 }
 
 .experience-badge p {
-  font-size: 10px;
+  font-size: clamp(9px, 2.5vw, 11px);
   color: rgba(255, 255, 255, 0.9);
   margin: 0;
   font-weight: 500;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .spec-title {
     text-align: center;
@@ -843,16 +813,7 @@ section h2 {
     font-size: 22px;
   }
 }
-.experience-badge h3 {
-  font-size: clamp(20px, 5vw, 28px);
-  font-weight: 700;
-}
 
-.experience-badge p {
-  font-size: clamp(9px, 2.5vw, 11px);
-}
-
-/* Animación float */
 @keyframes float {
   0%, 100% {
     transform: translateY(0px);
@@ -861,9 +822,10 @@ section h2 {
     transform: translateY(-10px);
   }
 }
-/* Services */
+
+/* ========== SERVICES ========== */
 .services {
-  padding: clamp(50px, 10vw, 100px) 20px;
+  padding: clamp(60px, 10vw, 100px) 20px;
   background: transparent;
   position: relative;
   z-index: 1;
@@ -923,7 +885,6 @@ section h2 {
   overflow: hidden;
 }
 
-/* ===== CARRUSEL CON ANIMACIÓN FADE ===== */
 .carousel-container {
   position: relative;
   width: 100%;
@@ -940,7 +901,6 @@ section h2 {
   height: 100%;
 }
 
-/* Transición más rápida para el carrusel - 0.6s en lugar de 0.8s */
 .carousel-slide {
   position: absolute;
   top: 0;
@@ -957,6 +917,7 @@ section h2 {
   visibility: visible;
   position: relative;
 }
+
 .carousel-slide img {
   width: 100%;
   height: 100%;
@@ -964,7 +925,6 @@ section h2 {
   display: block;
 }
 
-/* Botones de navegación del carrusel */
 .carousel-prev,
 .carousel-next {
   position: absolute;
@@ -999,7 +959,6 @@ section h2 {
   transform: translateY(-50%) scale(1.1);
 }
 
-/* Dots/indicadores del carrusel */
 .carousel-dots {
   position: absolute;
   bottom: 20px;
@@ -1029,7 +988,6 @@ section h2 {
   background: white;
 }
 
-/* Ajuste responsive del carrusel */
 @media (max-width: 768px) {
   .carousel-container {
     min-height: 300px;
@@ -1049,7 +1007,6 @@ section h2 {
   }
 }
 
-/* Sin animación de agrandamiento en hover de imagen */
 .services-image img {
   width: 100%;
   height: auto;
@@ -1129,36 +1086,6 @@ section h2 {
   }
 }
 
-.center-btn {
-  text-align: center;
-  margin-top: 50px;
-}
-
-.btn {
-  padding: 14px 32px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 15px;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  border: 2px solid transparent;
-  cursor: pointer;
-}
-
-.btn-primary {
-  background: var(--accent-red);
-  color: white;
-  box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);
-}
-
-.btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(230, 57, 70, 0.4);
-}
-/* ===== ANIMACIÓN DE FLOTACIÓN UNIFORME PARA LOS 3 ICONOS ===== */
 @keyframes floatIcon {
   0% {
     transform: translateY(0px);
@@ -1185,7 +1112,6 @@ section h2 {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-/* Todos los iconos con la misma animación (sin hover azul) */
 .service-card:hover .service-icon {
   animation: floatIcon 3s ease-in-out infinite;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -1214,7 +1140,6 @@ section h2 {
   margin-top: 40px;
 }
 
-/* Botón de servicios con el color azul */
 .btn-services {
   display: inline-flex;
   align-items: center;
@@ -1242,9 +1167,10 @@ section h2 {
 .btn-services i {
   font-size: 14px;
 }
-/* ========= RECENT PROJECTS - CARRUSEL CON TRANSFORM (SIN SCROLL CONFLICTOS) ========= */
+
+/* ========== RECENT PROJECTS ========== */
 .recent-projects {
-  padding: clamp(50px, 10vw, 100px) 20px;
+  padding: clamp(60px, 10vw, 100px) 20px;
   background: #1E297A;
   position: relative;
   z-index: 1;
@@ -1278,7 +1204,7 @@ section h2 {
   font-weight: 400;
 }
 
-/* ========== TÍTULOS DINÁMICOS POR GRUPO ========== */
+/* TÍTULOS DINÁMICOS POR GRUPO */
 .project-titles-container {
   position: relative;
   height: 60px;
@@ -1310,7 +1236,7 @@ section h2 {
   transform: translate(-50%, -50%);
 }
 
-/* ========== CARRUSEL ========== */
+/* CARRUSEL */
 .carousel-wrapper {
   position: relative;
   width: 100%;
@@ -1320,7 +1246,6 @@ section h2 {
   padding: 0 50px;
 }
 
-/* Contenedor del carrusel */
 .recent-projects-grid {
   display: flex;
   flex-direction: row;
@@ -1331,7 +1256,6 @@ section h2 {
   width: max-content;
 }
 
-/* Tarjeta individual (SIN ANIMACIONES DE HOVER) */
 .recent-project-card {
   position: relative;
   border-radius: 24px;
@@ -1339,7 +1263,6 @@ section h2 {
   cursor: pointer;
   height: 420px;
   box-shadow: none; 
-  /* Se elimina cualquier transición de movimiento */
   transition: none; 
   flex: 0 0 auto;
   width: 360px;
@@ -1387,8 +1310,6 @@ section h2 {
   }
 }
 
-/* Se elimina el bloque :hover que movía la tarjeta */
-
 .recent-project-image {
   position: absolute;
   top: 0;
@@ -1402,13 +1323,9 @@ section h2 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Se elimina la transición de zoom */
   transition: none; 
 }
 
-/* Se elimina el bloque :hover que hacía zoom */
-
-/* Degradado oscuro para legibilidad */
 .recent-project-image::after {
   content: '';
   position: absolute;
@@ -1426,7 +1343,6 @@ section h2 {
   pointer-events: none;
 }
 
-/* INFO DE LA TARJETA (Siempre visible, sin movimiento) */
 .recent-project-info {
   position: absolute;
   bottom: 0;
@@ -1435,11 +1351,8 @@ section h2 {
   padding: 30px 24px 26px;
   z-index: 3;
   color: white;
-  /* Se elimina transform y transition para que esté fija */
   transform: translateY(0); 
 }
-
-/* Se elimina el bloque :hover que subía el texto */
 
 .recent-project-info h3 {
   font-size: clamp(16px, 4vw, 20px);
@@ -1473,7 +1386,6 @@ section h2 {
   letter-spacing: 0.3px;
 }
 
-/* Botones de navegación */
 .carousel-nav {
   position: absolute;
   top: 50%;
@@ -1513,12 +1425,6 @@ section h2 {
   transform: scale(1.04);
 }
 
-/* Botón centrado */
-.center-btn {
-  text-align: center;
-  margin-top: 25px;
-}
-
 .btn-view-all {
   display: inline-flex;
   align-items: center;
@@ -1544,12 +1450,10 @@ section h2 {
   border-color: rgba(30, 41, 122, 0.3);
 }
 
-/* Dots (OCULTOS) */
 .carousel-dots {
   display: none;
 }
 
-/* ========== RESPONSIVE ========== */
 @media (max-width: 768px) {
   .project-titles-container {
     height: 50px;
@@ -1607,17 +1511,10 @@ section h2 {
     font-size: 12px;
   }
 }
-/* Texto debajo de Our Services */
-.services-header p {
-  font-size: clamp(16px, 4vw, 20px) !important;
-  color: #1E297A !important;
-  font-weight: 450 !important;
-  line-height: 1.2 !important;
-}
-/* Partners Section */
-/* Partners Section */
+
+/* ========== PARTNERS SECTION ========== */
 .partners-section {
-  padding: clamp(40px, 8vw, 80px) 20px;
+  padding: clamp(50px, 8vw, 80px) 20px;
   background: transparent;
   text-align: center;
   position: relative;
@@ -1664,12 +1561,11 @@ section h2 {
   transform: translateY(-8px);
 }
 
-/* Logo con efecto gris inicial - MÁS PEQUEÑO */
 .partner-logo-img {
   width: 100%;
   height: auto;
-  max-width: 90px;
-  min-height: 70px;
+  max-width: 130px;
+  min-height: 100px;
   object-fit: contain;
   display: block;
   margin: 0 auto;
@@ -1678,7 +1574,6 @@ section h2 {
   opacity: 0.6;
 }
 
-/* Hover - imagen a color */
 .partner-item:hover .partner-logo-img {
   filter: grayscale(0%);
   opacity: 1;
@@ -1731,9 +1626,9 @@ section h2 {
   animation: pulse 2s ease-in-out infinite;
 }
 
-/* Location */
+/* ========== LOCATION ========== */
 .location {
-  padding: clamp(50px, 10vw, 100px) 20px;
+  padding: clamp(60px, 10vw, 100px) 20px;
   background: rgba(245, 247, 251, 0.95);
   text-align: center;
   position: relative;
@@ -1793,9 +1688,9 @@ section h2 {
   transform: translateY(-5px);
 }
 
-/* Contact Section */
+/* ========== CONTACT SECTION ========== */
 .contact {
-  padding: 0;  /* Elimina todo el padding de la sección */
+  padding: clamp(60px, 10vw, 100px) 20px;
   position: relative;
   z-index: 1;
   background-image: url('icon.jpeg');
@@ -1855,7 +1750,6 @@ section h2 {
   transform: translateY(-10px);
 }
 
-/* ===== CONTACT IMAGE CON BRILLO AUTOMÁTICO MÁS NOTORIO ===== */
 .contact-image {
   position: relative;
   overflow: hidden;
@@ -1863,7 +1757,6 @@ section h2 {
   align-items: stretch;
 }
 
-/* Efecto de brillo que pasa automáticamente sobre la imagen - MÁS NOTORIO */
 .contact-image::before {
   content: '';
   position: absolute;
@@ -1888,7 +1781,6 @@ section h2 {
   filter: blur(0px);
 }
 
-/* Efecto de brillo sutil que permanece encima - MÁS NOTORIO */
 .contact-image::after {
   content: '';
   position: absolute;
@@ -1940,13 +1832,11 @@ section h2 {
   }
 }
 
-/* Efecto de brillo adicional en los bordes de la imagen */
 .contact-image {
   box-shadow: inset 0 0 40px rgba(255, 255, 255, 0.3);
   transition: box-shadow 0.5s ease;
 }
 
-/* Efecto hover más intenso */
 .contact-image:hover::before {
   animation: imageShineHover 1.2s ease-in-out;
 }
@@ -1966,7 +1856,6 @@ section h2 {
   }
 }
 
-/* Luz brillante que se mueve lentamente en diagonal */
 .contact-image .light-ray {
   position: absolute;
   top: -50%;
@@ -2081,7 +1970,6 @@ section h2 {
   }
 }
 
-/* Botón mantiene su color rojo original */
 .btn-primary {
   background: var(--accent-red);
   color: white;
@@ -2105,11 +1993,379 @@ section h2 {
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
-/* Footer */
+
+/* ========== AFFORDABLE HOUSING PROGRAM ========== */
+.affordable-housing {
+  padding: clamp(60px, 10vw, 100px) 20px;
+  background: linear-gradient(135deg, #F5F7FB 0%, #E8ECF4 50%, #DCE3ED 100%);
+  width: 100%;
+}
+
+.housing-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.housing-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.housing-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #1E297A;
+  margin-bottom: 5px;
+  letter-spacing: 1px;
+}
+
+.program-description-wrapper {
+  max-width: 800px;
+  margin: 0 auto 30px auto;
+  text-align: center;
+}
+
+.program-description {
+  font-size: 13px;
+  color: #2d3748;
+  line-height: 1.5;
+  font-weight: 500;
+  background: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-left: 4px solid #e63946;
+  text-align: left;
+  margin: 0;
+}
+
+.housing-program-section {
+  margin-bottom: 30px;
+}
+
+.program-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.program-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  height: 100%;
+  box-shadow: 
+    8px 10px 20px rgba(0, 0, 0, 0.15),
+    4px 6px 12px rgba(0, 0, 0, 0.1),
+    0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.program-card:hover {
+  transform: translateY(-4px) translateX(-2px);
+  box-shadow: 
+    12px 15px 28px rgba(0, 0, 0, 0.22),
+    6px 8px 16px rgba(0, 0, 0, 0.12),
+    0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+.program-card-content {
+  padding: 15px 14px;
+}
+
+.program-logo {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.program-logo-img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  display: inline-block;
+}
+
+.program-features h4 {
+  font-size: 11px;
+  font-weight: 700;
+  color: #1E297A;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.program-features ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.program-features li {
+  font-size: 10px;
+  color: #4a5568;
+  line-height: 1.5;
+  margin-bottom: 4px;
+  padding-left: 16px;
+  position: relative;
+}
+
+.program-features li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #e63946;
+  font-weight: bold;
+  font-size: 10px;
+}
+
+.program-card-offer {
+  background: linear-gradient(135deg, #1E297A, #141f63);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  height: 100%;
+  box-shadow: 
+    8px 10px 20px rgba(0, 0, 0, 0.22),
+    4px 6px 12px rgba(0, 0, 0, 0.12),
+    0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.program-card-offer:hover {
+  transform: translateY(-4px) translateX(-2px);
+  box-shadow: 
+    12px 18px 30px rgba(0, 0, 0, 0.3),
+    6px 10px 18px rgba(0, 0, 0, 0.15),
+    0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.program-offer-content {
+  padding: 25px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.program-offer-content h3 {
+  font-size: 18px;
+  font-weight: 800;
+  color: #e63946;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.program-offer-content p {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.btn-assessment {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #e63946, #c1121f);
+  color: white;
+  padding: 10px 22px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 12px;
+  transition: all 0.3s ease;
+  margin: 0 auto;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(230, 57, 70, 0.4);
+  border: none;
+  cursor: pointer;
+}
+
+.btn-assessment:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(135deg, #c1121f, #a3151a);
+  box-shadow: 0 8px 20px rgba(230, 57, 70, 0.6);
+}
+
+.floating-icon {
+  display: inline-block;
+  animation: float-side 1.5s ease-in-out infinite;
+}
+
+@keyframes float-side {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+.housing-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.housing-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 
+    6px 8px 16px rgba(0, 0, 0, 0.12),
+    3px 4px 8px rgba(0, 0, 0, 0.08),
+    0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.housing-card:hover {
+  transform: translateY(-4px) translateX(-2px);
+  box-shadow: 
+    10px 14px 24px rgba(0, 0, 0, 0.2),
+    5px 8px 14px rgba(0, 0, 0, 0.12),
+    0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+.housing-card-image {
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  overflow: hidden;
+  background: #f0f0f0;
+}
+
+.housing-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.housing-card:hover .housing-card-image img {
+  transform: scale(1.05);
+}
+
+.housing-card-content {
+  padding: 8px 8px 10px;
+}
+
+.housing-card-content h3 {
+  font-size: 10px;
+  font-weight: 700;
+  color: #1E297A;
+  margin-bottom: 3px;
+  letter-spacing: 0.3px;
+}
+
+.housing-card-content p {
+  font-size: 8px;
+  color: #4a5568;
+  line-height: 1.35;
+  margin: 0;
+}
+
+@media (max-width: 1000px) {
+  .housing-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+  
+  .program-grid {
+    max-width: 100%;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .program-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .housing-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 400px;
+    margin: 20px auto 0;
+  }
+  
+  .housing-title {
+    font-size: 20px;
+  }
+  
+  .program-description {
+    font-size: 12px;
+    padding: 8px 15px;
+  }
+  
+  .program-card-content {
+    padding: 12px;
+  }
+  
+  .program-offer-content {
+    padding: 20px 16px;
+  }
+  
+  .program-offer-content h3 {
+    font-size: 16px;
+  }
+  
+  .program-offer-content p {
+    font-size: 11px;
+  }
+  
+  .program-logo-img {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .btn-assessment {
+    padding: 8px 18px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .housing-grid {
+    grid-template-columns: 1fr;
+    max-width: 260px;
+  }
+  
+  .program-description {
+    font-size: 11px;
+    padding: 8px 12px;
+  }
+  
+  .housing-card-image {
+    aspect-ratio: 16 / 10;
+  }
+  
+  .program-offer-content h3 {
+    font-size: 15px;
+  }
+  
+  .program-offer-content p {
+    font-size: 10px;
+  }
+  
+  .btn-assessment {
+    padding: 7px 16px;
+    font-size: 10px;
+  }
+}
+
+/* ========== FOOTER ========== */
 footer {
   background: linear-gradient(135deg, var(--primary-blue), #151f5c);
   color: white;
-  padding: 60px 20px 30px;
+  padding: clamp(50px, 8vw, 80px) 20px 30px;
   position: relative;
   overflow: hidden;
   z-index: 1;
@@ -2342,13 +2598,9 @@ footer::before {
   }
 }
 
-/* ===== TÍTULOS ABOUT US Y OUR SERVICES ===== */
-/* Para el título "About Us" */
-/* Título "About Us" - color azul y negrita */
-/* Título "About Us" - color azul y negrita */
+/* TÍTULOS ABOUT US Y OUR SERVICES */
 .about-us {
   color: #ff0000;
-  font-weight: 100;
   font-weight: bold;
   font-size: clamp(12px, 6vw, 18px);
   transition: all 0.3s ease-in-out;
@@ -2361,10 +2613,8 @@ footer::before {
   letter-spacing: 1px;
 }
 
-/* Título "Our Services" - color azul y negrita */
 .our-servicess {
   color: #fa0505;
-  font-weight: 400;
   font-weight: bold;
   font-size: clamp(12px, 6vw, 18px);
   transition: all 0.3s ease-in-out;
@@ -2376,379 +2626,10 @@ footer::before {
   text-shadow: 0 4px 12px rgba(30, 41, 122, 0.25);
   letter-spacing: 1px;
 }
-/* ========== AFFORDABLE HOUSING PROGRAM SECTION ========== */
-.affordable-housing {
-  padding: 60px 20px;
-  background: linear-gradient(135deg, #F5F7FB 0%, #E8ECF4 50%, #DCE3ED 100%);
-  width: 100%;
-}
 
-.housing-container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* Header */
-.housing-header {
-  text-align: center;
-  margin-bottom: 25px;
-}
-
-.housing-title {
-  font-size: 24px;
-  font-weight: 800;
-  color: #1E297A;
-  margin-bottom: 5px;
-  letter-spacing: 1px;
-}
-
-/* Descripción centrada */
-.program-description-wrapper {
-  max-width: 800px;
-  margin: 0 auto 30px auto;
-  text-align: center;
-}
-
-.program-description {
-  font-size: 13px;
-  color: #2d3748;
-  line-height: 1.5;
-  font-weight: 500;
-  background: white;
-  padding: 10px 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  border-left: 4px solid #e63946;
-  text-align: left;
-  margin: 0;
-}
-
-/* Sección de Affordable Housing Program */
-.housing-program-section {
-  margin-bottom: 30px;
-}
-
-.program-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 25px;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-/* Card 1 - Descripción */
-.program-card {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  height: 100%;
-  box-shadow: 
-    8px 10px 20px rgba(0, 0, 0, 0.15),
-    4px 6px 12px rgba(0, 0, 0, 0.1),
-    0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.program-card:hover {
-  transform: translateY(-4px) translateX(-2px);
-  box-shadow: 
-    12px 15px 28px rgba(0, 0, 0, 0.22),
-    6px 8px 16px rgba(0, 0, 0, 0.12),
-    0 2px 4px rgba(0, 0, 0, 0.06);
-}
-
-.program-card-content {
-  padding: 15px 14px;
-}
-
-.program-logo {
-  text-align: center;
-  margin-bottom: 8px;
-}
-
-.program-logo-img {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-  display: inline-block;
-}
-
-.program-features h4 {
-  font-size: 11px;
-  font-weight: 700;
-  color: #1E297A;
-  margin-bottom: 8px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.program-features ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.program-features li {
-  font-size: 10px;
-  color: #4a5568;
-  line-height: 1.5;
-  margin-bottom: 4px;
-  padding-left: 16px;
-  position: relative;
-}
-
-.program-features li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: #e63946;
-  font-weight: bold;
-  font-size: 10px;
-}
-
-/* Card 2 - Oferta fondo azul oscuro */
-.program-card-offer {
-  background: linear-gradient(135deg, #1E297A, #141f63);
-  border-radius: 12px;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  height: 100%;
-  box-shadow: 
-    8px 10px 20px rgba(0, 0, 0, 0.22),
-    4px 6px 12px rgba(0, 0, 0, 0.12),
-    0 2px 4px rgba(0, 0, 0, 0.08);
-}
-
-.program-card-offer:hover {
-  transform: translateY(-4px) translateX(-2px);
-  box-shadow: 
-    12px 18px 30px rgba(0, 0, 0, 0.3),
-    6px 10px 18px rgba(0, 0, 0, 0.15),
-    0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.program-offer-content {
-  padding: 25px 20px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
-}
-
-/* Título "Do you have land?" en ROJO */
-.program-offer-content h3 {
-  font-size: 18px;
-  font-weight: 800;
-  color: #e63946;
-  margin-bottom: 12px;
-  letter-spacing: 0.5px;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-/* Texto descriptivo más grueso */
-.program-offer-content p {
-  font-size: 12px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.95);
-  line-height: 1.5;
-  margin-bottom: 20px;
-}
-
-/* Botón con fondo ROJO */
-.btn-assessment {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background: linear-gradient(135deg, #e63946, #c1121f);
-  color: white;
-  padding: 10px 22px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 12px;
-  transition: all 0.3s ease;
-  margin: 0 auto;
-  letter-spacing: 0.5px;
-  box-shadow: 0 4px 12px rgba(230, 57, 70, 0.4);
-  border: none;
-  cursor: pointer;
-}
-
-.btn-assessment:hover {
-  transform: translateY(-3px);
-  background: linear-gradient(135deg, #c1121f, #a3151a);
-  box-shadow: 0 8px 20px rgba(230, 57, 70, 0.6);
-}
-
-.floating-icon {
-  display: inline-block;
-  animation: float-side 1.5s ease-in-out infinite;
-}
-
-@keyframes float-side {
-  0% {
-    transform: translateX(0px);
-  }
-  50% {
-    transform: translateX(4px);
-  }
-  100% {
-    transform: translateX(0px);
-  }
-}
-
-/* Grid de 4 cards de imágenes */
-.housing-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-  margin-top: 20px;
-}
-
-.housing-card {
-  background: white;
-  border-radius: 10px;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  box-shadow: 
-    6px 8px 16px rgba(0, 0, 0, 0.12),
-    3px 4px 8px rgba(0, 0, 0, 0.08),
-    0 1px 2px rgba(0, 0, 0, 0.04);
-}
-
-.housing-card:hover {
-  transform: translateY(-4px) translateX(-2px);
-  box-shadow: 
-    10px 14px 24px rgba(0, 0, 0, 0.2),
-    5px 8px 14px rgba(0, 0, 0, 0.12),
-    0 2px 4px rgba(0, 0, 0, 0.06);
-}
-
-.housing-card-image {
-  width: 100%;
-  aspect-ratio: 16 / 11;
-  overflow: hidden;
-  background: #f0f0f0;
-}
-
-.housing-card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.housing-card:hover .housing-card-image img {
-  transform: scale(1.05);
-}
-
-.housing-card-content {
-  padding: 8px 8px 10px;
-}
-
-.housing-card-content h3 {
-  font-size: 10px;
-  font-weight: 700;
-  color: #1E297A;
-  margin-bottom: 3px;
-  letter-spacing: 0.3px;
-}
-
-.housing-card-content p {
-  font-size: 8px;
-  color: #4a5568;
-  line-height: 1.35;
-  margin: 0;
-}
-
-/* Responsive */
-@media (max-width: 1000px) {
-  .housing-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
-  }
-  
-  .program-grid {
-    max-width: 100%;
-    gap: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .program-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  
-  .housing-grid {
-    grid-template-columns: repeat(2, 1fr);
-    max-width: 400px;
-    margin: 20px auto 0;
-  }
-  
-  .housing-title {
-    font-size: 20px;
-  }
-  
-  .program-description {
-    font-size: 12px;
-    padding: 8px 15px;
-  }
-  
-  .program-card-content {
-    padding: 12px;
-  }
-  
-  .program-offer-content {
-    padding: 20px 16px;
-  }
-  
-  .program-offer-content h3 {
-    font-size: 16px;
-  }
-  
-  .program-offer-content p {
-    font-size: 11px;
-  }
-  
-  .program-logo-img {
-    width: 35px;
-    height: 35px;
-  }
-  
-  .btn-assessment {
-    padding: 8px 18px;
-    font-size: 11px;
-  }
-}
-
-@media (max-width: 480px) {
-  .housing-grid {
-    grid-template-columns: 1fr;
-    max-width: 260px;
-  }
-  
-  .program-description {
-    font-size: 11px;
-    padding: 8px 12px;
-  }
-  
-  .housing-card-image {
-    aspect-ratio: 16 / 10;
-  }
-  
-  .program-offer-content h3 {
-    font-size: 15px;
-  }
-  
-  .program-offer-content p {
-    font-size: 10px;
-  }
-  
-  .btn-assessment {
-    padding: 7px 16px;
-    font-size: 10px;
-  }
+.services-header p {
+  font-size: clamp(16px, 4vw, 20px) !important;
+  color: #1E297A !important;
+  font-weight: 450 !important;
+  line-height: 1.2 !important;
 }
