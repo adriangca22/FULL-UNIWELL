@@ -1,0 +1,2179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Full Uniwell LLC - Location</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-blue: #1d2b7f;
+      --secondary-blue: #2d4a9f;
+      --accent-red: #e63946;
+      --accent-orange: #fb8500;
+      --light-bg: #f5f7fb;
+      --white: #ffffff;
+      --dark: #1a1a2e;
+      --gray: #6c757d;
+      --light-gray: #e9ecef;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    /* ========== HEADER PROFESIONAL ========== */
+   header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+header.scrolled {
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+}
+
+.header-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 12px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.logo-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--accent-red) 0%, var(--primary-blue) 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 24px;
+  box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3);
+}
+
+.logo-text h1 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1E297A;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.logo-text span {
+  font-size: 11px;
+  color: var(--gray);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 22px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #1E297A;
+  font-weight: 600;
+  font-size: 13px;
+  transition: all 0.3s ease;
+  position: relative;
+  white-space: nowrap;
+  letter-spacing: 0.5px;
+  padding: 5px 0;
+}
+
+nav a::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-red), #ff6b6b);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+nav a:hover::before {
+  width: 80%;
+}
+
+nav a::after {
+  display: none;
+}
+
+nav a:hover {
+  color: var(--accent-red);
+  transform: translateY(-1px);
+}
+
+nav a.active {
+  color: var(--accent-red);
+}
+
+nav a.active::before {
+  width: 80%;
+}
+
+.mobile-menu {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  color: #1E297A;
+  position: relative;
+  z-index: 1001;
+  flex-shrink: 0;
+}
+
+.mobile-menu:hover {
+  background: rgba(30, 41, 122, 0.1);
+  transform: scale(1.05);
+  color: var(--accent-red);
+}
+
+/* Efecto de brillo en el header */
+header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(230, 57, 70, 0.2), rgba(230, 57, 70, 0.5), rgba(230, 57, 70, 0.2), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+header:hover::after {
+  opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header-container {
+    padding: 12px 20px;
+  }
+  
+  nav ul {
+    display: none;
+  }
+  
+  .mobile-menu {
+    display: flex;
+  }
+}
+    /* ========== LOCATION INFO SECTION CON ANIMACIONES ========== */
+    .location-info-section {
+      padding: 80px 0 60px;
+      background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Formas animadas de fondo */
+    .animated-shapes {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .shape {
+      position: absolute;
+      opacity: 0.08;
+      animation: float-shape 25s infinite ease-in-out;
+    }
+
+    /* Círculos */
+    .shape-circle-1 {
+      top: 10%;
+      left: 10%;
+      width: 100px;
+      height: 100px;
+      background: var(--accent-orange);
+      border-radius: 50%;
+      animation-delay: 0s;
+    }
+
+    .shape-circle-2 {
+      top: 60%;
+      left: 5%;
+      width: 150px;
+      height: 150px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      animation-delay: 5s;
+    }
+
+    .shape-circle-3 {
+      top: 70%;
+      left: 85%;
+      width: 80px;
+      height: 80px;
+      background: var(--accent-red);
+      border-radius: 50%;
+      animation-delay: 10s;
+    }
+
+    /* Cuadrados */
+    .shape-square-1 {
+      top: 15%;
+      left: 75%;
+      width: 90px;
+      height: 90px;
+      background: white;
+      animation-delay: 3s;
+    }
+
+    .shape-square-2 {
+      top: 45%;
+      left: 80%;
+      width: 60px;
+      height: 60px;
+      background: var(--accent-orange);
+      transform: rotate(45deg);
+      animation-delay: 7s;
+    }
+
+    .shape-square-3 {
+      top: 5%;
+      left: 45%;
+      width: 70px;
+      height: 70px;
+      background: rgba(230, 57, 70, 0.4);
+      animation-delay: 12s;
+    }
+
+    .shape-square-4 {
+      top: 75%;
+      left: 55%;
+      width: 100px;
+      height: 100px;
+      background: white;
+      border-radius: 20px;
+      animation-delay: 15s;
+    }
+
+    /* Triángulos */
+    .shape-triangle-1 {
+      top: 25%;
+      left: 3%;
+      width: 0;
+      height: 0;
+      background: transparent;
+      border-left: 50px solid transparent;
+      border-right: 50px solid transparent;
+      border-bottom: 90px solid rgba(251, 133, 0, 0.3);
+      animation-delay: 6s;
+    }
+
+    .shape-triangle-2 {
+      top: 55%;
+      left: 15%;
+      width: 0;
+      height: 0;
+      background: transparent;
+      border-left: 40px solid transparent;
+      border-right: 40px solid transparent;
+      border-bottom: 70px solid white;
+      animation-delay: 11s;
+    }
+
+    /* Rombo */
+    .shape-diamond-1 {
+      top: 35%;
+      left: 88%;
+      width: 80px;
+      height: 80px;
+      background: var(--accent-red);
+      transform: rotate(45deg);
+      animation-delay: 9s;
+    }
+
+    /* Elipses */
+    .shape-ellipse-1 {
+      top: 80%;
+      left: 30%;
+      width: 140px;
+      height: 90px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      animation-delay: 14s;
+    }
+
+    .shape-ellipse-2 {
+      top: 15%;
+      left: 55%;
+      width: 110px;
+      height: 70px;
+      background: var(--accent-orange);
+      border-radius: 50%;
+      animation-delay: 17s;
+    }
+
+    /* Círculos decorativos grandes adicionales */
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.03);
+      animation: float-circle 30s infinite ease-in-out;
+    }
+
+    .circle-1 {
+      width: 400px;
+      height: 400px;
+      top: -150px;
+      right: -100px;
+      animation-delay: 0s;
+    }
+
+    .circle-2 {
+      width: 300px;
+      height: 300px;
+      bottom: -100px;
+      left: 5%;
+      animation-delay: 8s;
+    }
+
+    .circle-3 {
+      width: 250px;
+      height: 250px;
+      top: 35%;
+      right: 15%;
+      animation-delay: 15s;
+    }
+
+    @keyframes float-shape {
+      0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+      20% {
+        transform: translate(25px, -35px) rotate(8deg);
+      }
+      40% {
+        transform: translate(-20px, 25px) rotate(-6deg);
+      }
+      60% {
+        transform: translate(30px, 15px) rotate(4deg);
+      }
+      80% {
+        transform: translate(-25px, -20px) rotate(-4deg);
+      }
+    }
+
+    @keyframes float-circle {
+      0%, 100% {
+        transform: translate(0, 0) scale(1);
+      }
+      33% {
+        transform: translate(35px, -35px) scale(1.1);
+      }
+      66% {
+        transform: translate(-25px, 25px) scale(0.9);
+      }
+    }
+
+    .info-section-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .info-section-content {
+      color: white;
+    }
+
+    .info-section-content h2 {
+      font-size: 38px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+
+    .info-section-content p {
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 30px;
+      opacity: 0.95;
+    }
+
+    .info-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .info-stat-item {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .info-stat-item:hover {
+      transform: translateY(-5px);
+      background: rgba(255,255,255,0.15);
+    }
+
+    .info-stat-item h3 {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--accent-orange);
+      margin-bottom: 5px;
+    }
+
+    .info-stat-item p {
+      font-size: 13px;
+      margin: 0;
+      opacity: 0.9;
+    }
+
+    .info-section-image {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+    }
+
+    .info-section-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .info-section-image:hover img {
+      transform: scale(1.05);
+    }
+
+    .image-badge {
+      position: absolute;
+      bottom: 30px;
+      left: 30px;
+      background: white;
+      padding: 20px 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .image-badge h4 {
+      font-size: 24px;
+      color: var(--primary-blue);
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .image-badge p {
+      font-size: 14px;
+      color: var(--gray);
+      margin: 0;
+    }
+
+    /* ========== LOCATION SECTION - MAPA ANCHO ========== */
+    .location-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, var(--light-bg) 0%, var(--white) 100%);
+    }
+
+    .location-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .location-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .location-header h2 {
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--primary-blue);
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+
+    .location-header p {
+      font-size: 17px;
+      color: var(--gray);
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* MAPA ANCHO - nuevo estilo */
+    .map-full-width {
+      width: 100%;
+      margin-bottom: 40px;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+      position: relative;
+      background: white;
+    }
+
+    .map-full-width iframe {
+      width: 100%;
+      height: 550px;
+      border: none;
+      display: block;
+      border-radius: 24px;
+    }
+
+    /* Info cards debajo del mapa */
+    .location-info-below {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .location-info-card {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      transition: all 0.3s ease;
+    }
+
+    .location-info-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    }
+
+    .info-icon-small {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 20px;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(29, 43, 127, 0.25);
+    }
+
+    .info-card-content h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--primary-blue);
+      margin-bottom: 6px;
+    }
+
+    .info-card-content p,
+    .info-card-content a {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.6;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .info-card-content a:hover {
+      color: var(--accent-red);
+    }
+
+    /* Service Areas */
+    .service-areas-section {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .service-areas-section h4 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--primary-blue);
+      margin-bottom: 16px;
+    }
+
+    .area-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .area-tag {
+      background: white;
+      padding: 8px 18px;
+      border-radius: 24px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--primary-blue);
+      border: 1px solid var(--light-gray);
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .area-tag i {
+      color: var(--accent-orange);
+      font-size: 14px;
+    }
+
+    .area-tag:hover {
+      background: var(--primary-blue);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(29, 43, 127, 0.2);
+    }
+
+    .area-tag:hover i {
+      color: white;
+    }
+
+    /* Address badge */
+    .address-badge {
+      background: white;
+      padding: 14px 28px;
+      border-radius: 50px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+      font-weight: 500;
+      color: var(--dark);
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+    }
+
+    .address-badge i {
+      color: var(--accent-red);
+      font-size: 20px;
+    }
+
+    .address-badge:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(230, 57, 70, 0.2);
+    }
+
+    /* CTA Section */
+    .location-cta {
+      background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      color: white;
+      box-shadow: 0 10px 40px rgba(29, 43, 127, 0.25);
+    }
+
+    .location-cta h3 {
+      font-size: 28px;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .location-cta p {
+      font-size: 16px;
+      margin-bottom: 24px;
+      opacity: 0.95;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--accent-red);
+      color: white;
+      padding: 14px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(230, 57, 70, 0.4);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--primary-blue);
+      padding: 14px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s;
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255,255,255,0.3);
+    }
+
+    /* ========== FOOTER PROFESIONAL ========== */
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-blue: #1d2b7f;
+  --secondary-blue: #2d4a9f;
+  --accent-red: #e63946;
+  --accent-orange: #fb8500;
+  --light-bg: #f5f7fb;
+  --white: #ffffff;
+  --dark: #1a1a2e;
+  --gray: #6c757d;
+  --light-gray: #e9ecef;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* ========== HEADER PROFESIONAL CORREGIDO ========== */
+header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+header.scrolled {
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+}
+
+.header-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 12px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.logo-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--accent-red) 0%, var(--primary-blue) 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 24px;
+  box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3);
+}
+
+.logo-text h1 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1E297A;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.logo-text span {
+  font-size: 11px;
+  color: var(--gray);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 22px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #1E297A;
+  font-weight: 600;
+  font-size: 13px;
+  transition: all 0.3s ease;
+  position: relative;
+  white-space: nowrap;
+  letter-spacing: 0.5px;
+  padding: 5px 0;
+}
+
+nav a::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-red), #ff6b6b);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+nav a:hover::before {
+  width: 80%;
+}
+
+nav a::after {
+  display: none;
+}
+
+nav a:hover {
+  color: var(--accent-red);
+  transform: translateY(-1px);
+}
+
+nav a.active {
+  color: var(--accent-red);
+}
+
+nav a.active::before {
+  width: 80%;
+}
+
+/* Efecto de brillo en el header */
+header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(230, 57, 70, 0.2), rgba(230, 57, 70, 0.5), rgba(230, 57, 70, 0.2), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+header:hover::after {
+  opacity: 1;
+}
+
+.mobile-menu {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  color: #1E297A;
+  position: relative;
+  z-index: 1001;
+  flex-shrink: 0;
+}
+
+.mobile-menu:hover {
+  background: rgba(30, 41, 122, 0.1);
+  transform: scale(1.05);
+  color: var(--accent-red);
+}
+
+/* ========== LOCATION INFO SECTION CON ANIMACIONES ========== */
+.location-info-section {
+  padding: 80px 0 60px;
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Formas animadas de fondo */
+.animated-shapes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.shape {
+  position: absolute;
+  opacity: 0.08;
+  animation: float-shape 25s infinite ease-in-out;
+}
+
+/* Círculos */
+.shape-circle-1 {
+  top: 10%;
+  left: 10%;
+  width: 100px;
+  height: 100px;
+  background: var(--accent-orange);
+  border-radius: 50%;
+  animation-delay: 0s;
+}
+
+.shape-circle-2 {
+  top: 60%;
+  left: 5%;
+  width: 150px;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  animation-delay: 5s;
+}
+
+.shape-circle-3 {
+  top: 70%;
+  left: 85%;
+  width: 80px;
+  height: 80px;
+  background: var(--accent-red);
+  border-radius: 50%;
+  animation-delay: 10s;
+}
+
+/* Cuadrados */
+.shape-square-1 {
+  top: 15%;
+  left: 75%;
+  width: 90px;
+  height: 90px;
+  background: white;
+  animation-delay: 3s;
+}
+
+.shape-square-2 {
+  top: 45%;
+  left: 80%;
+  width: 60px;
+  height: 60px;
+  background: var(--accent-orange);
+  transform: rotate(45deg);
+  animation-delay: 7s;
+}
+
+.shape-square-3 {
+  top: 5%;
+  left: 45%;
+  width: 70px;
+  height: 70px;
+  background: rgba(230, 57, 70, 0.4);
+  animation-delay: 12s;
+}
+
+.shape-square-4 {
+  top: 75%;
+  left: 55%;
+  width: 100px;
+  height: 100px;
+  background: white;
+  border-radius: 20px;
+  animation-delay: 15s;
+}
+
+/* Triángulos */
+.shape-triangle-1 {
+  top: 25%;
+  left: 3%;
+  width: 0;
+  height: 0;
+  background: transparent;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 90px solid rgba(251, 133, 0, 0.3);
+  animation-delay: 6s;
+}
+
+.shape-triangle-2 {
+  top: 55%;
+  left: 15%;
+  width: 0;
+  height: 0;
+  background: transparent;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-bottom: 70px solid white;
+  animation-delay: 11s;
+}
+
+/* Rombo */
+.shape-diamond-1 {
+  top: 35%;
+  left: 88%;
+  width: 80px;
+  height: 80px;
+  background: var(--accent-red);
+  transform: rotate(45deg);
+  animation-delay: 9s;
+}
+
+/* Elipses */
+.shape-ellipse-1 {
+  top: 80%;
+  left: 30%;
+  width: 140px;
+  height: 90px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  animation-delay: 14s;
+}
+
+.shape-ellipse-2 {
+  top: 15%;
+  left: 55%;
+  width: 110px;
+  height: 70px;
+  background: var(--accent-orange);
+  border-radius: 50%;
+  animation-delay: 17s;
+}
+
+/* Círculos decorativos grandes adicionales */
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.03);
+  animation: float-circle 30s infinite ease-in-out;
+}
+
+.circle-1 {
+  width: 400px;
+  height: 400px;
+  top: -150px;
+  right: -100px;
+  animation-delay: 0s;
+}
+
+.circle-2 {
+  width: 300px;
+  height: 300px;
+  bottom: -100px;
+  left: 5%;
+  animation-delay: 8s;
+}
+
+.circle-3 {
+  width: 250px;
+  height: 250px;
+  top: 35%;
+  right: 15%;
+  animation-delay: 15s;
+}
+
+@keyframes float-shape {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  20% {
+    transform: translate(25px, -35px) rotate(8deg);
+  }
+  40% {
+    transform: translate(-20px, 25px) rotate(-6deg);
+  }
+  60% {
+    transform: translate(30px, 15px) rotate(4deg);
+  }
+  80% {
+    transform: translate(-25px, -20px) rotate(-4deg);
+  }
+}
+
+@keyframes float-circle {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(35px, -35px) scale(1.1);
+  }
+  66% {
+    transform: translate(-25px, 25px) scale(0.9);
+  }
+}
+
+.info-section-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.info-section-content {
+  color: white;
+}
+
+.info-section-content h2 {
+  font-size: 38px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.info-section-content p {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  opacity: 0.95;
+}
+
+.info-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.info-stat-item {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: transform 0.3s ease;
+}
+
+.info-stat-item:hover {
+  transform: translateY(-5px);
+  background: rgba(255,255,255,0.15);
+}
+
+.info-stat-item h3 {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--accent-orange);
+  margin-bottom: 5px;
+}
+
+.info-stat-item p {
+  font-size: 13px;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.info-section-image {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+}
+
+.info-section-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.info-section-image:hover img {
+  transform: scale(1.05);
+}
+
+.image-badge {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  background: white;
+  padding: 20px 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.image-badge h4 {
+  font-size: 24px;
+  color: var(--primary-blue);
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.image-badge p {
+  font-size: 14px;
+  color: var(--gray);
+  margin: 0;
+}
+
+/* ========== LOCATION SECTION - MAPA ANCHO ========== */
+.location-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, var(--light-bg) 0%, var(--white) 100%);
+}
+
+.location-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.location-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.location-header h2 {
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--primary-blue);
+  margin-bottom: 16px;
+  letter-spacing: -1px;
+}
+
+.location-header p {
+  font-size: 17px;
+  color: var(--gray);
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* MAPA ANCHO - nuevo estilo */
+.map-full-width {
+  width: 100%;
+  margin-bottom: 40px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+  position: relative;
+  background: white;
+}
+
+.map-full-width iframe {
+  width: 100%;
+  height: 550px;
+  border: none;
+  display: block;
+  border-radius: 24px;
+}
+
+/* Info cards debajo del mapa */
+.location-info-below {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.location-info-card {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  transition: all 0.3s ease;
+}
+
+.location-info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+
+.info-icon-small {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(29, 43, 127, 0.25);
+}
+
+.info-card-content h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--primary-blue);
+  margin-bottom: 6px;
+}
+
+.info-card-content p,
+.info-card-content a {
+  font-size: 14px;
+  color: var(--gray);
+  line-height: 1.6;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.info-card-content a:hover {
+  color: var(--accent-red);
+}
+
+/* Service Areas */
+.service-areas-section {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.service-areas-section h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--primary-blue);
+  margin-bottom: 16px;
+}
+
+.area-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.area-tag {
+  background: white;
+  padding: 8px 18px;
+  border-radius: 24px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--primary-blue);
+  border: 1px solid var(--light-gray);
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.area-tag i {
+  color: var(--accent-orange);
+  font-size: 14px;
+}
+
+.area-tag:hover {
+  background: var(--primary-blue);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(29, 43, 127, 0.2);
+}
+
+.area-tag:hover i {
+  color: white;
+}
+
+/* Address badge */
+.address-badge {
+  background: white;
+  padding: 14px 28px;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+  font-weight: 500;
+  color: var(--dark);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.address-badge i {
+  color: var(--accent-red);
+  font-size: 20px;
+}
+
+.address-badge:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(230, 57, 70, 0.2);
+}
+
+/* CTA Section */
+.location-cta {
+  background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 10px 40px rgba(29, 43, 127, 0.25);
+}
+
+.location-cta h3 {
+  font-size: 28px;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.location-cta p {
+  font-size: 16px;
+  margin-bottom: 24px;
+  opacity: 0.95;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: var(--accent-red);
+  color: white;
+  padding: 14px 32px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(230, 57, 70, 0.4);
+}
+
+.btn-secondary {
+  background: white;
+  color: var(--primary-blue);
+  padding: 14px 32px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255,255,255,0.3);
+}
+
+/* ========== FOOTER PROFESIONAL CORREGIDO ========== */
+footer {
+  background: linear-gradient(135deg, var(--primary-blue), #151f5c);
+  color: white;
+  padding: 60px 20px 30px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  width: 100%;
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-red), var(--accent-orange), var(--accent-red));
+  animation: shimmer 3s linear infinite;
+  background-size: 200% 100%;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 0 40px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.footer-brand .logo {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.footer-brand .logo-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--accent-red) 0%, var(--primary-blue) 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 28px;
+  box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3);
+}
+
+.footer-brand .logo-text h1 {
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.footer-brand .logo-text span {
+  color: rgba(255,255,255,0.7);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.footer-brand p {
+  font-size: 13px;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.7);
+  margin: 15px 0;
+}
+
+.social-links {
+  display: flex;
+  gap: 12px;
+}
+
+.social-links a {
+  width: 35px;
+  height: 35px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s;
+  font-size: 16px;
+}
+
+.social-links a:hover {
+  background: var(--accent-red);
+  transform: translateY(-3px);
+  animation: neonGlow 0.5s ease-in-out;
+}
+
+@keyframes neonGlow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(230, 57, 70, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(230, 57, 70, 0.8);
+  }
+}
+
+.footer-column h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: white;
+  position: relative;
+  display: inline-block;
+}
+
+.footer-column h3::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: var(--accent-red);
+  border-radius: 2px;
+}
+
+.footer-column ul {
+  list-style: none;
+}
+
+.footer-column li {
+  margin-bottom: 10px;
+}
+
+.footer-column a {
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  font-size: 13px;
+  transition: all 0.3s;
+  display: inline-block;
+}
+
+.footer-column a:hover {
+  color: white;
+  transform: translateX(5px);
+}
+
+.contact-info li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+  word-break: break-word;
+}
+
+.contact-info i {
+  color: var(--accent-red);
+  font-size: 16px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 25px;
+  text-align: center;
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+}
+
+/* Toast Notification */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 9999;
+  animation: slideInRight 0.3s ease, neonGlow 1s ease-in-out;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  font-size: 13px;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .info-section-container {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    gap: 30px;
+  }
+
+  .location-header h2 {
+    font-size: 32px;
+  }
+
+  .info-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .map-full-width iframe {
+    height: 450px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    padding: 12px 20px;
+  }
+
+  nav ul {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: flex;
+  }
+
+  .location-container,
+  .footer-container {
+    padding: 0 20px;
+  }
+
+  .map-full-width iframe {
+    height: 380px;
+    border-radius: 16px;
+  }
+
+  .location-info-below {
+    grid-template-columns: 1fr;
+  }
+
+  .location-cta {
+    padding: 30px 20px;
+  }
+
+  .location-cta h3 {
+    font-size: 22px;
+  }
+
+  .footer-grid {
+    gap: 30px;
+    text-align: center;
+  }
+
+  .footer-column h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .contact-info li {
+    justify-content: center;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+
+  .shape,
+  .circle {
+    display: none;
+  }
+  
+  .footer-brand .logo {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .toast {
+    bottom: 20px;
+    right: 20px;
+    left: 20px;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.location-header,
+.map-full-width,
+.location-info-card,
+.location-cta,
+.info-section-content,
+.info-section-image {
+  animation: fadeIn 0.6s ease forwards;
+}
+  </style>
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header id="header">
+    <div class="header-container">
+      <a href="#" class="logo">
+        <div class="logo-icon">FU</div>
+        <div class="logo-text">
+          <h1>Full Uniwell LLC</h1>
+          <span>Best Project Management Service</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#location" class="active">Location</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="mobile-menu">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== LOCATION INFO SECTION ========== -->
+  <section class="location-info-section">
+    <!-- Formas animadas de fondo -->
+    <div class="animated-shapes">
+      <!-- Círculos -->
+      <div class="shape shape-circle-1"></div>
+      <div class="shape shape-circle-2"></div>
+      <div class="shape shape-circle-3"></div>
+      
+      <!-- Cuadrados -->
+      <div class="shape shape-square-1"></div>
+      <div class="shape shape-square-2"></div>
+      <div class="shape shape-square-3"></div>
+      <div class="shape shape-square-4"></div>
+      
+      <!-- Triángulos -->
+      <div class="shape shape-triangle-1"></div>
+      <div class="shape shape-triangle-2"></div>
+      
+      <!-- Rombo -->
+      <div class="shape shape-diamond-1"></div>
+      
+      <!-- Elipses -->
+      <div class="shape shape-ellipse-1"></div>
+      <div class="shape shape-ellipse-2"></div>
+      
+      <!-- Círculos grandes decorativos -->
+      <div class="circle circle-1"></div>
+      <div class="circle circle-2"></div>
+      <div class="circle circle-3"></div>
+    </div>
+
+    <div class="info-section-container">
+      <div class="info-section-content">
+        <h2>Serving South Florida with Excellence Since 2009</h2>
+        <p>With over 15 years of experience in construction and project management, Full Uniwell LLC has established itself as a trusted partner for residential, commercial, and industrial projects throughout Florida. Our strategic location in Pembroke Pines allows us to efficiently serve Miami-Dade, Broward, and Palm Beach counties.</p>
+        
+        <div class="info-stats">
+          <div class="info-stat-item">
+            <h3>250+</h3>
+            <p>Projects Completed</p>
+          </div>
+          <div class="info-stat-item">
+            <h3>15+</h3>
+            <p>Years Experience</p>
+          </div>
+          <div class="info-stat-item">
+            <h3>100%</h3>
+            <p>Client Satisfaction</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-section-image">
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" alt="Construction project in Florida">
+        <div class="image-badge">
+          <h4>Licensed & Insured</h4>
+          <p>Certified Professionals</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== LOCATION SECTION ========== -->
+  <section class="location-section" id="location">
+    <div class="location-container">
+      
+      <!-- Header arriba del mapa -->
+      <div class="location-header">
+        <h2>Location and Service Areas</h2>
+        <p>Strategically positioned to serve our local South Florida community, we also provide comprehensive construction solutions throughout the entire Florida region. No matter the location, our team is equipped to bring excellence and precision to your job site.</p>
+      </div>
+
+      <!-- MAPA ANCHO - sin header azul -->
+      <div class="map-full-width">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113608.86306460647!2d-80.3960769!3d26.009944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9a1001236bb17%3A0xd706cbed84d94209!2sFull%20Uniwell!5e0!3m2!1sen!2sus!4v1745360000000!5m2!1sen!2sus" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+      <!-- Info cards debajo del mapa -->
+      <div class="location-info-below">
+        <div class="location-info-card">
+          <div class="info-icon-small">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <div class="info-card-content">
+            <h3>Our Address</h3>
+            <p>18501 Pines Blvd Suite 3006<br>Pembroke Pines, FL 33029</p>
+          </div>
+        </div>
+
+        <div class="location-info-card">
+          <div class="info-icon-small">
+            <i class="fas fa-phone-alt"></i>
+          </div>
+          <div class="info-card-content">
+            <h3>Phone</h3>
+            <a href="tel:+17866910212">+1 (786) 691-0212</a>
+          </div>
+        </div>
+
+        <div class="location-info-card">
+          <div class="info-icon-small">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="info-card-content">
+            <h3>Email</h3>
+            <a href="mailto:fulluniwell@gmail.com">fulluniwell@gmail.com</a>
+          </div>
+        </div>
+
+        <div class="location-info-card">
+          <div class="info-icon-small">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="info-card-content">
+            <h3>Business Hours</h3>
+            <p>Mon - Fri: 8:00 AM - 6:00 PM<br>Sat: 9:00 AM - 2:00 PM</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Address Badge centrado -->
+      <div style="text-align: center; margin-bottom: 30px;">
+        <div class="address-badge">
+          <i class="fas fa-location-dot"></i>
+          <span>18501 Pines Blvd Suite 3006, Pembroke Pines, FL 33029, EEUU</span>
+        </div>
+      </div>
+
+      <!-- Service Areas -->
+      <div class="service-areas-section">
+        <h4>Service Areas:</h4>
+        <div class="area-tags">
+          <span class="area-tag"><i class="fas fa-city"></i> Miami-Dade</span>
+          <span class="area-tag"><i class="fas fa-umbrella-beach"></i> Broward</span>
+          <span class="area-tag"><i class="fas fa-water"></i> Palm Beach</span>
+          <span class="area-tag"><i class="fas fa-map-marked-alt"></i> Statewide FL</span>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="location-cta">
+        <h3>Ready to Start Your Project?</h3>
+        <p>Contact us today for a free consultation and estimate</p>
+        <div class="cta-buttons">
+          <a href="#contact" class="btn-primary">
+            <i class="fas fa-paper-plane"></i> Get Free Quote
+          </a>
+          <a href="tel:+17866910212" class="btn-secondary">
+            <i class="fas fa-phone"></i> Call Now
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer id="contact">
+    <div class="footer-container">
+      <div class="footer-grid">
+        
+        <!-- Brand Column -->
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <div class="logo-icon">FU</div>
+            <div class="logo-text">
+              <h1>Full Uniwell LLC</h1>
+              <span>Best Project Management Service</span>
+            </div>
+          </a>
+          <p>Transforming visions into reality with precision and expertise. Your trusted partner for construction excellence in Florida.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <!-- Useful Links -->
+        <div class="footer-column">
+          <h3>Useful Links</h3>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#services">Our Services</a></li>
+            <li><a href="#location">Location</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Services -->
+        <div class="footer-column">
+          <h3>Our Services</h3>
+          <ul>
+            <li><a href="#">General Contracting</a></li>
+            <li><a href="#">Project Management</a></li>
+            <li><a href="#">Management Consulting</a></li>
+            <li><a href="#">Subcontractor Management</a></li>
+            <li><a href="#">Home Inspection</a></li>
+            <li><a href="#">Business Development</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="footer-column">
+          <h3>Get In Touch</h3>
+          <ul class="contact-info">
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              <span>18501 Pines Blvd Suite 3006,<br>Pembroke Pines, FL 33029, EEUU</span>
+            </li>
+            <li>
+              <i class="fas fa-phone-alt"></i>
+              <span>+1 (786) 691-0212</span>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <span>fulluniwell@gmail.com</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 FULL UNIWELL LLC. All Rights Reserved. Design by you_casa</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+      const header = document.getElementById('header');
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Smooth scroll for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

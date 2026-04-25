@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Full Uniwell LLC - Contact Us</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-blue: #1d2b7f;
+      --secondary-blue: #2d4a9f;
+      --accent-red: #e63946;
+      --accent-orange: #fb8500;
+      --light-bg: #f5f7fb;
+      --white: #ffffff;
+      --dark: #1a1a2e;
+      --gray: #6c757d;
+      --light-gray: #e9ecef;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    /* ========== HEADER PROFESIONAL ========== */
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+
+    header.scrolled {
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+    }
+
+    .header-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 12px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--accent-red) 0%, var(--primary-blue) 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 24px;
+      box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3);
+    }
+
+    .logo-text h1 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #1E297A;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+    }
+
+    .logo-text span {
+      font-size: 11px;
+      color: var(--gray);
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 22px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #1E297A;
+      font-weight: 600;
+      font-size: 13px;
+      transition: all 0.3s ease;
+      position: relative;
+      white-space: nowrap;
+      letter-spacing: 0.5px;
+      padding: 5px 0;
+    }
+
+    nav a::before {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-red), #ff6b6b);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    nav a:hover::before {
+      width: 80%;
+    }
+
+    nav a::after {
+      display: none;
+    }
+
+    nav a:hover {
+      color: var(--accent-red);
+      transform: translateY(-1px);
+    }
+
+    nav a.active {
+      color: var(--accent-red);
+    }
+
+    nav a.active::before {
+      width: 80%;
+    }
+
+    .mobile-menu {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      color: #1E297A;
+      position: relative;
+      z-index: 1001;
+      flex-shrink: 0;
+    }
+
+    .mobile-menu:hover {
+      background: rgba(30, 41, 122, 0.1);
+      transform: scale(1.05);
+      color: var(--accent-red);
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(230, 57, 70, 0.2), rgba(230, 57, 70, 0.5), rgba(230, 57, 70, 0.2), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    header:hover::after {
+      opacity: 1;
+    }
+
+    /* ========== CONTACT SECTION ========== */
+    .contact-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, var(--light-bg) 0%, var(--white) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Formas animadas de fondo */
+    .contact-shapes {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .contact-shape {
+      position: absolute;
+      opacity: 0.05;
+      animation: float-shape 25s infinite ease-in-out;
+    }
+
+    .contact-shape-1 {
+      top: 10%;
+      left: 10%;
+      width: 200px;
+      height: 200px;
+      background: var(--accent-orange);
+      border-radius: 50%;
+    }
+
+    .contact-shape-2 {
+      bottom: 10%;
+      right: 10%;
+      width: 250px;
+      height: 250px;
+      background: var(--accent-red);
+      border-radius: 50%;
+      animation-delay: 5s;
+    }
+
+    .contact-shape-3 {
+      top: 40%;
+      left: 80%;
+      width: 120px;
+      height: 120px;
+      background: var(--primary-blue);
+      border-radius: 30px;
+      transform: rotate(45deg);
+      animation-delay: 10s;
+    }
+
+    @keyframes float-shape {
+      0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+      20% {
+        transform: translate(25px, -35px) rotate(8deg);
+      }
+      40% {
+        transform: translate(-20px, 25px) rotate(-6deg);
+      }
+      60% {
+        transform: translate(30px, 15px) rotate(4deg);
+      }
+      80% {
+        transform: translate(-25px, -20px) rotate(-4deg);
+      }
+    }
+
+    .contact-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .contact-header h2 {
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--primary-blue);
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+
+    .contact-header p {
+      font-size: 17px;
+      color: var(--gray);
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* Grid de contacto */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+
+    /* Información de contacto */
+    .contact-info-box {
+      background: white;
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    }
+
+    .contact-info-box h3 {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--primary-blue);
+      margin-bottom: 12px;
+    }
+
+    .contact-info-box > p {
+      color: var(--gray);
+      margin-bottom: 30px;
+      font-size: 15px;
+    }
+
+    .contact-details {
+      margin-bottom: 40px;
+    }
+
+    .contact-detail-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--light-gray);
+    }
+
+    .contact-detail-icon {
+      width: 55px;
+      height: 55px;
+      background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .contact-detail-content h4 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--primary-blue);
+      margin-bottom: 5px;
+    }
+
+    .contact-detail-content p,
+    .contact-detail-content a {
+      font-size: 15px;
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .contact-detail-content a:hover {
+      color: var(--accent-red);
+    }
+
+    /* Horarios */
+    .business-hours {
+      background: var(--light-bg);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+
+    .business-hours h4 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--primary-blue);
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hours-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .hour-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      color: var(--gray);
+    }
+
+    .hour-day {
+      font-weight: 500;
+    }
+
+    .hour-time {
+      color: var(--dark);
+    }
+
+    /* Mapa mini */
+    .mini-map {
+      border-radius: 16px;
+      overflow: hidden;
+      height: 200px;
+    }
+
+    .mini-map iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Formulario */
+    .contact-form-box {
+      background: white;
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    }
+
+    .contact-form-box h3 {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--primary-blue);
+      margin-bottom: 12px;
+    }
+
+    .contact-form-box > p {
+      color: var(--gray);
+      margin-bottom: 30px;
+      font-size: 15px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border: 1px solid var(--light-gray);
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      background: var(--white);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--accent-red);
+      box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.1);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .submit-btn {
+      background: linear-gradient(135deg, var(--accent-red), #c1121f);
+      color: white;
+      padding: 14px 32px;
+      border-radius: 12px;
+      border: none;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(230, 57, 70, 0.4);
+    }
+
+    /* Mensaje de éxito */
+    .success-message {
+      background: #10b981;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      animation: slideDown 0.3s ease;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ========== FOOTER PROFESIONAL ========== */
+    footer {
+      background: linear-gradient(135deg, var(--primary-blue), #151f5c);
+      color: white;
+      padding: 60px 20px 30px;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      width: 100%;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-red), var(--accent-orange), var(--accent-red));
+      animation: shimmer 3s linear infinite;
+      background-size: 200% 100%;
+    }
+
+    @keyframes shimmer {
+      0% {
+        background-position: 200% 0;
+      }
+      100% {
+        background-position: -200% 0;
+      }
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      padding: 0 40px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+
+    .footer-brand .logo {
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .footer-brand .logo-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--accent-red) 0%, var(--primary-blue) 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 28px;
+      box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3);
+    }
+
+    .footer-brand .logo-text h1 {
+      color: white;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+    }
+
+    .footer-brand .logo-text span {
+      color: rgba(255,255,255,0.7);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .footer-brand p {
+      font-size: 13px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.7);
+      margin: 15px 0;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-links a {
+      width: 35px;
+      height: 35px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s;
+      font-size: 16px;
+    }
+
+    .social-links a:hover {
+      background: var(--accent-red);
+      transform: translateY(-3px);
+    }
+
+    .footer-column h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: white;
+      position: relative;
+      display: inline-block;
+    }
+
+    .footer-column h3::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: var(--accent-red);
+      border-radius: 2px;
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column li {
+      margin-bottom: 10px;
+    }
+
+    .footer-column a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 13px;
+      transition: all 0.3s;
+      display: inline-block;
+    }
+
+    .footer-column a:hover {
+      color: white;
+      transform: translateX(5px);
+    }
+
+    .contact-info li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 12px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.7);
+      word-break: break-word;
+    }
+
+    .contact-info i {
+      color: var(--accent-red);
+      font-size: 16px;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 25px;
+      text-align: center;
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 9999;
+      animation: slideInRight 0.3s ease;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      font-size: 13px;
+    }
+
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(100px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .contact-header h2 {
+        font-size: 32px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-container {
+        padding: 12px 20px;
+      }
+
+      nav ul {
+        display: none;
+      }
+
+      .mobile-menu {
+        display: flex;
+      }
+
+      .contact-container,
+      .footer-container {
+        padding: 0 20px;
+      }
+
+      .contact-info-box,
+      .contact-form-box {
+        padding: 30px 20px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .footer-grid {
+        gap: 30px;
+        text-align: center;
+      }
+
+      .footer-column h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .contact-info li {
+        justify-content: center;
+      }
+
+      .social-links {
+        justify-content: center;
+      }
+
+      .footer-brand .logo {
+        justify-content: center;
+      }
+    }
+
+    /* Animaciones */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .contact-header,
+    .contact-info-box,
+    .contact-form-box {
+      animation: fadeIn 0.6s ease forwards;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header id="header">
+    <div class="header-container">
+      <a href="#" class="logo">
+        <div class="logo-icon">FU</div>
+        <div class="logo-text">
+          <h1>Full Uniwell LLC</h1>
+          <span>Best Project Management Service</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact" class="active">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="mobile-menu">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== CONTACT SECTION ========== -->
+  <section class="contact-section" id="contact">
+    <div class="contact-shapes">
+      <div class="contact-shape contact-shape-1"></div>
+      <div class="contact-shape contact-shape-2"></div>
+      <div class="contact-shape contact-shape-3"></div>
+    </div>
+
+    <div class="contact-container">
+      <div class="contact-header">
+        <h2>Get In Touch With Us</h2>
+        <p>Ready to start your project? Have questions about our services? We're here to help. Contact our team today for a free consultation.</p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Información de Contacto -->
+        <div class="contact-info-box">
+          <h3>Contact Information</h3>
+          <p>Reach out to us through any of the following channels. We respond within 24 hours.</p>
+
+          <div class="contact-details">
+            <div class="contact-detail-item">
+              <div class="contact-detail-icon">
+                <i class="fas fa-location-dot"></i>
+              </div>
+              <div class="contact-detail-content">
+                <h4>Visit Us</h4>
+                <p>18501 Pines Blvd Suite 3006<br>Pembroke Pines, FL 33029, EEUU</p>
+              </div>
+            </div>
+
+            <div class="contact-detail-item">
+              <div class="contact-detail-icon">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <div class="contact-detail-content">
+                <h4>Call Us</h4>
+                <a href="tel:+17866910212">+1 (786) 691-0212</a>
+              </div>
+            </div>
+
+            <div class="contact-detail-item">
+              <div class="contact-detail-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-detail-content">
+                <h4>Email Us</h4>
+                <a href="mailto:fulluniwell@gmail.com">fulluniwell@gmail.com</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="business-hours">
+            <h4><i class="fas fa-clock"></i> Business Hours</h4>
+            <div class="hours-list">
+              <div class="hour-item">
+                <span class="hour-day">Monday - Friday</span>
+                <span class="hour-time">8:00 AM - 6:00 PM</span>
+              </div>
+              <div class="hour-item">
+                <span class="hour-day">Saturday</span>
+                <span class="hour-time">9:00 AM - 2:00 PM</span>
+              </div>
+              <div class="hour-item">
+                <span class="hour-day">Sunday</span>
+                <span class="hour-time">Closed</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mini-map">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113608.86306460647!2d-80.3960769!3d26.009944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9a1001236bb17%3A0xd706cbed84d94209!2sFull%20Uniwell!5e0!3m2!1sen!2sus!4v1745360000000!5m2!1sen!2sus" 
+              allowfullscreen="" 
+              loading="lazy">
+            </iframe>
+          </div>
+        </div>
+
+        <!-- Formulario de Contacto -->
+        <div class="contact-form-box">
+          <h3>Send Us a Message</h3>
+          <p>Fill out the form below and we'll get back to you as soon as possible.</p>
+
+          <form id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <input type="text" id="name" name="name" placeholder="Your Full Name *" required>
+              </div>
+              <div class="form-group">
+                <input type="email" id="email" name="email" placeholder="Your Email Address *" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <input type="tel" id="phone" name="phone" placeholder="Your Phone Number">
+              </div>
+              <div class="form-group">
+                <select id="service" name="service">
+                  <option value="">Select Service *</option>
+                  <option value="general-contracting">General Contracting</option>
+                  <option value="project-management">Project Management</option>
+                  <option value="consulting">Management Consulting</option>
+                  <option value="subcontractor">Subcontractor Management</option>
+                  <option value="inspection">Home Inspection</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <textarea id="message" name="message" placeholder="Tell us about your project or question... *" required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-grid">
+        
+        <!-- Brand Column -->
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <div class="logo-icon">FU</div>
+            <div class="logo-text">
+              <h1>Full Uniwell LLC</h1>
+              <span>Best Project Management Service</span>
+            </div>
+          </a>
+          <p>Transforming visions into reality with precision and expertise. Your trusted partner for construction excellence in Florida.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <!-- Useful Links -->
+        <div class="footer-column">
+          <h3>Useful Links</h3>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Our Services</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Services -->
+        <div class="footer-column">
+          <h3>Our Services</h3>
+          <ul>
+            <li><a href="#">General Contracting</a></li>
+            <li><a href="#">Project Management</a></li>
+            <li><a href="#">Management Consulting</a></li>
+            <li><a href="#">Subcontractor Management</a></li>
+            <li><a href="#">Home Inspection</a></li>
+            <li><a href="#">Business Development</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="footer-column">
+          <h3>Get In Touch</h3>
+          <ul class="contact-info">
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              <span>18501 Pines Blvd Suite 3006,<br>Pembroke Pines, FL 33029, EEUU</span>
+            </li>
+            <li>
+              <i class="fas fa-phone-alt"></i>
+              <span>+1 (786) 691-0212</span>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <span>fulluniwell@gmail.com</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 FULL UNIWELL LLC. All Rights Reserved. Design by you_casa</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Container -->
+  <div id="toast" class="toast" style="display: none;">
+    <i class="fas fa-check-circle"></i>
+    <span>Message sent successfully! We'll contact you soon.</span>
+  </div>
+
+  <script>
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+      const header = document.getElementById('header');
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Smooth scroll for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu');
+    let mobileNavOpen = false;
+
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', function() {
+        if (!mobileNavOpen) {
+          createMobileNav();
+        } else {
+          closeMobileNav();
+        }
+      });
+    }
+
+    function createMobileNav() {
+      // Create overlay
+      const overlay = document.createElement('div');
+      overlay.className = 'mobile-nav-overlay';
+      
+      // Create menu
+      const menu = document.createElement('div');
+      menu.className = 'mobile-nav-menu';
+      
+      // Create close button
+      const closeBtn = document.createElement('div');
+      closeBtn.className = 'mobile-nav-close';
+      closeBtn.innerHTML = '<i class="fas fa-times"></i>';
+      
+      // Create nav links
+      const navLinks = document.createElement('ul');
+      const links = ['Home', 'About Us', 'Projects', 'Services', 'Contact'];
+      links.forEach(link => {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = `#${link.toLowerCase().replace(' ', '')}`;
+        a.textContent = link;
+        li.appendChild(a);
+        navLinks.appendChild(li);
+      });
+      
+      menu.appendChild(closeBtn);
+      menu.appendChild(navLinks);
+      overlay.appendChild(menu);
+      document.body.appendChild(overlay);
+      
+      setTimeout(() => {
+        overlay.classList.add('active');
+        menu.classList.add('active');
+      }, 10);
+      
+      mobileNavOpen = true;
+      
+      // Close functions
+      closeBtn.addEventListener('click', closeMobileNav);
+      overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) closeMobileNav();
+      });
+    }
+    
+    function closeMobileNav() {
+      const overlay = document.querySelector('.mobile-nav-overlay');
+      const menu = document.querySelector('.mobile-nav-menu');
+      if (overlay) {
+        overlay.classList.remove('active');
+        if (menu) menu.classList.remove('active');
+        setTimeout(() => overlay.remove(), 300);
+      }
+      mobileNavOpen = false;
+    }
+
+    // Form submission
+    const contactForm = document.getElementById('contactForm');
+    const toast = document.getElementById('toast');
+    let toastTimeout;
+
+    function showToast(message, isError = false) {
+      toast.style.display = 'flex';
+      toast.style.background = isError ? 'linear-gradient(135deg, #e63946, #c1121f)' : 'linear-gradient(135deg, #10b981, #059669)';
+      toast.querySelector('i').className = isError ? 'fas fa-exclamation-circle' : 'fas fa-check-circle';
+      toast.querySelector('span').textContent = message;
+      
+      if (toastTimeout) clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.style.display = 'none';
+      }, 5000);
+    }
+
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form values
+        const name = document.getElementById('name')?.value.trim();
+        const email = document.getElementById('email')?.value.trim();
+        const phone = document.getElementById('phone')?.value.trim();
+        const service = document.getElementById('service')?.value;
+        const message = document.getElementById('message')?.value.trim();
+        
+        // Validation
+        if (!name || !email || !service || !message) {
+          showToast('Please fill in all required fields', true);
+          return;
+        }
+        
+        if (!email.includes('@') || !email.includes('.')) {
+          showToast('Please enter a valid email address', true);
+          return;
+        }
+        
+        // Here you would normally send the data to a server
+        // For now, just show success message
+        
+        // Simulate sending
+        const submitBtn = contactForm.querySelector('.submit-btn');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Sending...';
+        submitBtn.disabled = true;
+        
+        setTimeout(() => {
+          showToast('Message sent successfully! We\'ll contact you soon.');
+          contactForm.reset();
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+        }, 1500);
+      });
+    }
+    
+    // Add missing CSS for mobile nav
+    const style = document.createElement('style');
+    style.textContent = `
+      .mobile-nav-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+      }
+      .mobile-nav-overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .mobile-nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        max-width: 85%;
+        height: 100%;
+        background: white;
+        box-shadow: -5px 0 30px rgba(0,0,0,0.2);
+        z-index: 1000;
+        transition: right 0.3s ease;
+        padding: 80px 30px 30px;
+        display: flex;
+        flex-direction: column;
+      }
+      .mobile-nav-menu.active {
+        right: 0;
+      }
+      .mobile-nav-menu ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .mobile-nav-menu a {
+        text-decoration: none;
+        color: var(--dark);
+        font-size: 16px;
+        font-weight: 500;
+        padding: 10px 0;
+        display: block;
+        transition: all 0.3s;
+        border-bottom: 1px solid var(--light-gray);
+      }
+      .mobile-nav-menu a:hover {
+        color: var(--accent-red);
+        transform: translateX(10px);
+      }
+      .mobile-nav-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 28px;
+        cursor: pointer;
+        color: var(--dark);
+        transition: all 0.3s;
+      }
+      .mobile-nav-close:hover {
+        color: var(--accent-red);
+        transform: rotate(90deg);
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+
+</body>
+</html>
