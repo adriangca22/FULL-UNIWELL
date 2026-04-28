@@ -308,13 +308,13 @@
 
     <!-- TÍTULOS DINÁMICOS (7 grupos en total) -->
     <div class="project-titles-container">
-      <h3 class="project-title active" data-group="0">Clean</h3>
-      <h3 class="project-title" data-group="1">Floor</h3>
+      <h3 class="project-title active" data-group="0">Cleaning and Maintenance</h3>
+      <h3 class="project-title" data-group="1">Brick Pavers Installation</h3>
       <h3 class="project-title" data-group="2">Roof Project</h3>
-      <h3 class="project-title" data-group="3">Walk</h3>
-      <h3 class="project-title" data-group="4">Ceiling</h3>
-      <h3 class="project-title" data-group="5">Basketball Court</h3>
-      <h3 class="project-title" data-group="6">Ceiling 2</h3>
+      <h3 class="project-title" data-group="3">Walkways and Driveway</h3>
+      <h3 class="project-title" data-group="4">Shingle Roofing</h3>
+      <h3 class="project-title" data-group="5">Building Construction</h3>
+      <h3 class="project-title" data-group="6"> Shingle Roofing</h3>
     </div>
 
     <div class="carousel-wrapper">
@@ -675,7 +675,7 @@
     var isInteracting = false;
     var timeoutId = null;
     var cardWidth = 0;
-    var gap = 28;
+    var gap = 20; // ✅ CAMBIADO de 28 a 20 (debe coincidir con CSS)
     var visibleCards = 3;
     var totalCards = grid.children.length;
 
@@ -683,15 +683,26 @@
       var cards = grid.children;
       if (cards.length === 0) return;
       
-      var containerWidth = grid.parentElement.clientWidth;
+      // ✅ Obtener el ancho del wrapper (que tiene padding)
+      var wrapper = grid.parentElement;
+      var containerWidth = wrapper.clientWidth;
       
-      if (containerWidth >= 1100) visibleCards = 3;
-      else if (containerWidth >= 768) visibleCards = 2;
+      // ✅ Calcular espacio real disponible (quitando padding del wrapper)
+      var wrapperStyle = window.getComputedStyle(wrapper);
+      var paddingLeft = parseFloat(wrapperStyle.paddingLeft) || 50;
+      var paddingRight = parseFloat(wrapperStyle.paddingRight) || 50;
+      var availableWidth = containerWidth - paddingLeft - paddingRight;
+      
+      // ✅ Forzar 3 tarjetas en desktop, 2 en tablet, 1 en móvil
+      if (window.innerWidth >= 1100) visibleCards = 3;
+      else if (window.innerWidth >= 768) visibleCards = 2;
       else visibleCards = 1;
       
+      // ✅ Calcular ancho exacto de cada tarjeta
       var gapTotal = gap * (visibleCards - 1);
-      cardWidth = (containerWidth - gapTotal) / visibleCards;
+      cardWidth = (availableWidth - gapTotal) / visibleCards;
       
+      // ✅ Aplicar ancho a todas las tarjetas
       for (var i = 0; i < cards.length; i++) {
         cards[i].style.width = cardWidth + 'px';
       }
@@ -742,7 +753,7 @@
       if (cards.length === 0) return;
       
       var maxIndex = cards.length - visibleCards;
-      var nextIndex = currentIndex + 3; // ⭐ Cambiado de 1 a 3
+      var nextIndex = currentIndex + visibleCards; // ✅ Usa visibleCards (3)
       if (nextIndex > maxIndex) nextIndex = 0; // Loop al inicio
       
       goToSlide(nextIndex);
@@ -754,7 +765,7 @@
       if (cards.length === 0) return;
       
       var maxIndex = cards.length - visibleCards;
-      var prevIndex = currentIndex - 3; // ⭐ Cambiado de 1 a 3
+      var prevIndex = currentIndex - visibleCards; // ✅ Usa visibleCards (3)
       if (prevIndex < 0) prevIndex = maxIndex; // Loop al final
       
       goToSlide(prevIndex);
