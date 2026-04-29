@@ -283,32 +283,240 @@
       0%, 100% { transform: scale(1); opacity: 1; }
       50% { transform: scale(1.1); opacity: 0.85; }
     }
-    
-    /* ========== FOOTER ========== */
-    footer{background:linear-gradient(135deg,var(--primary-blue),#151f5c);color:#fff;padding:60px 20px 30px;position:relative;overflow:hidden;z-index:1;width:100%}
-    footer::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent-red),var(--accent-orange),var(--accent-red));animation:shimmer 3s linear infinite;background-size:200% 100%}
-    @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
-    .footer-container{max-width:1200px;margin:0 auto;position:relative;z-index:1;width:100%;padding:0 40px}
-    .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;margin-bottom:50px}
-    .footer-brand .logo{margin-bottom:20px;display:flex;align-items:center;text-decoration:none}
-    .footer-brand .logo-img{height:65px;width:auto;object-fit:contain;transition:transform 0.3s}
-    .footer-brand .logo-img:hover{transform:scale(1.05)}
-    .footer-brand .logo-icon{width:60px;height:60px;background:linear-gradient(135deg,var(--accent-red),var(--primary-blue));border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:28px;box-shadow:0 4px 12px rgba(230,57,70,0.3)}
-    .footer-brand .logo-text h1{color:#fff;font-size:24px;font-weight:700;line-height:1.2;letter-spacing:-0.5px}
-    .footer-brand .logo-text span{color:rgba(255,255,255,0.7);font-size:11px;font-weight:500;letter-spacing:0.5px;text-transform:uppercase}
-    .footer-brand p{font-size:14px;line-height:1.8;color:rgba(255,255,255,0.7);margin:15px 0}
-    .social-links{display:flex;gap:12px}
-    .social-links a{width:35px;height:35px;background:rgba(255,255,255,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;transition:all 0.3s;font-size:16px}
-    .social-links a:hover{background:var(--accent-red);transform:translateY(-3px)}
-    .footer-column h3{font-size:17px;font-weight:700;margin-bottom:20px;color:#fff;position:relative;display:inline-block}
-    .footer-column h3::after{content:'';position:absolute;bottom:-8px;left:0;width:40px;height:2px;background:var(--accent-red);border-radius:2px}
-    .footer-column ul{list-style:none}
-    .footer-column li{margin-bottom:10px}
-    .footer-column a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:14px;transition:all 0.3s;display:inline-block}
-    .footer-column a:hover{color:#fff;transform:translateX(5px)}
-    .contact-info li{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px;font-size:14px;color:rgba(255,255,255,0.7);word-break:break-word}
-    .contact-info i{color:var(--accent-red);font-size:16px;margin-top:2px;flex-shrink:0}
-    .footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:25px;text-align:center;font-size:13px;color:rgba(255,255,255,0.5)}
+footer {
+  background: linear-gradient(135deg, var(--primary-blue), #151f5c);
+  color: white;
+  padding: 30px 20px 30px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  width: 100%;
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-red), var(--accent-orange), var(--accent-red));
+  animation: shimmer 3s linear infinite;
+  background-size: 200% 100%;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-brand {
+  margin-top: -10px;
+}
+
+.footer-brand .logo {
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.footer-brand .logo-img {
+  height: 120px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s;
+}
+
+.footer-brand .logo-img:hover {
+  transform: scale(1.05);
+}
+
+.footer-brand .logo-icon {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, var(--accent-red), var(--primary-blue));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 42px;
+  box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3);
+}
+
+.footer-brand p {
+  color: rgba(255, 255, 255, 0.7);
+  margin: 12px 0;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.social-links {
+  display: flex;
+  gap: 12px;
+}
+
+.social-links a {
+  width: 35px;
+  height: 35px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.social-links a:hover {
+  background: var(--accent-red);
+  transform: translateY(-3px);
+}
+
+.footer-column h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+}
+
+.footer-column h3::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: var(--accent-red);
+  border-radius: 2px;
+}
+
+.footer-column ul {
+  list-style: none;
+}
+
+.footer-column li {
+  margin-bottom: 10px;
+}
+
+.footer-column a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 13px;
+  transition: all 0.3s;
+  display: inline-block;
+}
+
+.footer-column a:hover {
+  color: #fff;
+  transform: translateX(5px);
+}
+
+.contact-info li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  word-break: break-word;
+  line-height: 1.6;
+}
+
+.contact-info i {
+  color: var(--accent-red);
+  font-size: 15px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 25px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  footer {
+    padding: 25px 20px 25px;
+  }
+
+  .footer-grid {
+    gap: 30px;
+    text-align: center;
+  }
+
+  .footer-brand {
+    margin-top: -5px;
+  }
+
+  .footer-brand .logo {
+    justify-content: center;
+  }
+
+  .footer-brand .logo-img {
+    height: 90px;
+  }
+
+  .footer-column h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .contact-info li {
+    justify-content: center;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+
+  .footer-column a:hover {
+    transform: translateX(0) scale(1.05);
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-grid {
+    gap: 25px;
+  }
+
+  .footer-brand p {
+    font-size: 12px;
+  }
+
+  .footer-column h3 {
+    font-size: 15px;
+  }
+
+  .footer-column a,
+  .contact-info li {
+    font-size: 12px;
+  }
+}
     
     @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
     
@@ -373,7 +581,7 @@
   <!-- ========== OUR TEAM SECTION ========== -->
   <section class="team-section" id="team">
     <div class="team-bg">
-      <img src="img/degra.png" alt="Team Background">
+      <img src="img/degra.jpg" alt="Team Background">
     </div>
 
     <div class="team-container">
@@ -412,7 +620,7 @@
             </div>
             <h3 class="team-member-name">DANIEL CANAS</h3>
             <p class="team-member-title">CAD Designer</p>
-            <a href="mailto:daniel@fulluniwell.com" class="team-member-email">daniel@fulluniwell.com</a>
+            <a href="mailto:daniel@fulluniwell.com" class="team-member-email">designer@fulluniwell.com
           </div>
 
           <div class="team-member">
@@ -494,6 +702,7 @@
         <span>We Are OSHA 30-Hour Construction Safety and Health Certified</span>
       </div>
     </div>
+    <br><br><br><br><br><br><br>
   </section>
 
   <!-- ========== FOOTER ========== -->
@@ -502,7 +711,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="index.html" class="logo">
-            <img src="ful.png" alt="Full Uniwell LLC" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <img src="fur.png" alt="Full Uniwell LLC" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
             <div class="logo-icon" style="display:none">FU</div>
           </a>
           <p>Transforming visions into reality with precision and expertise. Your trusted partner for construction excellence in Florida.</p>
