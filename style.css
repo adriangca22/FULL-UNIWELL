@@ -1300,6 +1300,7 @@ section h2 {
   display: block;
 }
 
+
 /* ✅ SIN SOMBRA OSCURA DEBAJO */
 .recent-project-image::after {
   content: '';
