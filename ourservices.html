@@ -6,10 +6,10 @@
   <title>Full Uniwell LLC - Our Services</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    *{margin:0;padding:0;box-sizing:border-box}
+   *{margin:0;padding:0;box-sizing:border-box}
     :root{--primary-blue:#1d2b7f;--secondary-blue:#2d4a9f;--accent-red:#e63946;--soft-red:#f4758b;--accent-orange:#fb8500;--light-bg:#f5f7fb;--white:#ffffff;--dark:#1a1a2e;--gray:#6c757d;--light-gray:#e9ecef}
     html{scroll-behavior:smooth}
-    body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;line-height:1.7;color:#333;font-size:17px}
+    body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;line-height:1.7;color:#333;font-size:17px;background:#ffffff}
     
     /* ========== HEADER ========== */
     header{background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);box-shadow:0 2px 20px rgba(0,0,0,0.1);position:sticky;top:0;z-index:1000;transition:all 0.3s;width:100%}
@@ -40,13 +40,7 @@
     
     /* ========== SERVICES SECTION ========== */
     .services-section{
-      background: repeating-linear-gradient(
-        90deg,
-        #f8f9fa,
-        #f8f9fa 50px,
-        #ffffff 50px,
-        #ffffff 100px
-      );
+      background: #ffffff;
       padding: 80px 20px;
     }
     
@@ -104,6 +98,7 @@
       border-radius: 15px;
       box-shadow: 0 5px 20px rgba(0,0,0,0.1);
       transition: all 0.3s ease;
+      cursor: pointer;
     }
     
     .image-grid img:hover{
@@ -136,11 +131,156 @@
       line-height: 1.8;
     }
     
+    .transportation-image{
+      position: relative;
+      width: 100%;
+      height: auto;
+    }
+    
     .transportation-image img{
       width: 100%;
       height: auto;
       border-radius: 15px;
       box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      transition: opacity 0.5s ease-in-out;
+    }
+    
+    .transportation-image .truck-slide{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+    
+    .transportation-image .truck-slide.active{
+      opacity: 1;
+      position: relative;
+    }
+    
+    /* ========== LIGHTBOX/MODAL ========== */
+    .lightbox{
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 10000;
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 0.3s ease;
+    }
+    
+    .lightbox.active{
+      display: flex;
+    }
+    
+    .lightbox-content{
+      position: relative;
+      max-width: 90%;
+      max-height: 90%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .lightbox-img{
+      max-width: 100%;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    }
+    
+    .lightbox-close{
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 45px;
+      color: #fff;
+      cursor: pointer;
+      z-index: 10001;
+      transition: all 0.3s ease;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+    }
+    
+    .lightbox-close:hover{
+      background: rgba(230,57,70,0.8);
+      transform: rotate(90deg);
+    }
+    
+    .lightbox-nav{
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 50px;
+      color: #fff;
+      cursor: pointer;
+      z-index: 10001;
+      transition: all 0.3s ease;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      user-select: none;
+    }
+    
+    .lightbox-nav:hover{
+      background: rgba(230,57,70,0.9);
+      transform: translateY(-50%) scale(1.1);
+    }
+    
+    .lightbox-prev{
+      left: 20px;
+    }
+    
+    .lightbox-next{
+      right: 20px;
+    }
+    
+    .lightbox-counter{
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      font-size: 16px;
+      background: rgba(0,0,0,0.6);
+      padding: 10px 25px;
+      border-radius: 25px;
+      font-weight: 600;
+    }
+    
+    .lightbox-category-title{
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      font-size: 20px;
+      font-weight: 700;
+      text-transform: uppercase;
+      background: rgba(0,0,0,0.6);
+      padding: 12px 30px;
+      border-radius: 25px;
+      letter-spacing: 1px;
+    }
+    
+    @keyframes fadeIn{
+      from{opacity: 0}
+      to{opacity: 1}
     }
     
     /* ========== FOOTER ========== */
@@ -173,6 +313,7 @@
     @media(max-width:1024px){
       .image-grid{grid-template-columns: repeat(2, 1fr)}
       .transportation-section{grid-template-columns: 1fr}
+      .lightbox-nav{font-size: 40px; width: 50px; height: 50px}
     }
     
     @media(max-width:768px){
@@ -190,6 +331,12 @@
       .contact-info li{justify-content:center}
       .social-links{justify-content:center}
       .footer-brand .logo{justify-content:center}
+      .lightbox-close{top: 10px; right: 10px; font-size: 35px; width: 40px; height: 40px}
+      .lightbox-nav{font-size: 30px; width: 40px; height: 40px}
+      .lightbox-prev{left: 10px}
+      .lightbox-next{right: 10px}
+      .lightbox-category-title{font-size: 14px; padding: 8px 20px; top: 10px}
+      .lightbox-counter{font-size: 14px; padding: 8px 20px; bottom: 20px}
     }
     
     @media(max-width:480px){
@@ -236,6 +383,18 @@
     </div>
   </header>
 
+  <!-- ========== LIGHTBOX ========== -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-close" id="lightboxClose"><i class="fas fa-times"></i></div>
+    <div class="lightbox-category-title" id="lightboxTitle">Category</div>
+    <div class="lightbox-content">
+      <div class="lightbox-nav lightbox-prev" id="lightboxPrev"><i class="fas fa-chevron-left"></i></div>
+      <img src="" alt="" class="lightbox-img" id="lightboxImg">
+      <div class="lightbox-nav lightbox-next" id="lightboxNext"><i class="fas fa-chevron-right"></i></div>
+    </div>
+    <div class="lightbox-counter" id="lightboxCounter">1 / 4</div>
+  </div>
+
   <!-- ========== SERVICES SECTION ========== -->
   <section class="services-section" id="services">
     <div class="services-container">
@@ -247,90 +406,90 @@
       </div>
 
       <!-- Cleaning, Maintenance and Repairs -->
-      <div class="service-category">
+      <div class="service-category" data-category="Cleaning, Maintenance and Repairs">
         <h3>CLEANING, MAINTENANCE AND REPAIRS</h3>
         <div class="image-grid">
-          <img src="imgx/0001.jpg" alt="Cleaning service 1">
-          <img src="imgs/0002.jpg" alt="Cleaning service 2">
-          <img src="imgs/0003.jpg" alt="Cleaning service 3">
-          <img src="imgs/0004.jpg " alt="Cleaning service 4">
+          <img src="imgx/0001.jpg" alt="Cleaning service 1" class="gallery-img">
+          <img src="imgs/0002.jpg" alt="Cleaning service 2" class="gallery-img">
+          <img src="imgs/0003.jpg" alt="Cleaning service 3" class="gallery-img">
+          <img src="imgs/0004.jpg" alt="Cleaning service 4" class="gallery-img">
         </div>
       </div>
 
       <!-- Flat and Metal Roofing Projects -->
-      <div class="service-category">
+      <div class="service-category" data-category="Flat and Metal Roofing Projects">
         <h3>FLAT AND METAL ROOFING PROJECTS</h3>
         <div class="image-grid">
-          <img src="imgx/01.jpg" alt="Flat roofing 1">
-          <img src="imgs/02.jpg" alt="Flat roofing 2">
-          <img src="img/03.jpg" alt="Flat roofing 3">
-          <img src="imgs/04.jpg" alt="Flat roofing 4">
+          <img src="imgx/01.jpg" alt="Flat roofing 1" class="gallery-img">
+          <img src="imgs/02.jpg" alt="Flat roofing 2" class="gallery-img">
+          <img src="img/03.jpg" alt="Flat roofing 3" class="gallery-img">
+          <img src="imgs/04.jpg" alt="Flat roofing 4" class="gallery-img">
         </div>
       </div>
 
       <!-- Metal Building Construction -->
-      <div class="service-category">
+      <div class="service-category" data-category="Metal Building Construction">
         <h3>METAL BUILDING CONSTRUCTION</h3>
         <div class="image-grid">
-          <img src="imgx/001.jpg" alt="Metal building 1">
-          <img src="imgs/002.jpg" alt="Metal building 2">
-          <img src="img/003.jpg" alt="Metal building 3">
-          <img src="imgs/004.jpg" alt="Metal building 4">
+          <img src="imgx/001.jpg" alt="Metal building 1" class="gallery-img">
+          <img src="imgs/002.jpg" alt="Metal building 2" class="gallery-img">
+          <img src="img/003.jpg" alt="Metal building 3" class="gallery-img">
+          <img src="imgs/004.jpg" alt="Metal building 4" class="gallery-img">
         </div>
       </div>
 
       <!-- Shingle Roof Projects -->
-      <div class="service-category">
+      <div class="service-category" data-category="Shingle Roof Projects">
         <h3>SHINGLE ROOF PROJECTS</h3>
         <div class="image-grid">
-          <img src="imgx/00001.jpg" alt="Shingle roof 1">
-          <img src="imgx/00002.jpg" alt="Shingle roof 2">
-          <img src="imgs/00003.jpg" alt="Shingle roof 3">
-          <img src="img/00004.jpg" alt="Shingle roof 4">
+          <img src="imgx/00001.jpg" alt="Shingle roof 1" class="gallery-img">
+          <img src="imgx/00002.jpg" alt="Shingle roof 2" class="gallery-img">
+          <img src="imgs/00003.jpg" alt="Shingle roof 3" class="gallery-img">
+          <img src="img/00004.jpg" alt="Shingle roof 4" class="gallery-img">
         </div>
       </div>
 
       <!-- Brick Pavers Installation -->
-      <div class="service-category">
+      <div class="service-category" data-category="Brick Pavers Installation & General Repairs">
         <h3>BRICK PAVERS INSTALLATION & GENERAL REPAIRS</h3>
         <div class="image-grid">
-          <img src="imgx/000001.jpg" alt="Brick pavers 1">
-          <img src="imgx/000002.jpg" alt="Brick pavers 2">
-          <img src="imgx/000003.jpg" alt="Brick pavers 3">
-          <img src="imgx/000004.jpg" alt="Brick pavers 4">
+          <img src="imgx/000001.jpg" alt="Brick pavers 1" class="gallery-img">
+          <img src="imgx/000002.jpg" alt="Brick pavers 2" class="gallery-img">
+          <img src="imgx/000003.jpg" alt="Brick pavers 3" class="gallery-img">
+          <img src="imgx/000004.jpg" alt="Brick pavers 4" class="gallery-img">
         </div>
       </div>
 
       <!-- Walkways & Driveways -->
-      <div class="service-category">
+      <div class="service-category" data-category="Walkways & Driveways">
         <h3>WALKWAYS & DRIVEWAYS</h3>
         <div class="image-grid">
-          <img src="images/w001.jpg" alt="Walkways 1">
-          <img src="images/w002.jpg" alt="Walkways 2">
-          <img src="images/w003.jpg" alt="Walkways 3">
-          <img src="images/w004.jpg" alt="Walkways 4">
+          <img src="images/w001.jpg" alt="Walkways 1" class="gallery-img">
+          <img src="images/w002.jpg" alt="Walkways 2" class="gallery-img">
+          <img src="images/w003.jpg" alt="Walkways 3" class="gallery-img">
+          <img src="images/w004.jpg" alt="Walkways 4" class="gallery-img">
         </div>
       </div>
 
       <!-- ADA-Compliant Bathroom Upgrades -->
-      <div class="service-category">
+      <div class="service-category" data-category="ADA-Compliant Bathroom Upgrades">
         <h3>ADA-COMPLIANT BATHROOM UPGRADES</h3>
         <div class="image-grid">
-          <img src="images/b01.jpg" alt="Bathroom upgrade 1">
-          <img src="images/b02.jpg" alt="Bathroom upgrade 2">
-          <img src="images/b03.jpg" alt="Bathroom upgrade 3">
-          <img src="images/b04.jpg" alt="Bathroom upgrade 4">
+          <img src="images/b01.jpg" alt="Bathroom upgrade 1" class="gallery-img">
+          <img src="images/b02.jpg" alt="Bathroom upgrade 2" class="gallery-img">
+          <img src="images/b03.jpg" alt="Bathroom upgrade 3" class="gallery-img">
+          <img src="images/b04.jpg" alt="Bathroom upgrade 4" class="gallery-img">
         </div>
       </div>
 
       <!-- Flooring Installation and Repairs -->
-      <div class="service-category">
+      <div class="service-category" data-category="Flooring Installation and Repairs">
         <h3>FLOORING INSTALLATION AND REPAIRS</h3>
         <div class="image-grid">
-          <img src="images/F0001.jpg" alt="Flooring 1">
-          <img src="images/F0002.jpg" alt="Flooring 2">
-          <img src="images/F0003.jpg" alt="Flooring 3">
-          <img src="images/F0004.jpeg" alt="Flooring 4">
+          <img src="images/F0001.jpg" alt="Flooring 1" class="gallery-img">
+          <img src="images/F0002.jpg" alt="Flooring 2" class="gallery-img">
+          <img src="images/F0003.jpg" alt="Flooring 3" class="gallery-img">
+          <img src="images/F0004.jpeg" alt="Flooring 4" class="gallery-img">
         </div>
       </div>
 
@@ -342,7 +501,8 @@
             <p>We provide material transportation and debris hauling using our 12 ft x 8 ft x 6 ft dump bed truck, with an approximate capacity of 20 cubic yards or up to 10,000 pounds.</p>
           </div>
           <div class="transportation-image">
-            <img src="images/CAMION.png" alt="Dump truck for debris hauling">
+            <img src="images/CAMION.png" alt="Dump truck for debris hauling" class="truck-slide active" id="truckImg1">
+            <img src="images/camion2.png" alt="Dump truck for debris hauling 2" class="truck-slide" id="truckImg2">
           </div>
         </div>
       </div>
@@ -448,6 +608,112 @@
       if(currentHash==='#services'){
         document.querySelectorAll('nav a[href*="#services"], .mobile-nav a[href*="#services"]').forEach(link=>link.classList.add('active'));
       }
+      
+      // Truck image carousel - auto rotate every 2 seconds
+      const truckImg1 = document.getElementById('truckImg1');
+      const truckImg2 = document.getElementById('truckImg2');
+      
+      if(truckImg1 && truckImg2){
+        let currentTruck = 0;
+        
+        setInterval(function(){
+          if(currentTruck === 0){
+            truckImg1.classList.remove('active');
+            truckImg2.classList.add('active');
+            currentTruck = 1;
+          }else{
+            truckImg2.classList.remove('active');
+            truckImg1.classList.add('active');
+            currentTruck = 0;
+          }
+        }, 2000);
+      }
+      
+      // Lightbox functionality
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightboxImg');
+      const lightboxTitle = document.getElementById('lightboxTitle');
+      const lightboxCounter = document.getElementById('lightboxCounter');
+      const lightboxClose = document.getElementById('lightboxClose');
+      const lightboxPrev = document.getElementById('lightboxPrev');
+      const lightboxNext = document.getElementById('lightboxNext');
+      
+      let currentImages = [];
+      let currentIndex = 0;
+      
+      // Get all service categories with images
+      const categories = document.querySelectorAll('.service-category[data-category]');
+      
+      categories.forEach(category => {
+        const categoryTitle = category.getAttribute('data-category');
+        const images = category.querySelectorAll('.gallery-img');
+        
+        images.forEach((img, index) => {
+          img.addEventListener('click', function() {
+            currentImages = Array.from(images).map(i => i.src);
+            currentIndex = index;
+            openLightbox(currentImages[currentIndex], categoryTitle);
+          });
+        });
+      });
+      
+      function openLightbox(src, title) {
+        lightboxImg.src = src;
+        lightboxTitle.textContent = title;
+        updateCounter();
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+      
+      function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+      
+      function updateCounter() {
+        lightboxCounter.textContent = `${currentIndex + 1} / ${currentImages.length}`;
+      }
+      
+      function showNext() {
+        currentIndex = (currentIndex + 1) % currentImages.length;
+        lightboxImg.src = currentImages[currentIndex];
+        updateCounter();
+      }
+      
+      function showPrev() {
+        currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+        lightboxImg.src = currentImages[currentIndex];
+        updateCounter();
+      }
+      
+      lightboxClose.addEventListener('click', closeLightbox);
+      lightboxNext.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showNext();
+      });
+      lightboxPrev.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showPrev();
+      });
+      
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+          closeLightbox();
+        }
+      });
+      
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        
+        if (e.key === 'Escape') {
+          closeLightbox();
+        } else if (e.key === 'ArrowRight') {
+          showNext();
+        } else if (e.key === 'ArrowLeft') {
+          showPrev();
+        }
+      });
     });
   </script>
 </body>
