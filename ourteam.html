@@ -6,6 +6,8 @@
   <title>Full Uniwell LLC - Our Team</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
     :root{--primary-blue:#1d2b7f;--secondary-blue:#2d4a9f;--accent-red:#e63946;--soft-red:#f4758b;--accent-orange:#fb8500;--light-bg:#f5f7fb;--white:#ffffff;--dark:#1a1a2e;--gray:#6c757d;--light-gray:#e9ecef}
@@ -153,136 +155,195 @@
     }
 
     /* ========== PARTNERS SECTION ========== */
-    .partners-section {
-      padding: clamp(50px, 8vw, 80px) 20px;
-      background: #f5f5f5;
-      text-align: center;
-      position: relative;
-      z-index: 1;
-      width: 100%;
-    }
+.partners-section {
+  padding: clamp(50px, 8vw, 80px) 20px;
+  background: transparent;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
 
-    .partners-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      width: 100%;
-    }
+.partners-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
 
-    .partners-header h2 {
-      font-size: clamp(28px, 5vw, 42px);
-      color: var(--primary-blue);
-      margin-bottom: 15px;
-      font-weight: 800;
-    }
+.partners-header h2 {
+  font-size: clamp(24px, 5vw, 42px);
+  color: var(--primary-blue, #0052cc);
+  margin-bottom: 15px;
+  font-weight: 700;
+  text-align: center;
+}
 
-    .partners-header p {
-      font-size: clamp(15px, 4vw, 18px);
-      color: var(--gray);
-      margin-bottom: 50px;
-      line-height: 1.6;
-    }
+/* ========== CARRUSEL INFINITO AUTOMÁTICO ========== */
+.partners-carousel-wrapper {
+  position: relative;
+  width: 100%;
+  margin: 0 auto 60px auto;
+  overflow: hidden;
+}
 
-    .partners-grid {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: clamp(30px, 5vw, 50px);
-      margin: 0 auto 50px auto;
-    }
+.partners-carousel-container {
+  overflow: visible;
+  width: 100%;
+  position: relative;
+}
 
-    .partner-item {
-      width: clamp(130px, 16vw, 160px);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
+.partners-carousel-track {
+  display: flex;
+  animation: scroll infinite linear;
+  gap: clamp(30px, 5vw, 50px);
+  width: max-content;
+}
 
-    .partner-item:hover {
-      transform: translateY(-8px);
-    }
+/* Animación de scroll continuo */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
 
-    .partner-logo-img {
-      width: 100%;
-      height: auto;
-      max-width: 130px;
-      min-height: 100px;
-      object-fit: contain;
-      display: block;
-      margin: 0 auto;
-      transition: all 0.4s ease;
-      filter: grayscale(100%);
-      opacity: 0.6;
-    }
+/* Items del carrusel */
+.carousel-item {
+  flex: 0 0 auto;
+  width: clamp(130px, 16vw, 160px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
 
-    .partner-item:hover .partner-logo-img {
-      filter: grayscale(0%);
-      opacity: 1;
-      transform: scale(1.05);
-    }
+.carousel-item:hover {
+  transform: translateY(-8px);
+}
 
-    .partner-name {
-      font-weight: 600;
-      font-size: clamp(12px, 2.5vw, 14px);
-      color: var(--gray);
-      transition: all 0.3s;
-      margin-top: 10px;
-      letter-spacing: 0.3px;
-    }
+.partner-logo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
 
-    .partner-item:hover .partner-name {
-      color: var(--primary-blue);
-    }
+.carousel-item .partner-logo-img {
+  width: 100%;
+  height: auto;
+  max-width: 130px;
+  min-height: 100px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  transition: all 0.4s ease;
+  filter: grayscale(100%);
+  opacity: 0.6;
+}
 
-    .osha-badge-section {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-      background: rgba(245, 245, 245, 0.98);
-      padding: 16px 32px;
-      border-radius: 50px;
-      font-weight: 700;
-      font-size: clamp(15px, 3vw, 18px);
-      color: #1a1a2e;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-      margin-top: 30px;
-      transition: all 0.3s;
-      flex-wrap: wrap;
-      border: 1px solid rgba(0,0,0,0.06);
-      letter-spacing: 0.5px;
-      text-align: center;
-    }
+.carousel-item:hover .partner-logo-img {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.05);
+}
 
-    @media (max-width: 480px) {
-      .osha-badge-section {
-        padding: 14px 24px;
-        gap: 10px;
-        font-size: 14px;
-      }
-    }
+.carousel-item .partner-name {
+  font-weight: 600;
+  font-size: clamp(11px, 2.5vw, 13px);
+  color: var(--gray, #666);
+  transition: all 0.3s;
+  margin-top: 10px;
+  letter-spacing: 0.3px;
+}
 
-    .osha-badge-section:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 35px rgba(0,0,0,0.2);
-      border-color: rgba(230, 57, 70, 0.2);
-    }
+.carousel-item:hover .partner-name {
+  color: var(--primary-blue, #0052cc);
+}
 
-    .osha-badge-section i {
-      font-size: clamp(24px, 5vw, 32px);
-      color: var(--accent-red);
-      animation: pulse 2s ease-in-out infinite;
-      flex-shrink: 0;
-    }
+/* Pausar animación al hacer hover */
+.partners-carousel-wrapper:hover .partners-carousel-track {
+  animation-play-state: paused;
+}
 
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.1); opacity: 0.85; }
-    }
+/* ========== SECCIÓN OSHA (COLORES ORIGINALES CON MÁS SEPARACIÓN) ========== */
+.osha-badge-section {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: rgba(245, 245, 245, 0.98);
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: clamp(14px, 3vw, 18px);
+  color: #1a1a2e;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  margin-top: 80px;
+  margin-bottom: 40px;
+  transition: all 0.3s;
+  flex-wrap: wrap;
+  border: 1px solid rgba(0,0,0,0.06);
+  letter-spacing: 0.5px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .osha-badge-section {
+    margin-top: 60px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .osha-badge-section {
+    padding: 14px 24px;
+    gap: 10px;
+    font-size: 13px;
+    margin-top: 50px;
+    margin-bottom: 25px;
+  }
+}
+
+.osha-badge-section:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+  border-color: rgba(230, 57, 70, 0.2);
+}
+
+.osha-badge-section i {
+  font-size: clamp(24px, 5vw, 32px);
+  color: var(--accent-red);
+  animation: pulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+/* Animación pulse */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.85; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .partners-carousel-track {
+    gap: clamp(20px, 4vw, 30px);
+  }
+}
+
+@media (max-width: 480px) {
+  .partners-carousel-track {
+    gap: clamp(15px, 3vw, 25px);
+  }
+}
+
+
 footer {
   background: linear-gradient(135deg, var(--primary-blue), #151f5c);
   color: white;
@@ -645,116 +706,51 @@ footer::before {
     </div>
   </section>
 
-  <!-- ========== PARTNERS SECTION ========== -->
   <section class="partners-section" id="partners">
-    <div class="partners-container">
-      <div class="partners-header" data-aos="fade-up">
-        <div class="section-title"></div>
-        <br><br> <br><br> <br><br> 
-        <h2> Partners</h2>
-        <p></p>
-      </div>
-      
-      <div class="partners-grid">
-        <div class="partner-item" data-aos="fade-up" data-aos-delay="100">
-          <div class="partner-logo-wrapper">
-            <img src="pro.png" alt="JLMDF" style="width: 70px;" class="partner-logo-img" onerror="this.style.display='none'">
-            <div class="partner-overlay"></div>
-          </div>
-          <div class="partner-name"></div>
+  <div class="partners-container">
+    <div class="partners-header" data-aos="fade-up">
+        <br><br>
+      <h2>Partners</h2>
+      <br><br>  <br><br>
+    </div>
+    
+    <!-- Carrusel Infinito Automático -->
+    <div class="partners-carousel-wrapper">
+      <div class="partners-carousel-container">
+        <div class="partners-carousel-track" id="partnersTrack">
+          <!-- Los logos se insertarán mediante JavaScript -->
         </div>
-        
-        <div class="partner-item" data-aos="fade-up" data-aos-delay="200">
-          <div class="partner-logo-wrapper">
-            <img src="qom.png" alt="Florida Contractors" class="partner-logo-img" onerror="this.style.display='none'">
-            <div class="partner-overlay"></div>
-          </div>
-          <div class="partner-name"></div>
-        </div>
-        
-        <div class="partner-item" data-aos="fade-up" data-aos-delay="300">
-          <div class="partner-logo-wrapper">
-            <img src="jlmd.png" alt="PMI Alliance" class="partner-logo-img" onerror="this.style.display='none'">
-            <div class="partner-overlay"></div>
-          </div>
-          <div class="partner-name"></div>
-        </div>
-        
-        <div class="partner-item" data-aos="fade-up" data-aos-delay="400">
-          <div class="partner-logo-wrapper">
-            <img src="Optimizar-logo-PNG(2).png" alt="Optimizar" class="partner-logo-img" onerror="this.style.display='none'">
-            <div class="partner-overlay"></div>
-          </div>
-          <div class="partner-name"></div>
-        </div>
-        
-        <div class="partner-item" data-aos="fade-up" data-aos-delay="500">
-          <div class="partner-logo-wrapper">
-            <img src="cropped-1-2.png" alt="LEED Certified" class="partner-logo-img" onerror="this.style.display='none'">
-            <div class="partner-overlay"></div>
-          </div>
-          <div class="partner-name"></div>
-        </div>
-      </div>
-      
-      <div class="osha-badge-section" data-aos="fade-up">
-        <i class="fas fa-shield-alt"></i>
-        <span>We Are OSHA 30-Hour Construction Safety and Health Certified</span>
       </div>
     </div>
-    <br><br><br><br><br><br><br>
-  </section>
+      <br><br>  
+    <div class="osha-badge-section" data-aos="fade-up">
+      <i class="fas fa-shield-alt"></i>
+      <span>We Are OSHA 30-Hour Construction Safety and Health Certified</span>
+    </div>
+     <br><br>  
+  </div>
+</section>
 
   <!-- ========== FOOTER ========== -->
   <footer>
     <div class="footer-container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="logo">
-            <img src="fur.png" alt="Full Uniwell LLC" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-            <div class="logo-icon" style="display:none">FU</div>
-          </a>
+          <img src="fur.png" alt="Full Uniweil Logo" style="max-width: 180px; height: auto; margin-bottom: 1rem;">
+         
           <p>Transforming visions into reality with precision and expertise. Your trusted partner for construction excellence in Florida.</p>
           <div class="social-links">
-            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+          
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+           
           </div>
         </div>
-        <div class="footer-column">
-          <h3>Useful Links</h3>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="index.html#about">About Us</a></li>
-            <li><a href="index.html#recent-projects">Projects</a></li>
-            <li><a href="index.html#services">Our Services</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-column">
-          <h3>Our Services</h3>
-          <ul>
-            <li><a href="#">General Contracting</a></li>
-            <li><a href="#">Project Management</a></li>
-            <li><a href="#">Management Consulting</a></li>
-            <li><a href="#">Subcontractor Management</a></li>
-            <li><a href="#">Home Inspection</a></li>
-            <li><a href="#">Business Development</a></li>
-          </ul>
-        </div>
-        <div class="footer-column">
-          <h3>Get In Touch</h3>
-          <ul class="contact-info">
-            <li><i class="fas fa-map-marker-alt"></i><span>18501 Pines Blvd Suite 3006,<br>Pembroke Pines, FL 33029, EEUU</span></li>
-            <li><i class="fas fa-phone-alt"></i><span>+1 (786) 691-0212</span></li>
-            <li><i class="fas fa-envelope"></i><span>info@fulluniwell.com</span></li>
-          </ul>
-        </div>
+        <div class="footer-column"><h3>Useful Links</h3><ul><li><a href="#home">Home</a></li><li><a href="#about">About Us</a></li><li><a href="#recent-projects">Projects</a></li><li><a href="#services">Our Services</a></li><li><a href="#location">Location</a></li><li><a href="#contact">Contact</a></li></ul></div>
+        <div class="footer-column"><h3>Our Services</h3><ul><li><a href="#">General Contracting</a></li><li><a href="#">Project Management</a></li><li><a href="#">Management Consulting</a></li><li><a href="#">Subcontractor Management</a></li><li><a href="#">Home Inspection</a></li><li><a href="#">Business Development</a></li></ul></div>
+        <div class="footer-column"><h3>Get In Touch</h3><ul class="contact-info"><li><i class="fas fa-map-marker-alt"></i><span>18501 Pines Blvd Suite 3006,<br>Pembroke Pines, FL 33029, USA</span></li><li><i class="fas fa-phone"></i><span>+1 (786) 691-0212</span></li><li><i class="fas fa-envelope"></i><span>info@fulluniwell.com</span></li></ul></div>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 FULL UNIWELL LLC. All Rights Reserved. Design by you_casa</p>
-      </div>
+      <div class="footer-bottom"><p>&copy; 2026 FULL UNIWELL LLC. All Rights Reserved. Design by you_casa</p></div>
     </div>
   </footer>
 
@@ -772,3 +768,86 @@ footer::before {
   </script>
 </body>
 </html>
+<script>
+  // Datos de los partners - agrega/modifica según necesites
+const partnersData = [
+  // LOGO EXTRA AL INICIO (reemplaza con tu logo)
+  { imgSrc: "logo-arquitecto.png", alt: "Partner Extra 1", name: "arquitecto" },
+  
+  // LOGOS EXISTENTES
+  { imgSrc: "pro.png", alt: "JLMDF", name: "" },
+  { imgSrc: "qom.png", alt: "Florida Contractors", name: "" },
+  { imgSrc: "jlmd.png", alt: "PMI Alliance", name: "" },
+  { imgSrc: "Optimizar-logo-PNG(2).png", alt: "Optimizar", name: "" },
+  { imgSrc: "cropped-1-2.png", alt: "LEED Certified", name: "" },
+  
+  // LOGO EXTRA AL FINAL (reemplaza con tu logo)
+  { imgSrc: "logo-LC-Concrete.png", alt: "Partner Extra 2", name: "concrete" }
+];
+
+// Duplicar datos para efecto infinito (2 veces es suficiente para scroll continuo)
+const carouselItems = [...partnersData, ...partnersData];
+
+// Velocidad del scroll (más bajo = más rápido)
+const scrollSpeed = 30; // segundos para completar una vuelta completa
+
+// Renderizar el carrusel
+function renderCarousel() {
+  const track = document.getElementById('partnersTrack');
+  if (!track) return;
+  
+  // Calcular el ancho total para la animación
+  const itemWidth = 160; // ancho aproximado de cada item en px
+  const gap = 40; // gap en px
+  const totalWidth = carouselItems.length * (itemWidth + gap);
+  
+  track.innerHTML = carouselItems.map((partner, idx) => `
+    <div class="carousel-item" data-index="${idx}">
+      <div class="partner-logo-wrapper">
+        <img src="${partner.imgSrc}" alt="${partner.alt}" class="partner-logo-img" onerror="this.style.display='none'">
+        <div class="partner-overlay"></div>
+      </div>
+      <div class="partner-name">${partner.name || ''}</div>
+    </div>
+  `).join('');
+  
+  // Aplicar animación con velocidad ajustable
+  track.style.animation = `scroll ${scrollSpeed}s linear infinite`;
+}
+
+// Ajustar velocidad según el ancho de pantalla (opcional)
+function adjustSpeed() {
+  const track = document.getElementById('partnersTrack');
+  if (!track) return;
+  
+  const screenWidth = window.innerWidth;
+  let speed = scrollSpeed;
+  
+  if (screenWidth < 768) {
+    speed = scrollSpeed * 0.8; // más rápido en móvil
+  } else if (screenWidth < 480) {
+    speed = scrollSpeed * 0.6;
+  }
+  
+  track.style.animation = `scroll ${speed}s linear infinite`;
+}
+
+// Manejar resize
+let resizeTimeout;
+function handleResize() {
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(() => {
+    adjustSpeed();
+  }, 200);
+}
+
+// Inicializar
+function initCarousel() {
+  renderCarousel();
+  adjustSpeed();
+  window.addEventListener('resize', handleResize);
+}
+
+// Iniciar cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', initCarousel);
+</script>
