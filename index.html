@@ -74,7 +74,7 @@
     <p class="hero-description">Serving people and building futures</p>
     <a href="contacto.html" class="hero-badge">
       <i class="fas fa-headset"></i>
-      FREE ASSESSMENT
+      Available for New Projects
     </a>
   </div>
 </section>
@@ -104,10 +104,10 @@
     <div class="about-container">
       <div class="about-content" data-aos="fade-right">
         <div class="about-us">About Us</div>
-        <h2>Expert Construction & Consulting Professionals</h2>
-        <p>Full Uniwell LLC is a Florida‑licensed General Contractor and Construction Management firm delivering reliable, professional, and efficient building solutions. With over 20 years of combined experience, we manage every phase of construction with institutional standards—budgeting, scheduling, compliance, and full project execution</p>
-        <p>We support homeowners, investors, and developers with ground‑up construction, consulting, and project oversight designed for quality, speed, and long‑term value</p>
-  <div class="spec-title">Our specialization:</div>
+       <h2>Expert Construction & Consulting Professionals </h2>
+<p>Full Uniwell LLC is a Florida licensed General Contractor and Construction Management firm delivering reliable, professional, and efficient building solutions. With over 20 years of combined experience, we manage every phase of construction with institutional standards budgeting, scheduling, compliance, and full project execution.</p>
+<p>We support homeowners, investors, and developers with ground up construction, consulting, and project oversight designed for quality, speed, and long term value.</p>
+<div class="spec-title">Our specialization:</div>
        <div class="spec-grid">
   <div class="spec-item">
     <img src="Asset 21.png" alt="Business Development" class="spec-icon-img">
@@ -243,7 +243,7 @@ construction timelines
             <h3>Do you have land?</h3>
             <p>We can review your project scope and requirements to determine the next step</p>
             <a href="contacto.html" class="btn-assessment">
-              <i class="fas fa-hand-point-right floating-icon"></i> FREE ASSESSMENT
+              <i class="fas fa-hand-point-right floating-icon"></i>    Available for New Projects
             </a>
           </div>
         </div>
@@ -542,7 +542,7 @@ construction timelines
         <div class="footer-column"><h3>Our Services</h3><ul><li><a href="#">General Contracting</a></li><li><a href="#">Project Management</a></li><li><a href="#">Management Consulting</a></li><li><a href="#">Subcontractor Management</a></li><li><a href="#">Home Inspection</a></li><li><a href="#">Business Development</a></li></ul></div>
         <div class="footer-column"><h3>Get In Touch</h3><ul class="contact-info"><li><i class="fas fa-map-marker-alt"></i><span>18501 Pines Blvd Suite 3006,<br>Pembroke Pines, FL 33029, USA</span></li><li><i class="fas fa-phone"></i><span>+1 (786) 691-0212</span></li><li><i class="fas fa-envelope"></i><span>info@fulluniwell.com</span></li></ul></div>
       </div>
-      <div class="footer-bottom"><p>&copy; 2026 FULL UNIWELL LLC. All Rights Reserved. Design by you_casa</p></div>
+      <div class="footer-bottom"><p>&copy; 2026 FULL UNIWELL LLC. All Rights Reserved</p></div>
     </div>
   </footer>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -919,53 +919,52 @@ if (hero) {
 })();
 </script>
 <script>
-  // Datos de los partners - agrega/modifica según necesites
+// Datos de los partners - agrega/modifica según necesites
 const partnersData = [
   // LOGO EXTRA AL INICIO (reemplaza con tu logo)
-  { imgSrc: "logo-arquitecto.png", alt: "Partner Extra 1", name: "arquitecto" },
+  { imgSrc: "logo-arquitecto.png", alt: "Partner Extra 1", name: "", size: "large" },
   
   // LOGOS EXISTENTES
-  { imgSrc: "pro.png", alt: "JLMDF", name: "" },
-  { imgSrc: "qom.png", alt: "Florida Contractors", name: "" },
-  { imgSrc: "jlmd.png", alt: "PMI Alliance", name: "" },
-  { imgSrc: "Optimizar-logo-PNG(2).png", alt: "Optimizar", name: "" },
-  { imgSrc: "cropped-1-2.png", alt: "LEED Certified", name: "" },
+  { imgSrc: "pro.png", alt: "JLMDF", name: "", size: "small" },
+  { imgSrc: "qom.png", alt: "Florida Contractors", name: "", size: "normal" },
+  { imgSrc: "jlmd.png", alt: "PMI Alliance", name: "", size: "normal" },
+  { imgSrc: "Optimizar-logo-PNG(2).png", alt: "Optimizar", name: "", size: "normal" },
+  { imgSrc: "cropped-1-2.png", alt: "LEED Certified", name: "", size: "normal" },
   
   // LOGO EXTRA AL FINAL (reemplaza con tu logo)
-  { imgSrc: "logo-LC-Concrete.png", alt: "Partner Extra 2", name: "concrete" }
+  { imgSrc: "logo-LC-Concrete.png", alt: "Partner Extra 2", name: "", size: "normal" }
 ];
 
 // Duplicar datos para efecto infinito (2 veces es suficiente para scroll continuo)
 const carouselItems = [...partnersData, ...partnersData];
 
 // Velocidad del scroll (más bajo = más rápido)
-const scrollSpeed = 30; // segundos para completar una vuelta completa
+const scrollSpeed = 30;
 
 // Renderizar el carrusel
 function renderCarousel() {
   const track = document.getElementById('partnersTrack');
   if (!track) return;
   
-  // Calcular el ancho total para la animación
-  const itemWidth = 160; // ancho aproximado de cada item en px
-  const gap = 40; // gap en px
-  const totalWidth = carouselItems.length * (itemWidth + gap);
-  
-  track.innerHTML = carouselItems.map((partner, idx) => `
-    <div class="carousel-item" data-index="${idx}">
-      <div class="partner-logo-wrapper">
-        <img src="${partner.imgSrc}" alt="${partner.alt}" class="partner-logo-img" onerror="this.style.display='none'">
-        <div class="partner-overlay"></div>
+  track.innerHTML = carouselItems.map((partner, idx) => {
+    let sizeClass = '';
+    if (partner.size === 'large') sizeClass = 'logo-large';
+    if (partner.size === 'small') sizeClass = 'logo-small';
+    
+    return `
+      <div class="carousel-item" data-index="${idx}">
+        <div class="partner-logo-wrapper">
+          <img src="${partner.imgSrc}" alt="${partner.alt}" class="partner-logo-img ${sizeClass}" onerror="this.style.display='none'">
+          <div class="partner-overlay"></div>
+        </div>
+        <div class="partner-name">${partner.name || ''}</div>
       </div>
-      <div class="partner-name">${partner.name || ''}</div>
-    </div>
-  `).join('');
+    `;
+  }).join('');
   
-  // Aplicar animación con velocidad ajustable
   track.style.animation = `scroll ${scrollSpeed}s linear infinite`;
 }
 
-// Ajustar velocidad según el ancho de pantalla (opcional)
 function adjustSpeed() {
   const track = document.getElementById('partnersTrack');
   if (!track) return;
@@ -974,7 +973,7 @@ function adjustSpeed() {
   let speed = scrollSpeed;
   
   if (screenWidth < 768) {
-    speed = scrollSpeed * 0.8; // más rápido en móvil
+    speed = scrollSpeed * 0.8;
   } else if (screenWidth < 480) {
     speed = scrollSpeed * 0.6;
   }
@@ -982,7 +981,6 @@ function adjustSpeed() {
   track.style.animation = `scroll ${speed}s linear infinite`;
 }
 
-// Manejar resize
 let resizeTimeout;
 function handleResize() {
   clearTimeout(resizeTimeout);
@@ -991,13 +989,99 @@ function handleResize() {
   }, 200);
 }
 
-// Inicializar
 function initCarousel() {
   renderCarousel();
   adjustSpeed();
   window.addEventListener('resize', handleResize);
 }
 
-// Iniciar cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', initCarousel);
 </script>
+<STYLE>
+  /* Tamaños personalizados para logos */
+.partner-logo-img {
+  transition: all 0.3s ease;
+  object-fit: contain;
+}
+
+/* Logo grande (primer logo) - +2px de altura */
+.logo-large {
+  width: 180px !important;
+  height: auto !important;
+  max-width: 180px !important;
+  max-height: 142px !important;
+}
+
+/* Logo pequeño (segundo logo) */
+.logo-small {
+  width: 75px !important;
+  height: 50px !important;
+  max-width: 75px !important;
+  max-height: 50px !important;
+}
+
+/* Tamaño normal para los demás */
+.partner-logo-img:not(.logo-large):not(.logo-small) {
+  width: 120px !important;
+  height: auto !important;
+  max-height: 95px !important;
+}
+
+/* ÚLTIMO LOGO - reducir aún más la altura */
+.carousel-item:last-child .partner-logo-img,
+.partner-logo-img:last-child {
+  max-height: 55px !important;
+  height: auto !important;
+  width: 90px !important;
+}
+
+/* REDUCIR SEPARACIÓN ENTRE LOGOS AL MÁXIMO (casi juntos) */
+.carousel-item {
+  margin-right: 2px !important;
+  margin-left: 2px !important;
+}
+
+.partner-logo-wrapper {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Eliminar cualquier gap adicional */
+.partners-carousel-container {
+  gap: 0 !important;
+}
+
+.partners-track {
+  gap: 0 !important;
+}
+
+/* Ajustes responsive */
+@media (max-width: 768px) {
+  .logo-large {
+    width: 140px !important;
+    max-height: 112px !important;
+  }
+  
+  .logo-small {
+    width: 55px !important;
+    height: 38px !important;
+  }
+  
+  .partner-logo-img:not(.logo-large):not(.logo-small) {
+    width: 90px !important;
+    max-height: 70px !important;
+  }
+  
+  /* Último logo en responsive */
+  .carousel-item:last-child .partner-logo-img,
+  .partner-logo-img:last-child {
+    max-height: 45px !important;
+    width: 70px !important;
+  }
+  
+  .carousel-item {
+    margin-right: 1px !important;
+    margin-left: 1px !important;
+  }
+}
+</STYLE>
