@@ -921,7 +921,7 @@ if (hero) {
 <script>
 // Datos de los partners - agrega/modifica según necesites
 const partnersData = [
-  // LOGO EXTRA AL INICIO (reemplaza con tu logo)
+  // LOGO EXTRA AL INICIO
   { imgSrc: "logo-arquitecto.png", alt: "Partner Extra 1", name: "", size: "large" },
   
   // LOGOS EXISTENTES
@@ -931,14 +931,14 @@ const partnersData = [
   { imgSrc: "Optimizar-logo-PNG(2).png", alt: "Optimizar", name: "", size: "normal" },
   { imgSrc: "cropped-1-2.png", alt: "LEED Certified", name: "", size: "normal" },
   
-  // LOGO EXTRA AL FINAL (reemplaza con tu logo)
+  // LOGO EXTRA AL FINAL - Este es el último
   { imgSrc: "logo-LC-Concrete.png", alt: "Partner Extra 2", name: "", size: "normal" }
 ];
 
-// Duplicar datos para efecto infinito (2 veces es suficiente para scroll continuo)
+// Duplicar datos para efecto infinito
 const carouselItems = [...partnersData, ...partnersData];
 
-// Velocidad del scroll (más bajo = más rápido)
+// Velocidad del scroll
 const scrollSpeed = 30;
 
 // Renderizar el carrusel
@@ -998,17 +998,17 @@ function initCarousel() {
 document.addEventListener('DOMContentLoaded', initCarousel);
 </script>
 <STYLE>
-  /* Tamaños personalizados para logos */
+ /* Tamaños personalizados para logos */
 .partner-logo-img {
   transition: all 0.3s ease;
   object-fit: contain;
 }
 
-/* Logo grande (primer logo) - +2px de altura */
+/* Logo grande (primer logo) */
 .logo-large {
-  width: 180px !important;
+  width: 380px !important;
   height: auto !important;
-  max-width: 180px !important;
+  max-width: 220px !important;
   max-height: 142px !important;
 }
 
@@ -1022,20 +1022,29 @@ document.addEventListener('DOMContentLoaded', initCarousel);
 
 /* Tamaño normal para los demás */
 .partner-logo-img:not(.logo-large):not(.logo-small) {
-  width: 120px !important;
+  width: 220px !important;
   height: auto !important;
   max-height: 95px !important;
 }
 
-/* ÚLTIMO LOGO - reducir aún más la altura */
+/* ÚLTIMO LOGO - SUBIDO VISUALMENTE (corregido) */
 .carousel-item:last-child .partner-logo-img,
 .partner-logo-img:last-child {
-  max-height: 55px !important;
+  max-height: 60px !important;
   height: auto !important;
-  width: 90px !important;
+  width: 80px !important;
+  max-width: 80px !important;
+  margin-top: 0 !important;
+  position: relative !important;
+  top: -25px !important;  /* Número NEGATIVO = sube. Cambia -25px a -30px o -40px para subir más */
 }
 
-/* REDUCIR SEPARACIÓN ENTRE LOGOS AL MÁXIMO (casi juntos) */
+/* También subir el contenedor padre */
+.carousel-item:last-child {
+  transform: translateY(-20px) !important; /* Sube todo el contenedor 20px */
+}
+
+/* REDUCIR SEPARACIÓN ENTRE LOGOS AL MÁXIMO */
 .carousel-item {
   margin-right: 2px !important;
   margin-left: 2px !important;
@@ -1046,7 +1055,6 @@ document.addEventListener('DOMContentLoaded', initCarousel);
   padding: 0 !important;
 }
 
-/* Eliminar cualquier gap adicional */
 .partners-carousel-container {
   gap: 0 !important;
 }
@@ -1072,11 +1080,17 @@ document.addEventListener('DOMContentLoaded', initCarousel);
     max-height: 70px !important;
   }
   
-  /* Último logo en responsive */
+  /* Último logo en responsive - subido también */
   .carousel-item:last-child .partner-logo-img,
   .partner-logo-img:last-child {
     max-height: 45px !important;
-    width: 70px !important;
+    width: 60px !important;
+    max-width: 60px !important;
+    top: -15px !important;
+  }
+  
+  .carousel-item:last-child {
+    transform: translateY(-12px) !important;
   }
   
   .carousel-item {

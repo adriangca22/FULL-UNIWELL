@@ -42,119 +42,155 @@
     @keyframes slideDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
 
     /* ========== OUR TEAM SECTION ========== */
-    .team-section{
-      position:relative;
-      padding:80px 0 100px;
-      min-height:100vh;
-      overflow:hidden;
-    }
-    .team-bg{
-      position:absolute;
-      top:0;left:0;
-      width:100%;height:100%;
-      z-index:0;
-    }
-    .team-bg img{
-      width:100%;height:100%;
-      object-fit:cover;
-      object-position:center top;
-    }
-    .team-container{
-      position:relative;
-      z-index:1;
-      max-width:1280px;
-      margin:0 auto;
-      padding:0 40px;
-    }
-    .team-header{
-      text-align:center;
-      margin-bottom:60px;
-    }
-    .team-header h2{
-      font-size:40px;
-      font-weight:800;
-      color:var(--primary-blue);
-      margin-bottom:20px;
-      letter-spacing:-0.5px;
-    }
-    .team-header p{
-      font-size:16px;
-      color:var(--gray);
-      max-width:800px;
-      margin:0 auto;
-      line-height:1.8;
-    }
+.team-section{
+  position:relative;
+  padding:80px 0 100px;
+  min-height:100vh;
+  overflow:hidden;
+}
+.team-bg{
+  position:absolute;
+  top:0;left:0;
+  width:100%;height:100%;
+  z-index:0;
+}
+.team-bg img{
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:center top;
+}
+.team-container{
+  position:relative;
+  z-index:1;
+  max-width:1280px;
+  margin:0 auto;
+  padding:0 40px;
+}
+.team-header{
+  text-align:center;
+  margin-bottom:60px;
+}
+.team-header h2{
+  font-size:40px;
+  font-weight:800;
+  color:var(--primary-blue);
+  margin-bottom:20px;
+  letter-spacing:-0.5px;
+}
+.team-header p{
+  font-size:16px;
+  color:var(--gray);
+  max-width:800px;
+  margin:0 auto;
+  line-height:1.8;
+}
 
-    .team-grid{
-      max-width:850px;
-      margin:0 auto;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:50px;
-    }
+.team-grid{
+  max-width:1000px;
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:50px;
+}
 
-    .team-row-top{
-      display:flex;
-      justify-content:center;
-      gap:80px;
-    }
+.team-row-top{
+  display:flex;
+  justify-content:center;
+  gap:80px;
+  flex-wrap:wrap;
+}
 
-    .team-row-bottom{
-      display:flex;
-      justify-content:center;
-      gap:80px;
-    }
+.team-row-bottom{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:60px;
+  flex-wrap:wrap;
+}
 
-    .team-member{text-align:center}
-    .team-member-img{
-      width:200px;
-      height:200px;
-      border-radius:50%;
-      overflow:hidden;
-      margin:0 auto 20px;
-      background:linear-gradient(135deg,#ddd 0%,#bbb 100%);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      box-shadow:0 8px 30px rgba(0,0,0,0.12);
-    }
-    .team-member-img img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
-    .team-member-img.placeholder{
-      background:linear-gradient(135deg,var(--light-gray) 0%,#d1d5db 100%);
-      border:3px dashed var(--gray);
-    }
-    .team-member-name{
-      font-size:16px;
-      font-weight:800;
-      color:var(--accent-red);
-      margin-bottom:8px;
-      text-transform:uppercase;
-      letter-spacing:0.5px;
-    }
-    .team-member-title{
-      font-size:14px;
-      color:var(--dark);
-      font-weight:600;
-      margin-bottom:10px;
-      line-height:1.5;
-    }
-    .team-member-email{
-      font-size:14px;
-      color:var(--gray);
-      text-decoration:none;
-      transition:color 0.3s;
-      font-weight:500;
-    }
-    .team-member-email:hover{
-      color:var(--accent-red);
-    }
+/* Cada miembro del equipo */
+.team-member{
+  text-align:center;
+  flex: 0 1 auto;
+  min-width: 180px;
+}
 
-    /* ========== PARTNERS SECTION ========== */
+/* Para centrar perfectamente a Jesús Kumaica */
+.team-row-bottom .team-member:nth-child(2) {
+  /* Este es el del medio (Jesús Kumaica) */
+  position: relative;
+  left: -5px; /* Ajusta este valor: negativo = izquierda, positivo = derecha */
+}
+
+.team-member-img{
+  width:200px;
+  height:200px;
+  border-radius:50%;
+  overflow:hidden;
+  margin:0 auto 20px;
+  background:linear-gradient(135deg,#ddd 0%,#bbb 100%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 8px 30px rgba(0,0,0,0.12);
+}
+.team-member-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.team-member-img.placeholder{
+  background:linear-gradient(135deg,var(--light-gray) 0%,#d1d5db 100%);
+  border:3px dashed var(--gray);
+}
+.team-member-name{
+  font-size:16px;
+  font-weight:800;
+  color:var(--accent-red);
+  margin-bottom:8px;
+  text-transform:uppercase;
+  letter-spacing:0.5px;
+}
+.team-member-title{
+  font-size:14px;
+  color:var(--dark);
+  font-weight:600;
+  margin-bottom:10px;
+  line-height:1.5;
+}
+.team-member-email{
+  font-size:14px;
+  color:var(--gray);
+  text-decoration:none;
+  transition:color 0.3s;
+  font-weight:500;
+}
+.team-member-email:hover{
+  color:var(--accent-red);
+}
+
+/* Responsive */
+@media(max-width:768px){
+  .team-container{padding:0 20px}
+  .team-header h2{font-size:32px}
+  .team-row-top,.team-row-bottom{gap:30px;flex-wrap:wrap;justify-content:center}
+  .team-member-img{width:150px;height:150px}
+  .team-row-bottom .team-member:nth-child(2) {
+    left: -3px;
+  }
+}
+@media(max-width:480px){
+  .team-member-img{width:130px;height:130px}
+  .team-row-top,.team-row-bottom{gap:20px}
+  .team-member-title{font-size:12px}
+  .team-member-name{font-size:14px}
+  .team-member-email{font-size:12px}
+  .team-row-bottom .team-member:nth-child(2) {
+    left: -2px;
+  }
+}
+/* ========== PARTNERS SECTION ========== */
 .partners-section {
   padding: clamp(50px, 8vw, 80px) 20px;
   background: transparent;
@@ -270,7 +306,7 @@
   animation-play-state: paused;
 }
 
-/* ========== SECCIÓN OSHA (COLORES ORIGINALES CON MÁS SEPARACIÓN) ========== */
+/* ========== SECCIÓN OSHA ========== */
 .osha-badge-section {
   display: inline-flex;
   align-items: center;
@@ -330,7 +366,7 @@
   50% { transform: scale(1.1); opacity: 0.85; }
 }
 
-/* Responsive */
+/* Responsive carrusel */
 @media (max-width: 768px) {
   .partners-carousel-track {
     gap: clamp(20px, 4vw, 30px);
@@ -343,7 +379,7 @@
   }
 }
 
-
+/* ========== FOOTER ========== */
 footer {
   background: linear-gradient(135deg, var(--primary-blue), #151f5c);
   color: white;
@@ -519,7 +555,37 @@ footer::before {
   font-size: 12px;
 }
 
+/* ========== KEYFRAMES Y RESPONSIVE GENERAL ========== */
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
 /* Responsive */
+@media(max-width:768px){
+  .header-container{padding:12px 20px}
+  nav ul{display:none}
+  .mobile-menu{display:flex}
+  .team-container,.partners-container,.footer-container{padding:0 20px}
+  .team-header h2{font-size:32px}
+  .team-row-top,.team-row-bottom{gap:30px;flex-wrap:wrap;justify-content:center}
+  .team-member-img{width:150px;height:150px}
+  .footer-grid{gap:30px;text-align:center}
+  .footer-column h3::after{left:50%;transform:translateX(-50%)}
+  .contact-info li{justify-content:center}
+  .social-links{justify-content:center}
+  .footer-brand .logo{justify-content:center}
+}
+
+@media(max-width:480px){
+  .team-member-img{width:130px;height:130px}
+  .team-row-top,.team-row-bottom{gap:20px}
+  .team-member-title{font-size:12px}
+  .team-member-name{font-size:14px}
+  .team-member-email{font-size:12px}
+}
+
+/* Responsive footer */
 @media (max-width: 768px) {
   footer {
     padding: 25px 20px 25px;
@@ -578,28 +644,6 @@ footer::before {
     font-size: 12px;
   }
 }
-    
-    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-    
-    /* Responsive */
-    @media(max-width:768px){
-      .header-container{padding:12px 20px}
-      nav ul{display:none}
-      .mobile-menu{display:flex}
-      .team-container,.partners-container,.footer-container{padding:0 20px}
-      .team-header h2{font-size:32px}
-      .team-row-top,.team-row-bottom{gap:40px;flex-wrap:wrap;justify-content:center}
-      .team-member-img{width:150px;height:150px}
-      .footer-grid{gap:30px;text-align:center}
-      .footer-column h3::after{left:50%;transform:translateX(-50%)}
-      .contact-info li{justify-content:center}
-      .social-links{justify-content:center}
-      .footer-brand .logo{justify-content:center}
-    }
-    @media(max-width:480px){
-      .team-member-img{width:130px;height:130px}
-      .team-row-top,.team-row-bottom{gap:30px}
-    }
   </style>
 </head>
 <body>
@@ -648,31 +692,30 @@ footer::before {
     <div class="team-container">
       <div class="team-header">
         <h2>Our Team</h2>
-        <p>A high-performance, multidisciplinary team leading construction, inspection, design, and digital operations with precision, safety, and institutional standards. A young, elite, and innovation driven group delivering professionalism and certified results that make a difference.</p>
+        <p>A high-performance, multidisciplinary team leading construction, inspection, design, and digital operations with precision, safety, and institutional standards. A young, elite, and innovation driven group delivering professionalism and certified results that make a difference</p>
       </div>
 
       <div class="team-grid">
         <!-- Fila superior: 2 miembros -->
-        <div class="team-row-top">
-          <div class="team-member">
-            <div class="team-member-img">
-              <img src="img/Andrelina-Professional-Profile(1).jpg" alt="Andrelina Mujica">
-            </div>
-            <h3 class="team-member-name">ANDRELINA MUJICA</h3>
-            <p class="team-member-title">Bachelor Civil Engineer<br>& Certified General Contractor<br>CBC1234567</p>
-            <a href="mailto:andrelina@fulluniwell.com" class="team-member-email">andrelina@fulluniwell.com</a>
-          </div>
+   <div class="team-row-top">
+  <div class="team-member">
+    <div class="team-member-img">
+      <img src="img/Andrelina-Professional-Profile(1).jpg" alt="Andrelina Mujica">
+    </div>
+    <h3 class="team-member-name">ANDRELINA MUJICA</h3>
+    <p class="team-member-title">Bachelor in Accounting, Senior Project Manager,<br>and Certified Home Inspector</p>
+    <a href="mailto:andrelina@fulluniwell.com" class="team-member-email">andrelina@fulluniwell.com</a>
+  </div>
 
-          <div class="team-member">
-            <div class="team-member-img">
-              <img src="img/Fabio-Professional-Profile(1).jpg" alt="Fabio Vargas">
-            </div>
-            <h3 class="team-member-name">FABIO VARGAS</h3>
-            <p class="team-member-title">Senior Project Manager<br>& Certified Home Inspector<br>HI7890</p>
-            <a href="mailto:fabio@fulluniwell.com" class="team-member-email">fabio@fulluniwell.com</a>
-          </div>
-        </div>
-
+  <div class="team-member">
+    <div class="team-member-img">
+      <img src="img/Fabio-Professional-Profile(1).jpg" alt="Fabio Vargas">
+    </div>
+    <h3 class="team-member-name">FABIO VARGAS</h3>
+    <p class="team-member-title">Bachelor in Accounting, Senior Project Manager,<br>and Certified Home Inspector</p>
+    <a href="mailto:fabio@fulluniwell.com" class="team-member-email">fabio@fulluniwell.com</a>
+  </div>
+</div>
         <!-- Fila inferior: 3 miembros -->
         <div class="team-row-bottom">
           <div class="team-member">
@@ -769,53 +812,52 @@ footer::before {
 </body>
 </html>
 <script>
-  // Datos de los partners - agrega/modifica según necesites
+// Datos de los partners - agrega/modifica según necesites
 const partnersData = [
-  // LOGO EXTRA AL INICIO (reemplaza con tu logo)
-  { imgSrc: "logo-arquitecto.png", alt: "Partner Extra 1", name: "arquitecto" },
+  // LOGO EXTRA AL INICIO
+  { imgSrc: "logo-arquitecto.png", alt: "Partner Extra 1", name: "", size: "large" },
   
   // LOGOS EXISTENTES
-  { imgSrc: "pro.png", alt: "JLMDF", name: "" },
-  { imgSrc: "qom.png", alt: "Florida Contractors", name: "" },
-  { imgSrc: "jlmd.png", alt: "PMI Alliance", name: "" },
-  { imgSrc: "Optimizar-logo-PNG(2).png", alt: "Optimizar", name: "" },
-  { imgSrc: "cropped-1-2.png", alt: "LEED Certified", name: "" },
+  { imgSrc: "pro.png", alt: "JLMDF", name: "", size: "small" },
+  { imgSrc: "qom.png", alt: "Florida Contractors", name: "", size: "normal" },
+  { imgSrc: "jlmd.png", alt: "PMI Alliance", name: "", size: "normal" },
+  { imgSrc: "Optimizar-logo-PNG(2).png", alt: "Optimizar", name: "", size: "normal" },
+  { imgSrc: "cropped-1-2.png", alt: "LEED Certified", name: "", size: "normal" },
   
-  // LOGO EXTRA AL FINAL (reemplaza con tu logo)
-  { imgSrc: "logo-LC-Concrete.png", alt: "Partner Extra 2", name: "concrete" }
+  // LOGO EXTRA AL FINAL - Este es el último
+  { imgSrc: "logo-LC-Concrete.png", alt: "Partner Extra 2", name: "", size: "normal" }
 ];
 
-// Duplicar datos para efecto infinito (2 veces es suficiente para scroll continuo)
+// Duplicar datos para efecto infinito
 const carouselItems = [...partnersData, ...partnersData];
 
-// Velocidad del scroll (más bajo = más rápido)
-const scrollSpeed = 30; // segundos para completar una vuelta completa
+// Velocidad del scroll
+const scrollSpeed = 30;
 
 // Renderizar el carrusel
 function renderCarousel() {
   const track = document.getElementById('partnersTrack');
   if (!track) return;
   
-  // Calcular el ancho total para la animación
-  const itemWidth = 160; // ancho aproximado de cada item en px
-  const gap = 40; // gap en px
-  const totalWidth = carouselItems.length * (itemWidth + gap);
-  
-  track.innerHTML = carouselItems.map((partner, idx) => `
-    <div class="carousel-item" data-index="${idx}">
-      <div class="partner-logo-wrapper">
-        <img src="${partner.imgSrc}" alt="${partner.alt}" class="partner-logo-img" onerror="this.style.display='none'">
-        <div class="partner-overlay"></div>
+  track.innerHTML = carouselItems.map((partner, idx) => {
+    let sizeClass = '';
+    if (partner.size === 'large') sizeClass = 'logo-large';
+    if (partner.size === 'small') sizeClass = 'logo-small';
+    
+    return `
+      <div class="carousel-item" data-index="${idx}">
+        <div class="partner-logo-wrapper">
+          <img src="${partner.imgSrc}" alt="${partner.alt}" class="partner-logo-img ${sizeClass}" onerror="this.style.display='none'">
+          <div class="partner-overlay"></div>
+        </div>
+        <div class="partner-name">${partner.name || ''}</div>
       </div>
-      <div class="partner-name">${partner.name || ''}</div>
-    </div>
-  `).join('');
+    `;
+  }).join('');
   
-  // Aplicar animación con velocidad ajustable
   track.style.animation = `scroll ${scrollSpeed}s linear infinite`;
 }
 
-// Ajustar velocidad según el ancho de pantalla (opcional)
 function adjustSpeed() {
   const track = document.getElementById('partnersTrack');
   if (!track) return;
@@ -824,7 +866,7 @@ function adjustSpeed() {
   let speed = scrollSpeed;
   
   if (screenWidth < 768) {
-    speed = scrollSpeed * 0.8; // más rápido en móvil
+    speed = scrollSpeed * 0.8;
   } else if (screenWidth < 480) {
     speed = scrollSpeed * 0.6;
   }
@@ -832,7 +874,6 @@ function adjustSpeed() {
   track.style.animation = `scroll ${speed}s linear infinite`;
 }
 
-// Manejar resize
 let resizeTimeout;
 function handleResize() {
   clearTimeout(resizeTimeout);
@@ -841,13 +882,113 @@ function handleResize() {
   }, 200);
 }
 
-// Inicializar
 function initCarousel() {
   renderCarousel();
   adjustSpeed();
   window.addEventListener('resize', handleResize);
 }
 
-// Iniciar cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', initCarousel);
 </script>
+<STYLE>
+ /* Tamaños personalizados para logos */
+.partner-logo-img {
+  transition: all 0.3s ease;
+  object-fit: contain;
+}
+
+/* Logo grande (primer logo) */
+.logo-large {
+  width: 380px !important;
+  height: auto !important;
+  max-width: 220px !important;
+  max-height: 142px !important;
+}
+
+/* Logo pequeño (segundo logo) */
+.logo-small {
+  width: 75px !important;
+  height: 50px !important;
+  max-width: 75px !important;
+  max-height: 50px !important;
+}
+
+/* Tamaño normal para los demás */
+.partner-logo-img:not(.logo-large):not(.logo-small) {
+  width: 220px !important;
+  height: auto !important;
+  max-height: 95px !important;
+}
+
+/* ÚLTIMO LOGO - SUBIDO VISUALMENTE (corregido) */
+.carousel-item:last-child .partner-logo-img,
+.partner-logo-img:last-child {
+  max-height: 60px !important;
+  height: auto !important;
+  width: 80px !important;
+  max-width: 80px !important;
+  margin-top: 0 !important;
+  position: relative !important;
+  top: -25px !important;  /* Número NEGATIVO = sube. Cambia -25px a -30px o -40px para subir más */
+}
+
+/* También subir el contenedor padre */
+.carousel-item:last-child {
+  transform: translateY(-20px) !important; /* Sube todo el contenedor 20px */
+}
+
+/* REDUCIR SEPARACIÓN ENTRE LOGOS AL MÁXIMO */
+.carousel-item {
+  margin-right: 2px !important;
+  margin-left: 2px !important;
+}
+
+.partner-logo-wrapper {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.partners-carousel-container {
+  gap: 0 !important;
+}
+
+.partners-track {
+  gap: 0 !important;
+}
+
+/* Ajustes responsive */
+@media (max-width: 768px) {
+  .logo-large {
+    width: 140px !important;
+    max-height: 112px !important;
+  }
+  
+  .logo-small {
+    width: 55px !important;
+    height: 38px !important;
+  }
+  
+  .partner-logo-img:not(.logo-large):not(.logo-small) {
+    width: 90px !important;
+    max-height: 70px !important;
+  }
+  
+  /* Último logo en responsive - subido también */
+  .carousel-item:last-child .partner-logo-img,
+  .partner-logo-img:last-child {
+    max-height: 45px !important;
+    width: 60px !important;
+    max-width: 60px !important;
+    top: -15px !important;
+  }
+  
+  .carousel-item:last-child {
+    transform: translateY(-12px) !important;
+  }
+  
+  .carousel-item {
+    margin-right: 1px !important;
+    margin-left: 1px !important;
+  }
+}
+</STYLE>
