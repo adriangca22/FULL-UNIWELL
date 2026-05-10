@@ -41,154 +41,189 @@
     .mobile-nav a.active{background:var(--accent-red);color:white}
     @keyframes slideDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
 
-    /* ========== OUR TEAM SECTION ========== */
-.team-section{
-  position:relative;
-  padding:80px 0 100px;
-  min-height:100vh;
-  overflow:hidden;
-}
-.team-bg{
-  position:absolute;
-  top:0;left:0;
-  width:100%;height:100%;
-  z-index:0;
-}
-.team-bg img{
-  width:100%;height:100%;
-  object-fit:cover;
-  object-position:center top;
-}
-.team-container{
-  position:relative;
-  z-index:1;
-  max-width:1280px;
-  margin:0 auto;
-  padding:0 40px;
-}
-.team-header{
-  text-align:center;
-  margin-bottom:60px;
-}
-.team-header h2{
-  font-size:40px;
-  font-weight:800;
-  color:var(--primary-blue);
-  margin-bottom:20px;
-  letter-spacing:-0.5px;
-}
-.team-header p{
-  font-size:16px;
-  color:var(--gray);
-  max-width:800px;
-  margin:0 auto;
-  line-height:1.8;
+   /* ========== OUR TEAM SECTION ========== */
+.team-section {
+  position: relative;
+  padding: 80px 0 100px;
+  min-height: 100vh;
+  overflow: hidden;
 }
 
-.team-grid{
-  max-width:1000px;
-  margin:0 auto;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:50px;
+.team-bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
 }
 
-.team-row-top{
-  display:flex;
-  justify-content:center;
-  gap:80px;
-  flex-wrap:wrap;
+.team-bg img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
 }
 
-.team-row-bottom{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:60px;
-  flex-wrap:wrap;
+.team-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.team-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.team-header h2 {
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--primary-blue);
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+
+.team-header p {
+  font-size: 16px;
+  color: var(--gray);
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* Grid principal */
+.team-grid {
+  max-width: 1100px; /* Un poco más ancho para que quepan bien */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px; /* Espacio entre la fila de arriba y la de abajo */
+}
+
+/* Fila Superior (2 personas) */
+.team-row-top {
+  display: flex;
+  justify-content: center; /* Esto centra a las 2 personas y crea el hueco exacto en el medio */
+  gap: 100px; /* Espacio entre Andrelina y Fabio. Más espacio = más claro el centro */
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+/* Fila Inferior (3 personas - Daniel, Jesus, Karawich) */
+.team-row-bottom {
+  display: flex;
+  justify-content: center; /* ESTO es la clave: centra el grupo de 3 */
+  align-items: flex-start; /* Alinea todos al inicio verticalmente */
+  gap: 40px; /* Espacio entre las fotos de abajo */
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 /* Cada miembro del equipo */
-.team-member{
-  text-align:center;
-  flex: 0 1 auto;
-  min-width: 180px;
+.team-member {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Importante: flex: 0 0 auto evita que se estiren y se descuadren */
+  flex: 0 0 auto; 
+  width: 220px; /* Ancho fijo para asegurar que el centro se calcule bien */
 }
 
-/* Para centrar perfectamente a Jesús Kumaica */
-.team-row-bottom .team-member:nth-child(2) {
-  /* Este es el del medio (Jesús Kumaica) */
-  position: relative;
-  left: -5px; /* Ajusta este valor: negativo = izquierda, positivo = derecha */
+/* --- BORRAMOS EL TRUCO DEL LEFT QUE TENÍAS ANTES --- */
+/* Antes tenías: .team-row-bottom .team-member:nth-child(2) { left: -5px... }
+   Eso ya no es necesario con justify-content: center */
+
+.team-member-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 20px;
+  background: linear-gradient(135deg, #ddd 0%, #bbb 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  /* Asegura que la imagen no se estire */
+  flex-shrink: 0; 
 }
 
-.team-member-img{
-  width:200px;
-  height:200px;
-  border-radius:50%;
-  overflow:hidden;
-  margin:0 auto 20px;
-  background:linear-gradient(135deg,#ddd 0%,#bbb 100%);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:0 8px 30px rgba(0,0,0,0.12);
+.team-member-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-.team-member-img img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
+
+.team-member-img.placeholder {
+  background: linear-gradient(135deg, var(--light-gray) 0%, #d1d5db 100%);
+  border: 3px dashed var(--gray);
 }
-.team-member-img.placeholder{
-  background:linear-gradient(135deg,var(--light-gray) 0%,#d1d5db 100%);
-  border:3px dashed var(--gray);
+
+.team-member-name {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--accent-red);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
-.team-member-name{
-  font-size:16px;
-  font-weight:800;
-  color:var(--accent-red);
-  margin-bottom:8px;
-  text-transform:uppercase;
-  letter-spacing:0.5px;
+
+.team-member-title {
+  font-size: 14px;
+  color: var(--dark);
+  font-weight: 600;
+  margin-bottom: 10px;
+  line-height: 1.5;
+  min-height: 44px; /* Opcional: ayuda a alinear si los títulos tienen distinta longitud */
 }
-.team-member-title{
-  font-size:14px;
-  color:var(--dark);
-  font-weight:600;
-  margin-bottom:10px;
-  line-height:1.5;
+
+.team-member-email {
+  font-size: 14px;
+  color: var(--gray);
+  text-decoration: none;
+  transition: color 0.3s;
+  font-weight: 500;
 }
-.team-member-email{
-  font-size:14px;
-  color:var(--gray);
-  text-decoration:none;
-  transition:color 0.3s;
-  font-weight:500;
-}
-.team-member-email:hover{
-  color:var(--accent-red);
+
+.team-member-email:hover {
+  color: var(--accent-red);
 }
 
 /* Responsive */
-@media(max-width:768px){
-  .team-container{padding:0 20px}
-  .team-header h2{font-size:32px}
-  .team-row-top,.team-row-bottom{gap:30px;flex-wrap:wrap;justify-content:center}
-  .team-member-img{width:150px;height:150px}
-  .team-row-bottom .team-member:nth-child(2) {
-    left: -3px;
+@media(max-width: 900px) {
+  .team-row-top {
+    gap: 60px;
+  }
+  .team-row-bottom {
+    gap: 30px;
   }
 }
-@media(max-width:480px){
-  .team-member-img{width:130px;height:130px}
-  .team-row-top,.team-row-bottom{gap:20px}
-  .team-member-title{font-size:12px}
-  .team-member-name{font-size:14px}
-  .team-member-email{font-size:12px}
-  .team-row-bottom .team-member:nth-child(2) {
-    left: -2px;
+
+@media(max-width: 768px) {
+  .team-container { padding: 0 20px; }
+  .team-header h2 { font-size: 32px; }
+  
+  .team-row-top, .team-row-bottom {
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
+  
+  .team-member {
+    width: 100%; /* En móvil ocupan todo el ancho */
+    max-width: 250px;
+  }
+  
+  .team-member-img { width: 160px; height: 160px; }
+}
+
+@media(max-width: 480px) {
+  .team-member-img { width: 140px; height: 140px; }
+  .team-member-title { font-size: 12px; min-height: auto; }
+  .team-member-name { font-size: 14px; }
+  .team-member-email { font-size: 12px; }
 }
 /* ========== PARTNERS SECTION ========== */
 .partners-section {
@@ -703,7 +738,7 @@ footer::before {
       <img src="img/Andrelina-Professional-Profile(1).jpg" alt="Andrelina Mujica">
     </div>
     <h3 class="team-member-name">ANDRELINA MUJICA</h3>
-    <p class="team-member-title">Bachelor in Accounting, Senior Project Manager,<br>and Certified Home Inspector</p>
+    <p class="team-member-title">Bachelor Civil Engineer &  <br>Certified General Contractor<br>CGC1540242</p>
     <a href="mailto:andrelina@fulluniwell.com" class="team-member-email">andrelina@fulluniwell.com</a>
   </div>
 
@@ -712,7 +747,7 @@ footer::before {
       <img src="img/Fabio-Professional-Profile(1).jpg" alt="Fabio Vargas">
     </div>
     <h3 class="team-member-name">FABIO VARGAS</h3>
-    <p class="team-member-title">Bachelor in Accounting, Senior Project Manager,<br>and Certified Home Inspector</p>
+    <p class="team-member-title">Bachelor in Accounting, Senior Project Manager,<br>and Certified Home Inspector<br> HI17901</p>
     <a href="mailto:fabio@fulluniwell.com" class="team-member-email">fabio@fulluniwell.com</a>
   </div>
 </div>
@@ -791,7 +826,7 @@ footer::before {
         </div>
         <div class="footer-column"><h3>Useful Links</h3><ul><li><a href="#home">Home</a></li><li><a href="#about">About Us</a></li><li><a href="#recent-projects">Projects</a></li><li><a href="#services">Our Services</a></li><li><a href="#location">Location</a></li><li><a href="#contact">Contact</a></li></ul></div>
         <div class="footer-column"><h3>Our Services</h3><ul><li><a href="#">General Contracting</a></li><li><a href="#">Project Management</a></li><li><a href="#">Management Consulting</a></li><li><a href="#">Subcontractor Management</a></li><li><a href="#">Home Inspection</a></li><li><a href="#">Business Development</a></li></ul></div>
-        <div class="footer-column"><h3>Get In Touch</h3><ul class="contact-info"><li><i class="fas fa-map-marker-alt"></i><span>18501 Pines Blvd Suite 3006,<br>Pembroke Pines, FL 33029, USA</span></li><li><i class="fas fa-phone"></i><span>+1 (786) 691-0212</span></li><li><i class="fas fa-envelope"></i><span>info@fulluniwell.com</span></li></ul></div>
+        <div class="footer-column"><h3>Get In Touch</h3><ul class="contact-info"><li><i class="fas fa-map-marker-alt"></i><span>18501 Pines Blvd Suite 3006<br>Pembroke Pines, FL 33029, USA</span></li><li><i class="fas fa-phone"></i><span>+1 (786) 691-0212</span></li><li><i class="fas fa-envelope"></i><span>info@fulluniwell.com</span></li></ul></div>
       </div>
       <div class="footer-bottom"><p>&copy; 2026 FULL UNIWELL LLC. All Rights Reserved</p></div>
     </div>
