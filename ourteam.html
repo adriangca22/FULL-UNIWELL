@@ -41,12 +41,23 @@
     .mobile-nav a.active{background:var(--accent-red);color:white}
     @keyframes slideDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
 
-   /* ========== OUR TEAM SECTION ========== */
+
+    /* ========== OUR TEAM SECTION (MODIFICADO: separación uniforme en ambas filas) ========== */
+    .team-section {
+      position: relative;
+      padding: 80px 0 120px;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background: linear-gradient(145deg, #ffffff 0%, #fafafc 100%);
+    }
+
+    /* ===== OUR TEAM SECTION - SIMETRÍA PERFECTA ===== */
 .team-section {
   position: relative;
-  padding: 80px 0 100px;
+  padding: 80px 0 120px;
   min-height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
+  background: linear-gradient(145deg, #ffffff 0%, #fafafc 100%);
 }
 
 .team-bg {
@@ -54,100 +65,117 @@
   top: 0; left: 0;
   width: 100%; height: 100%;
   z-index: 0;
-}
-
-.team-bg img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  object-position: center top;
+  opacity: 0.08;
+  pointer-events: none;
 }
 
 .team-container {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 32px;
 }
 
 .team-header {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 56px;
 }
 
 .team-header h2 {
-  font-size: 40px;
+  font-size: 44px;
   font-weight: 800;
   color: var(--primary-blue);
-  margin-bottom: 20px;
-  letter-spacing: -0.5px;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
 }
 
 .team-header p {
-  font-size: 16px;
+  font-size: 1.1rem;
   color: var(--gray);
-  max-width: 800px;
+  max-width: 680px;
   margin: 0 auto;
-  line-height: 1.8;
 }
 
-/* Grid principal */
+/* GRID PRINCIPAL */
 .team-grid {
-  max-width: 1100px; /* Un poco más ancho para que quepan bien */
+  max-width: 1100px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 60px; /* Espacio entre la fila de arriba y la de abajo */
+  gap: 56px;
 }
 
-/* Fila Superior (2 personas) */
+/* Fila superior: Andrelina + Fabio (2 personas) */
 .team-row-top {
   display: flex;
-  justify-content: center; /* Esto centra a las 2 personas y crea el hueco exacto en el medio */
-  gap: 100px; /* Espacio entre Andrelina y Fabio. Más espacio = más claro el centro */
+  justify-content: center;
+  gap: 100px;
   flex-wrap: wrap;
   width: 100%;
 }
 
-/* Fila Inferior (3 personas - Daniel, Jesus, Karawich) */
+/* 
+  ==========================================
+  AJUSTE FINAL: Mover Fabio un pelito más a la derecha
+  ==========================================
+*/
+.team-row-top .team-member:last-child {
+  transform: translateX(28px);  /* +4px extra (último pelito) */
+}
+
+/* Fila inferior: Daniel, Jesús, Jesús Karawich (3 personas) */
 .team-row-bottom {
   display: flex;
-  justify-content: center; /* ESTO es la clave: centra el grupo de 3 */
-  align-items: flex-start; /* Alinea todos al inicio verticalmente */
-  gap: 40px; /* Espacio entre las fotos de abajo */
+  justify-content: center;
+  gap: 48px;
   flex-wrap: wrap;
   width: 100%;
 }
 
-/* Cada miembro del equipo */
+/* 
+  ==========================================
+  AJUSTE FINAL: Mover Jesús Karawich un pelito más a la derecha
+  ==========================================
+*/
+.team-row-bottom .team-member:last-child {
+  transform: translateX(32px);  /* +4px extra (último pelito) */
+}
+
+/* Pequeño ajuste al miembro del medio para equilibrio */
+.team-row-bottom .team-member:nth-child(2) {
+  transform: translateX(6px);
+}
+
+/* Tarjeta de cada miembro */
 .team-member {
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* Importante: flex: 0 0 auto evita que se estiren y se descuadren */
-  flex: 0 0 auto; 
-  width: 220px; /* Ancho fijo para asegurar que el centro se calcule bien */
+  flex: 0 0 auto;
+  width: 220px;
+  transition: transform 0.2s ease;
 }
 
-/* --- BORRAMOS EL TRUCO DEL LEFT QUE TENÍAS ANTES --- */
-/* Antes tenías: .team-row-bottom .team-member:nth-child(2) { left: -5px... }
-   Eso ya no es necesario con justify-content: center */
+.team-member:hover {
+  transform: translateY(-5px);
+}
 
+/* imagen circular */
 .team-member-img {
   width: 200px;
   height: 200px;
   border-radius: 50%;
   overflow: hidden;
   margin: 0 auto 20px;
-  background: linear-gradient(135deg, #ddd 0%, #bbb 100%);
+  background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-  /* Asegura que la imagen no se estire */
-  flex-shrink: 0; 
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s;
 }
 
 .team-member-img img {
@@ -157,73 +185,129 @@
 }
 
 .team-member-img.placeholder {
-  background: linear-gradient(135deg, var(--light-gray) 0%, #d1d5db 100%);
-  border: 3px dashed var(--gray);
+  background: linear-gradient(135deg, #cbd5e1, #94a3b8);
+  border: 2px solid #fff;
 }
 
 .team-member-name {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 800;
   color: var(--accent-red);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 .team-member-title {
-  font-size: 14px;
+  font-size: 13.5px;
   color: var(--dark);
   font-weight: 600;
   margin-bottom: 10px;
-  line-height: 1.5;
-  min-height: 44px; /* Opcional: ayuda a alinear si los títulos tienen distinta longitud */
+  line-height: 1.45;
+  min-height: 48px;
+  padding: 0 4px;
 }
 
 .team-member-email {
-  font-size: 14px;
-  color: var(--gray);
+  font-size: 13px;
+  color: #2c5282;
   text-decoration: none;
-  transition: color 0.3s;
+  transition: color 0.2s;
   font-weight: 500;
+  word-break: break-word;
 }
 
 .team-member-email:hover {
   color: var(--accent-red);
+  text-decoration: underline;
 }
 
-/* Responsive */
-@media(max-width: 900px) {
+/* ========== RESPONSIVE ========== */
+@media (max-width: 860px) {
   .team-row-top {
     gap: 60px;
   }
   .team-row-bottom {
-    gap: 30px;
+    gap: 36px;
+  }
+  .team-member {
+    width: 200px;
+  }
+  .team-member-img {
+    width: 170px;
+    height: 170px;
+  }
+  /* Reducimos desplazamiento en tablets */
+  .team-row-top .team-member:last-child {
+    transform: translateX(16px);
+  }
+  .team-row-bottom .team-member:last-child {
+    transform: translateX(18px);
+  }
+  .team-row-bottom .team-member:nth-child(2) {
+    transform: translateX(3px);
   }
 }
 
-@media(max-width: 768px) {
-  .team-container { padding: 0 20px; }
-  .team-header h2 { font-size: 32px; }
-  
+@media (max-width: 680px) {
+  .team-container {
+    padding: 0 20px;
+  }
+  .team-header h2 {
+    font-size: 34px;
+  }
+
   .team-row-top, .team-row-bottom {
     gap: 40px;
-    flex-wrap: wrap;
     justify-content: center;
   }
-  
   .team-member {
-    width: 100%; /* En móvil ocupan todo el ancho */
-    max-width: 250px;
+    width: 220px;
   }
-  
-  .team-member-img { width: 160px; height: 160px; }
+  .team-member-img {
+    width: 160px;
+    height: 160px;
+  }
+  .team-member-title {
+    font-size: 12.5px;
+    min-height: auto;
+  }
+  /* En móvil eliminamos desplazamientos */
+  .team-row-top .team-member:last-child,
+  .team-row-bottom .team-member:last-child,
+  .team-row-bottom .team-member:nth-child(2) {
+    transform: translateX(0);
+  }
 }
 
-@media(max-width: 480px) {
-  .team-member-img { width: 140px; height: 140px; }
-  .team-member-title { font-size: 12px; min-height: auto; }
-  .team-member-name { font-size: 14px; }
-  .team-member-email { font-size: 12px; }
+@media (max-width: 520px) {
+  .team-row-top {
+    gap: 32px;
+  }
+  .team-row-bottom {
+    gap: 32px;
+  }
+  .team-member {
+    width: 100%;
+    max-width: 260px;
+  }
+  .team-member-img {
+    width: 150px;
+    height: 150px;
+  }
+  .team-member-name {
+    font-size: 15px;
+  }
+}
+
+/* Footer */
+.footer-note {
+  text-align: center;
+  padding: 40px 20px 20px;
+  font-size: 13px;
+  color: #6c757d;
+  border-top: 1px solid #e9ecef;
+  margin-top: 40px;
 }
 /* ========== PARTNERS SECTION ========== */
 .partners-section {
