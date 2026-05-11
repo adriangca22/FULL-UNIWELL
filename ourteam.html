@@ -41,17 +41,7 @@
     .mobile-nav a.active{background:var(--accent-red);color:white}
     @keyframes slideDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
 
-
-    /* ========== OUR TEAM SECTION (MODIFICADO: separación uniforme en ambas filas) ========== */
-    .team-section {
-      position: relative;
-      padding: 80px 0 120px;
-      min-height: 100vh;
-      overflow-x: hidden;
-      background: linear-gradient(145deg, #ffffff 0%, #fafafc 100%);
-    }
-
-    /* ===== OUR TEAM SECTION - SIMETRÍA PERFECTA ===== */
+/* ===== OUR TEAM SECTION - SIMETRÍA PERFECTA ===== */
 .team-section {
   position: relative;
   padding: 80px 0 120px;
@@ -118,11 +108,11 @@
 
 /* 
   ==========================================
-  AJUSTE FINAL: Mover Fabio un pelito más a la derecha
+  AJUSTE: Fabio - otro poquito más a la izquierda
   ==========================================
 */
 .team-row-top .team-member:last-child {
-  transform: translateX(28px);  /* +4px extra (último pelito) */
+  transform: translateX(20px);  /* De 24px a 20px */
 }
 
 /* Fila inferior: Daniel, Jesús, Jesús Karawich (3 personas) */
@@ -136,16 +126,16 @@
 
 /* 
   ==========================================
-  AJUSTE FINAL: Mover Jesús Karawich un pelito más a la derecha
+  AJUSTE: Jesús Karawich - otro poquito más a la izquierda
   ==========================================
 */
 .team-row-bottom .team-member:last-child {
-  transform: translateX(32px);  /* +4px extra (último pelito) */
+  transform: translateX(24px);  /* De 28px a 24px */
 }
 
 /* Pequeño ajuste al miembro del medio para equilibrio */
 .team-row-bottom .team-member:nth-child(2) {
-  transform: translateX(6px);
+  transform: translateX(4px);   /* De 6px a 4px */
 }
 
 /* Tarjeta de cada miembro */
@@ -239,13 +229,13 @@
   }
   /* Reducimos desplazamiento en tablets */
   .team-row-top .team-member:last-child {
-    transform: translateX(16px);
+    transform: translateX(12px);
   }
   .team-row-bottom .team-member:last-child {
-    transform: translateX(18px);
+    transform: translateX(14px);
   }
   .team-row-bottom .team-member:nth-child(2) {
-    transform: translateX(3px);
+    transform: translateX(2px);
   }
 }
 
