@@ -2090,7 +2090,6 @@ section h2 {
    FU – SERVICES + FINANCING + AFFORDABLE HOUSING
    CSS unificado. Prefijos únicos: fu-svc- / fu-fin- / fu-ah-
    ===================================================== */
-
 /* =====================================================
    1. OUR SERVICES
    ===================================================== */
@@ -2134,12 +2133,43 @@ section h2 {
   align-items: center;
 }
 
+/* =====================================================
+   CARRUSEL AUTOMÁTICO (sin botones)
+   3 imágenes + 1 clon de la primera para que el loop sea continuo
+   El movimiento lo controla el script del HTML (cada 4 segundos)
+   ===================================================== */
 .fu-svc-photo {
   width: 100%;
+  min-width: 0;              /* evita que el grid se ensanche por el track */
   line-height: 0;
 }
 
-.fu-svc-photo img {
+.fu-svc-carousel {
+  width: 100%;
+  overflow: hidden;
+}
+
+.fu-svc-carousel-track {
+  display: flex;
+  width: 400%;               /* 4 slides (3 + clon) */
+  transform: translateX(0);
+  transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+  will-change: transform;
+}
+
+/* Se usa cuando el JS regresa del clon a la primera imagen sin que se note */
+.fu-svc-carousel-track.fu-svc-no-transition {
+  transition: none;
+}
+
+.fu-svc-carousel-slide {
+  flex: 0 0 25%;             /* cada slide = 1/4 del track = 100% del visor */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fu-svc-carousel-slide img {
   display: block;
   width: 100%;
   height: auto;
@@ -2156,7 +2186,7 @@ section h2 {
 /* ---------- Tarjetas de servicio ---------- */
 .fu-svc-card {
   display: flex;
-  align-items: center; /* Centrado vertical para que el icono quede a la par del texto */
+  align-items: center;
   gap: 20px;
   background: #ffffff;
   border-radius: 12px;
@@ -2165,14 +2195,11 @@ section h2 {
   user-select: none;
   -webkit-tap-highlight-color: transparent;
   
-  /* Borde izquierdo invisible por defecto */
   border-left: 4px solid transparent; 
-  
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-/* Animación al pasar el mouse: Se eleva y aparece la línea roja */
 .fu-svc-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
@@ -2190,31 +2217,24 @@ section h2 {
 }
 
 /* =====================================================
-   AJUSTE DE LOS ICONOS (Imágenes más grandes y efecto float)
+   ICONOS CON EFECTO FLOAT
    ===================================================== */
 .fu-svc-card-icon {
   flex-shrink: 0;
-  width: 60px;  /* Tamaño aumentado */
-  height: 60px; /* Tamaño aumentado */
-  object-fit: contain; /* Evita que las imágenes se deformen */
-  animation: floatIcon 6s ease-in-out infinite; /* Efecto flotante muy lento */
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  animation: floatIcon 6s ease-in-out infinite;
 }
 
-/* Keyframes para el movimiento de flotación */
 @keyframes floatIcon {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-6px); /* Sube suavemente 6px */
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }
 
-/* Pausar la flotación al pasar el mouse por la tarjeta */
 .fu-svc-card:hover .fu-svc-card-icon {
   animation-play-state: paused;
 }
-/* ===================================================== */
 
 .fu-svc-card-title {
   font-size: 18px;
@@ -2308,7 +2328,9 @@ section h2 {
   padding: 22px 30px 34px;
 }
 
-/* Reglas del slider */
+/* =====================================================
+   REGLAS DEL SLIDER (EFECTO PRO 2026: Slide + Blur + Zoom)
+   ===================================================== */
 .fu-fin-slides-viewport {
   display: grid;
   position: relative;
@@ -2320,15 +2342,27 @@ section h2 {
   grid-area: 1 / 1;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(10px);
-  transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s ease;
+  
+  /* Efecto de entrada: Viene de la izquierda, está borroso y un poco más pequeño */
+  transform: translateX(-60px) scale(0.95);
+  filter: blur(10px);
+  
+  /* Curva de animación "Spring" o resorte (súper suave al final) */
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              filter 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.8s;
 }
 
 .fu-fin-slide-active {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0);
+  
+  /* Llega a su posición central, enfoque total y tamaño original */
+  transform: translateX(0) scale(1);
+  filter: blur(0px);
 }
+/* ===================================================== */
 
 .fu-fin-apr {
   font-size: 0.6em;
@@ -2626,7 +2660,6 @@ section h2 {
     gap: 14px;
   }
 
-  /* Ajuste del tamaño del icono en móviles */
   .fu-svc-card-icon {
     width: 50px;
     height: 50px;
@@ -2662,7 +2695,12 @@ section h2 {
   .fu-ah-btn,
   .fu-fin-slide {
     transition: none;
-    animation: none; /* Desactiva el float si el usuario prefiere menos movimiento */
+    animation: none; 
+  }
+
+  /* Carrusel: sigue cambiando de imagen, pero sin deslizar */
+  .fu-svc-carousel-track {
+    transition: none;
   }
 }
 /* ========== FOOTER ========== */

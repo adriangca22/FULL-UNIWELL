@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Full Uniwell LLC - Financing</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{--primary-blue:#1d2b7f;--secondary-blue:#2d4a9f;--accent-red:#e63946;--soft-red:#f4758b;--accent-orange:#fb8500;--light-bg:#f5f7fb;--white:#ffffff;--dark:#1a1a2e;--gray:#6c757d;--light-gray:#e9ecef;--fin-green:#5d9732;--fin-lime:#84bd00}
+    html{scroll-behavior:smooth}
+    body{font-family:'Poppins','Segoe UI',Tahoma,Geneva,Verdana,sans-serif;line-height:1.7;color:#333;font-size:17px}
+
+    /* ========== HEADER ========== */
+    header{background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);box-shadow:0 2px 20px rgba(0,0,0,0.1);position:sticky;top:0;z-index:1000;transition:all 0.3s;width:100%}
+    header.scrolled{background:rgba(255,255,255,0.98);box-shadow:0 4px 30px rgba(0,0,0,0.15)}
+    .header-container{max-width:1280px;margin:0 auto;padding:12px 40px;display:flex;justify-content:space-between;align-items:center}
+    .logo{display:flex;align-items:center;text-decoration:none}
+    .logo-img{height:55px;width:auto;object-fit:contain;transition:transform 0.3s}
+    .logo-img:hover{transform:scale(1.05)}
+    .logo-icon{width:50px;height:50px;background:linear-gradient(135deg,var(--accent-red),var(--primary-blue));border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:24px;box-shadow:0 4px 12px rgba(230,57,70,0.3)}
+    nav ul{display:flex;list-style:none;gap:22px;align-items:center}
+    nav a{text-decoration:none;color:#1E297A;font-weight:700;font-size:14px;transition:all 0.3s;position:relative;white-space:nowrap;letter-spacing:0.5px;padding:5px 0}
+    nav a::before{content:'';position:absolute;bottom:-2px;left:50%;width:0;height:2px;background:linear-gradient(90deg,var(--accent-red),#ff6b6b);transition:all 0.3s;transform:translateX(-50%);border-radius:2px}
+    nav a:hover::before{width:80%}
+    nav a:hover{color:var(--accent-red);transform:translateY(-1px)}
+    nav a.active{color:var(--accent-red)}
+    nav a.active::before{width:80%}
+
+    /* Botón "Financing" en el menú (píldora verde) */
+    nav a.nav-financing{background:var(--fin-green);color:#fff;padding:7px 20px;border-radius:50px;box-shadow:0 4px 12px rgba(93,151,50,0.35)}
+    nav a.nav-financing::before{display:none}
+    nav a.nav-financing:hover{background:#4c7f27;color:#fff;transform:translateY(-2px);box-shadow:0 8px 18px rgba(93,151,50,0.5)}
+    nav a.nav-financing:active{transform:scale(0.95)}
+
+    .mobile-menu{display:none;font-size:24px;cursor:pointer;width:40px;height:40px;align-items:center;justify-content:center;border-radius:8px;transition:all 0.3s;color:#1E297A;position:relative;z-index:1001}
+    .mobile-menu:hover,.mobile-menu.active{color:var(--accent-red);background:rgba(230,57,70,0.1)}
+
+    /* Mobile Menu */
+    .mobile-nav{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(255,255,255,0.98);backdrop-filter:blur(10px);box-shadow:0 10px 30px rgba(0,0,0,0.15);padding:20px;z-index:999}
+    .mobile-nav.active{display:block;animation:slideDown 0.3s ease}
+    .mobile-nav ul{display:flex;flex-direction:column;gap:15px;list-style:none}
+    .mobile-nav a{display:block;padding:12px 20px;color:#1E297A;font-weight:700;font-size:15px;border-radius:8px;transition:all 0.3s;text-decoration:none}
+    .mobile-nav a:hover{background:rgba(230,57,70,0.1);color:var(--accent-red);padding-left:25px}
+    .mobile-nav a.active{background:var(--accent-red);color:white}
+    .mobile-nav a.nav-financing{background:var(--fin-green);color:#fff;text-align:center}
+    @keyframes slideDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+
+    /* =====================================================
+       FINANCING SECTION  (prefijo único: fnp-)
+       ===================================================== */
+    .fnp-section{
+      width:100%;
+      background:#f4f4f4;
+      padding:clamp(50px,8vw,80px) 20px clamp(60px,9vw,90px);
+    }
+    .fnp-container{max-width:1100px;margin:0 auto}
+
+    /* ---------- Logos ---------- */
+    .fnp-logos{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:clamp(24px,6vw,70px);
+      margin-bottom:clamp(40px,6vw,60px);
+    }
+    .fnp-logo{height:clamp(60px,9vw,95px);width:auto;max-width:100%;object-fit:contain}
+
+    /* ---------- Títulos ---------- */
+    .fnp-title{
+      text-align:center;
+      font-size:clamp(24px,4vw,34px);
+      font-weight:700;
+      line-height:1.25;
+      text-transform:uppercase;
+      color:#1E297A;
+      margin-bottom:clamp(30px,5vw,45px);
+    }
+
+    /* ---------- Tarjetas verdes ---------- */
+    .fnp-cards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+      align-items:stretch;
+    }
+    .fnp-col{display:flex;flex-direction:column}
+
+    .fnp-col-title{
+      text-align:center;
+      font-size:clamp(20px,2.4vw,24px);
+      font-weight:700;
+      color:#111;
+      margin-bottom:14px;
+      line-height:1.3;
+    }
+
+    .fnp-card{
+      flex:1;
+      display:flex;
+      flex-direction:column;
+      background:var(--fin-green);
+      color:#fff;
+      border-radius:26px;
+      padding:34px 30px 30px;
+      box-shadow:0 8px 22px rgba(0,0,0,0.12);
+      transition:transform 0.3s cubic-bezier(.34,1.56,.64,1),box-shadow 0.3s ease;
+    }
+    .fnp-card{text-decoration:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
+    .fnp-card:hover{transform:translateY(-6px);box-shadow:0 16px 32px rgba(0,0,0,0.22)}
+    .fnp-card:active{transform:scale(0.97);transition-duration:0.1s}
+    .fnp-card:focus-visible{outline:3px solid #1E297A;outline-offset:4px}
+    /* Al pasar el mouse por la tarjeta, el botón Apply Now también reacciona */
+    .fnp-card:hover .fnp-apply{transform:translateY(-3px);box-shadow:0 9px 20px rgba(0,0,0,0.28);background:#1E297A;color:#fff}
+    .fnp-card:active .fnp-apply{transform:scale(0.93);transition-duration:0.08s}
+
+    .fnp-card-title{
+      font-size:clamp(22px,2.6vw,26px);
+      font-weight:700;
+      line-height:1.2;
+      margin-bottom:12px;
+    }
+    .fnp-card-sub{font-size:15px;font-weight:700;line-height:1.35;margin-bottom:14px}
+    .fnp-card-text{font-size:15px;font-weight:500;line-height:1.5;margin-bottom:14px}
+    .fnp-card-amount{font-size:15px;font-weight:600;margin-bottom:14px}
+    .fnp-card-blank{font-size:18px;font-weight:700;letter-spacing:1px;margin-bottom:14px;word-break:break-all}
+
+    .fnp-card-code{font-size:15px;font-weight:700;margin-top:auto;padding-top:18px;margin-bottom:12px}
+
+    .fnp-card-bottom{display:flex;align-items:flex-end;justify-content:space-between;gap:14px}
+    .fnp-qr{
+      width:100px;height:100px;
+      background:#fff;
+      border-radius:4px;
+      object-fit:contain;
+      flex-shrink:0;
+    }
+
+    .fnp-apply{
+      display:inline-block;
+      cursor:pointer;
+      background:#fff;
+      color:#111;
+      font-size:15px;
+      font-weight:700;
+      text-decoration:none;
+      text-align:center;
+      padding:12px 32px;
+      border-radius:50px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.18);
+      transition:transform 0.25s ease,box-shadow 0.25s ease,background 0.25s ease,color 0.25s ease;
+      white-space:nowrap;
+    }
+
+    /* Espacio reservado para el QR (se reemplaza por la imagen real) */
+    .fnp-qr-slot{
+      display:flex;align-items:center;justify-content:center;
+      border:2px dashed #b5b5b5;
+      color:#9a9a9a;
+      font-size:14px;font-weight:700;
+    }
+
+    /* ---------- Lista de mejoras elegibles ---------- */
+    .fnp-list-title{
+      text-align:center;
+      font-size:clamp(22px,3.6vw,30px);
+      font-weight:700;
+      line-height:1.25;
+      text-transform:uppercase;
+      color:#1E297A;
+      margin:clamp(50px,8vw,80px) 0 clamp(30px,5vw,50px);
+    }
+    .fnp-list-wrap{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:30px;
+      padding:0 clamp(0px,2vw,30px);
+    }
+    .fnp-list{list-style:none;padding:0;margin:0}
+    .fnp-list li{
+      font-size:14px;
+      font-weight:600;
+      line-height:1.55;
+      color:#1E297A;
+    }
+    .fnp-list li::before{content:"• ";font-weight:700}
+
+    .fnp-note{
+      font-size:14px;
+      font-weight:600;
+      color:#111;
+      line-height:1.5;
+      margin:clamp(30px,5vw,50px) clamp(0px,2vw,30px) 28px;
+    }
+    .fnp-divider{
+      border:0;
+      height:2px;
+      background:var(--fin-green);
+      margin:0 clamp(0px,2vw,30px);
+    }
+
+    /* ---------- PreQualify ---------- */
+    .fnp-pre{text-align:center;margin-top:clamp(40px,6vw,60px)}
+    .fnp-pre-title{font-size:clamp(24px,3.4vw,30px);font-weight:700;color:#111;margin-bottom:8px}
+    .fnp-pre-intro{
+      font-size:15px;
+      font-weight:600;
+      line-height:1.5;
+      color:#111;
+      max-width:560px;
+      margin:0 auto clamp(30px,5vw,50px);
+    }
+    .fnp-pre-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:30px;
+      align-items:start;
+    }
+    .fnp-pre-item{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      padding:10px 14px;
+      border-radius:16px;
+      transition:transform 0.3s cubic-bezier(.34,1.56,.64,1);
+    }
+    .fnp-pre-item:hover{transform:translateY(-6px)}
+    .fnp-pre-icon{height:100px;width:auto;margin-bottom:22px;display:block}
+    .fnp-pre-label{font-size:15px;font-weight:700;line-height:1.4;color:#1E297A;margin-bottom:8px}
+    .fnp-pre-small{font-size:14px;font-weight:500;color:#1E297A;line-height:1.5}
+    .fnp-pre-link{
+      font-size:14px;
+      font-weight:500;
+      color:#1E297A;
+      text-decoration:underline;
+      word-break:break-word;
+      transition:color 0.2s ease;
+    }
+    .fnp-pre-link:hover{color:var(--accent-red)}
+
+    /* ========== FOOTER ========== */
+    footer{background:linear-gradient(135deg,var(--primary-blue),#151f5c);color:#fff;padding:60px 20px 30px;position:relative;overflow:hidden;z-index:1;width:100%}
+    footer::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent-red),var(--accent-orange),var(--accent-red));animation:shimmer 3s linear infinite;background-size:200% 100%}
+    @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+    .footer-container{max-width:1200px;margin:0 auto;position:relative;z-index:1;width:100%;padding:0 40px}
+    .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;margin-bottom:50px}
+    .footer-brand .logo{margin-bottom:20px;display:flex;align-items:center;text-decoration:none}
+    .footer-brand .logo-img{height:65px;width:auto;object-fit:contain;transition:transform 0.3s}
+    .footer-brand .logo-img:hover{transform:scale(1.05)}
+    .footer-brand .logo-icon{width:60px;height:60px;background:linear-gradient(135deg,var(--accent-red),var(--primary-blue));border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:28px;box-shadow:0 4px 12px rgba(230,57,70,0.3)}
+    .footer-brand .logo-text h1{color:#fff;font-size:24px;font-weight:700;line-height:1.2;letter-spacing:-0.5px}
+    .footer-brand .logo-text span{color:rgba(255,255,255,0.7);font-size:11px;font-weight:500;letter-spacing:0.5px;text-transform:uppercase}
+    .footer-brand p{font-size:14px;line-height:1.8;color:rgba(255,255,255,0.7);margin:15px 0}
+    .social-links{display:flex;gap:12px}
+    .social-links a{width:38px;height:38px;background:rgba(255,255,255,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;transition:all 0.3s;font-size:16px}
+    .social-links a:hover{background:var(--accent-red);transform:translateY(-4px);box-shadow:0 8px 25px rgba(230,57,70,0.4)}
+    .footer-column h3{font-size:17px;font-weight:700;margin-bottom:20px;color:#fff;position:relative;display:inline-block}
+    .footer-column h3::after{content:'';position:absolute;bottom:-8px;left:0;width:40px;height:2px;background:var(--accent-red);border-radius:2px}
+    .footer-column ul{list-style:none}
+    .footer-column li{margin-bottom:12px}
+    .footer-column a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:14px;transition:all 0.3s;display:inline-block}
+    .footer-column a:hover{color:#fff;transform:translateX(6px)}
+    .contact-info li{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;font-size:14px;color:rgba(255,255,255,0.75);word-break:break-word;line-height:1.6}
+    .contact-info i{color:var(--accent-red);font-size:17px;margin-top:2px;flex-shrink:0}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,0.12);padding-top:28px;text-align:center;font-size:13px;color:rgba(255,255,255,0.6)}
+
+    /* ========== RESPONSIVE ========== */
+    @media(max-width:1000px){
+      .fnp-cards{grid-template-columns:1fr;max-width:480px;margin:0 auto;gap:30px}
+      .fnp-list-wrap{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:768px){
+      .header-container{padding:12px 20px}
+      nav ul{display:none}
+      .mobile-menu{display:flex}
+      .footer-container{padding:0 20px}
+      .footer-grid{gap:35px;text-align:center}
+      .footer-column h3::after{left:50%;transform:translateX(-50%)}
+      .contact-info li{justify-content:center}
+      .social-links{justify-content:center}
+      .footer-brand .logo{justify-content:center}
+      .fnp-pre-grid{grid-template-columns:1fr;gap:34px}
+    }
+    @media(max-width:480px){
+      .fnp-list-wrap{grid-template-columns:1fr}
+      .fnp-card{padding:28px 22px 24px}
+      .fnp-card-bottom{flex-direction:column;align-items:stretch}
+      .fnp-qr{align-self:center}
+    }
+
+    /* Accesibilidad */
+    @media(prefers-reduced-motion:reduce){
+      .fnp-card,.fnp-apply,.fnp-pre-item{transition:none}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header id="header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <img src="fu.png" alt="Full Uniwell LLC" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+        <div class="logo-icon" style="display:none">FU</div>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html#about">About Us</a></li>
+          <li><a href="ourservices.html">Services</a></li>
+          <li><a href="location.html">Location</a></li>
+          <li><a href="ourteam.html">Our Team</a></li>
+          <li><a href="https://fulluniwell.blogspot.com/" target="_blank" rel="noopener noreferrer">Blog</a></li>
+          <li><a href="contacto.html">Contact</a></li>
+          <li><a href="financing.html" class="nav-financing active">Financing</a></li>
+        </ul>
+      </nav>
+      <div class="mobile-menu" id="mobileMenu"><i class="fas fa-bars"></i></div>
+    </div>
+    <div class="mobile-nav" id="mobileNav">
+      <ul>
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#about">About Us</a></li>
+        <li><a href="ourservices.html">Services</a></li>
+        <li><a href="index.html#location">Location</a></li>
+        <li><a href="ourteam.html">Our Team</a></li>
+        <li><a href="https://fulluniwell.blogspot.com/" target="_blank" rel="noopener noreferrer">Blog</a></li>
+        <li><a href="contacto.html">Contact</a></li>
+        <li><a href="financing.html" class="nav-financing active">Financing</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ========== FINANCING SECTION ========== -->
+  <section class="fnp-section" id="financing">
+    <div class="fnp-container">
+
+      <!-- Logos -->
+      <div class="fnp-logos">
+        <img src="logitis.png" alt="Regions Home Improvement Financing" class="fnp-logo" onerror="this.src='https://placehold.co/300x90/ffffff/5d9732?text=REGIONS'">
+        <img src="fu.png" alt="Full Uniwell LLC - Best Project Management Service" class="fnp-logo" onerror="this.src='https://placehold.co/300x90/ffffff/1d2b7f?text=Full+Uniwell+LLC'">
+      </div>
+
+      <h2 class="fnp-title">Financing Available!</h2>
+
+      <!-- Tarjetas -->
+      <div class="fnp-cards">
+
+        <!-- Card 1 -->
+        <div class="fnp-col">
+          <h3 class="fnp-col-title">Same-As-Cash</h3>
+          <a href="https://prequalification.enerbank.com/apply/loanproduct?sponsorPhoneNumber=8664098300&amp;contractorNumber=201847&amp;loanCode=DLL6525&amp;contractorEmail=fabio@fulluniwell.com" class="fnp-card" target="_blank" rel="noopener noreferrer" aria-label="Apply for loan DLL6525">
+            <h4 class="fnp-card-title">12-Mo Same-As-Cash Loan*</h4>
+            <p class="fnp-card-sub">No Monthly Payments &amp; No Interest</p>
+            <p class="fnp-card-text">Interest starts accruing when funds are disbursed.<br>Interest is waived if loan is repaid in full within the<br>"same-as-cash" period.</p>
+            <p class="fnp-card-amount">$1,000 - $55,000</p>
+            <p class="fnp-card-code">Loan code: DLL6525</p>
+            <div class="fnp-card-bottom">
+              <!-- QR DLL6525: reemplaza este div por <img src="qr-DLL6525.png" alt="QR code loan DLL6525" class="fnp-qr"> -->
+              <div class="fnp-qr fnp-qr-slot">QR</div>
+              <span class="fnp-apply">Apply Now</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="fnp-col">
+          <h3 class="fnp-col-title">Low Monthly Payment</h3>
+          <a href="https://prequalification.enerbank.com/apply/loanproduct?sponsorPhoneNumber=8664098300&amp;contractorNumber=201847&amp;loanCode=DLL6558&amp;contractorEmail=fabio@fulluniwell.com" class="fnp-card" target="_blank" rel="noopener noreferrer" aria-label="Apply for loan DLL6558">
+            <h4 class="fnp-card-title">9.99% APR 5-Yr Loan**</h4>
+            <p class="fnp-card-sub" style="margin-top:14px;">Estimated Monthly Payment:</p>
+            <p class="fnp-card-blank">$_______________</p>
+            <p class="fnp-card-text">(0.02124 x loan amount)****<br>$3,500 - $55,000</p>
+            <p class="fnp-card-code">Loan code: DLL6558</p>
+            <div class="fnp-card-bottom">
+              <!-- QR DLL6558: reemplaza este div por <img src="qr-DLL6558.png" alt="QR code loan DLL6558" class="fnp-qr"> -->
+              <div class="fnp-qr fnp-qr-slot">QR</div>
+              <span class="fnp-apply">Apply Now</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="fnp-col">
+          <h3 class="fnp-col-title">Low Monthly Payment</h3>
+          <a href="https://prequalification.enerbank.com/apply/loanproduct?sponsorPhoneNumber=8664098300&amp;contractorNumber=201847&amp;loanCode=DLL6522&amp;contractorEmail=fabio@fulluniwell.com" class="fnp-card" target="_blank" rel="noopener noreferrer" aria-label="Apply for loan DLL6522">
+            <h4 class="fnp-card-title">Traditional Installment Loan***</h4>
+            <p class="fnp-card-sub">Credit Dependent Interest<br>Rate as low as 8.99%</p>
+            <p class="fnp-card-amount">$1,000 - $55,000</p>
+            <p class="fnp-card-code">Loan code: DLL6522</p>
+            <div class="fnp-card-bottom">
+              <!-- QR DLL6522: reemplaza este div por <img src="qr-DLL6522.png" alt="QR code loan DLL6522" class="fnp-qr"> -->
+              <div class="fnp-qr fnp-qr-slot">QR</div>
+              <span class="fnp-apply">Apply Now</span>
+            </div>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Lista de mejoras elegibles -->
+      <h2 class="fnp-list-title">Express Loan Program Eligible Improvement List*</h2>
+
+      <div class="fnp-list-wrap">
+        <ul class="fnp-list">
+          <li>Air Conditioner</li>
+          <li>All Weather Coating</li>
+          <li>Appliance Conversion to Gas</li>
+          <li>Appliances</li>
+          <li>Architectural Design</li>
+          <li>Attic</li>
+          <li>Awning/Patio Cover</li>
+          <li>Barn</li>
+          <li>Basement</li>
+          <li>Bathroom Remodeling</li>
+          <li>Boat Docks &amp; Piers</li>
+          <li>Boiler</li>
+          <li>Brick &amp; Stone Work</li>
+          <li>Cabinets &amp; Refacing</li>
+          <li>Carpet &amp; Flooring</li>
+          <li>Ceiling Fans</li>
+          <li>Ceilings</li>
+          <li>Central Vacuum</li>
+          <li>Ceramic Coating - Exterior</li>
+          <li>Chimney/Chimney Liner</li>
+          <li>Closets</li>
+          <li>Concrete &amp; Paving</li>
+          <li>Conversion Burner</li>
+          <li>Countertop</li>
+          <li>Deck</li>
+          <li>Dehumidifier</li>
+          <li>Doors - all types</li>
+          <li>Drain line Repair/Replacement</li>
+          <li>Drywall</li>
+          <li>Ductwork</li>
+          <li>Electrical Work</li>
+          <li>Enclosures</li>
+          <li>Evaporative Coolers</li>
+          <li>Excavation</li>
+          <li>Fencing</li>
+          <li>Filters, Air Cleaners, Humidifier</li>
+          <li>Fireplaces</li>
+          <li>Fixtures - all types</li>
+          <li>Foundation/Seawall Repair</li>
+          <li>Furnace</li>
+        </ul>
+
+        <ul class="fnp-list">
+          <li>Garage Doors</li>
+          <li>Garage/Carports</li>
+          <li>Gas Grill</li>
+          <li>Gas Work</li>
+          <li>Gazebo</li>
+          <li>Generator</li>
+          <li>Geothermal Heating &amp; Cooling</li>
+          <li>Gutters / Gutter Protection</li>
+          <li>Handrails</li>
+          <li>Hardscape</li>
+          <li>Heat Pump</li>
+          <li>Home Theater</li>
+          <li>House Moving/Relocation</li>
+          <li>HVAC System</li>
+          <li>Infrared Heater</li>
+          <li>Insulation</li>
+          <li>Kennel</li>
+          <li>Kitchen Remodeling</li>
+          <li>Landscaping</li>
+          <li>Lighting - Indoor/Outdoor</li>
+          <li>Masonry</li>
+          <li>Mini Split Cooling System</li>
+          <li>Outbuilding - Permanently Affixed</li>
+          <li>Outdoor Boiler/Furnace/Stove</li>
+          <li>Package Terminal AC &amp; Heat Pump</li>
+          <li>Painting - Exterior/Interior</li>
+          <li>Patio</li>
+          <li>Pavers</li>
+          <li>Pipe Work</li>
+          <li>Plumbing</li>
+          <li>Ponds</li>
+          <li>Pool Pump</li>
+          <li>Pool Remodel or Refurbishment</li>
+          <li>Porch</li>
+          <li>Radiant Barrier</li>
+          <li>Radiant Heat</li>
+          <li>Remodeling - Interior</li>
+          <li>Repair Work - Appliance /HVAC</li>
+          <li>Roof Coating</li>
+          <li>Roofing/Roofing Repairs</li>
+        </ul>
+
+        <ul class="fnp-list">
+          <li>Screening</li>
+          <li>Seal Coating</li>
+          <li>Security Screen</li>
+          <li>Security System</li>
+          <li>Septic System</li>
+          <li>Sewer Lines</li>
+          <li>Shades &amp; Shutters</li>
+          <li>Shading Device</li>
+          <li>Sidewalks</li>
+          <li>Siding</li>
+          <li>Sinkhole Remediation</li>
+          <li>Skylight / Solar Tube</li>
+          <li>Smoke &amp; Fire Damage Restoration</li>
+          <li>Spa/ Sauna - built in</li>
+          <li>Sport Court</li>
+          <li>Sprinkler System -Outdoor/Indoor</li>
+          <li>Storm Shelter</li>
+          <li>Structural Bracing</li>
+          <li>Structural Improvement</li>
+          <li>Stucco</li>
+          <li>Sun Room</li>
+          <li>Sump Pump</li>
+          <li>Surge Protection</li>
+          <li>Synthetic Lawn/Turf</li>
+          <li>Tiling</li>
+          <li>Trim Work- Interior/Exterior</li>
+          <li>Tub Resurfacing</li>
+          <li>Wallpapering</li>
+          <li>Water Damage Restoration</li>
+          <li>Water Heater</li>
+          <li>Waterproofing - Exterior/Interior</li>
+          <li>Weatherization</li>
+          <li>Well Drilling &amp; Services</li>
+          <li>Wind Power System</li>
+          <li>Window Film</li>
+          <li>Window Treatments</li>
+          <li>Windows - all types</li>
+          <li>Zone Control System</li>
+        </ul>
+      </div>
+
+      <p class="fnp-note">*Information is subject to change. Please reach out to associated Relationship Manager for further questions.</p>
+      <hr class="fnp-divider">
+
+      <!-- PreQualify -->
+      <div class="fnp-pre">
+        <h2 class="fnp-pre-title">PreQualify</h2>
+        <p class="fnp-pre-intro">Start your journey effortlessly with a soft credit pull via PreQualify, and transition seamlessly into our Online Application!</p>
+
+        <div class="fnp-pre-grid">
+
+          <!-- Móvil -->
+          <div class="fnp-pre-item">
+            <svg class="fnp-pre-icon" viewBox="0 0 60 90" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="6" y="2" width="48" height="86" rx="9" fill="#84bd00"/>
+              <circle cx="30" cy="76" r="4" fill="#5f8a00"/>
+            </svg>
+            <p class="fnp-pre-label">PreQualify with Regions Home Improvement Financing Mobile App</p>
+            <p class="fnp-pre-small">Available on your contractor's device</p>
+          </div>
+
+          <!-- Monitor -->
+          <div class="fnp-pre-item">
+            <svg class="fnp-pre-icon" viewBox="0 0 110 90" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="5" y="5" width="100" height="62" rx="4" fill="#84bd00"/>
+              <rect x="50" y="67" width="10" height="12" fill="#84bd00"/>
+              <rect x="28" y="79" width="54" height="6" rx="2" fill="#84bd00"/>
+            </svg>
+            <p class="fnp-pre-label">PreQualify Online</p>
+            <a href="https://prequalification.enerbank.com" target="_blank" rel="noopener noreferrer" class="fnp-pre-link">prequalification.enerbank.com</a>
+          </div>
+
+          <!-- Monitor con firma -->
+          <div class="fnp-pre-item">
+            <svg class="fnp-pre-icon" viewBox="0 0 110 90" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="5" y="5" width="100" height="62" rx="4" fill="#84bd00"/>
+              <rect x="50" y="67" width="10" height="12" fill="#84bd00"/>
+              <rect x="28" y="79" width="54" height="6" rx="2" fill="#84bd00"/>
+              <path d="M18 50 q6 -8 12 0 t12 0 t12 0 t12 0" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M84 20 l8 8 -22 22 -10 2 2 -10z" fill="#5f6b3a"/>
+            </svg>
+            <p class="fnp-pre-label">Already PreQualified or ready to apply?<br>Start your Online Application today!</p>
+            <a href="https://application.enerbank.com" target="_blank" rel="noopener noreferrer" class="fnp-pre-link">application.enerbank.com</a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="fur.png" alt="Full Uniweil Logo" style="max-width: 180px; height: auto; margin-bottom: 1rem;">
+
+          <p>Transforming visions into reality with precision and expertise. Your trusted partner for construction excellence in Florida.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+
+          </div>
+        </div>
+        <div class="footer-column"><h3>Useful Links</h3><ul><li><a href="index.html#home">Home</a></li><li><a href="index.html#about">About Us</a></li><li><a href="index.html#recent-projects">Projects</a></li><li><a href="ourservices.html">Our Services</a></li><li><a href="location.html">Location</a></li><li><a href="financing.html">Financing</a></li><li><a href="contacto.html">Contact</a></li></ul></div>
+        <div class="footer-column"><h3>Our Services</h3><ul><li><a href="#">General Contracting</a></li><li><a href="#">Project Management</a></li><li><a href="#">Management Consulting</a></li><li><a href="#">Subcontractor Management</a></li><li><a href="#">Home Inspection</a></li><li><a href="#">Business Development</a></li></ul></div>
+        <div class="footer-column"><h3>Get In Touch</h3><ul class="contact-info"><li><i class="fas fa-map-marker-alt"></i><span>18501 Pines Blvd Suite 3006,<br>Pembroke Pines, FL 33029, USA</span></li><li><i class="fas fa-phone"></i><span>+1 (786) 691-0212</span></li><li><i class="fas fa-envelope"></i><span>info@fulluniwell.com</span></li></ul></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2026 FULL UNIWELL LLC. All Rights Reserved</p></div>
+    </div>
+  </footer>
+
+  <script>
+    // Header scroll effect
+    window.addEventListener('scroll',function(){const header=document.getElementById('header');if(window.scrollY>100){header.classList.add('scrolled')}else{header.classList.remove('scrolled')}});
+
+    // Mobile menu toggle
+    const mobileMenu=document.getElementById('mobileMenu');
+    const mobileNav=document.getElementById('mobileNav');
+    const mobileMenuIcon=mobileMenu.querySelector('i');
+
+    mobileMenu.addEventListener('click',function(){
+      mobileNav.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+      if(mobileNav.classList.contains('active')){
+        mobileMenuIcon.classList.remove('fa-bars');
+        mobileMenuIcon.classList.add('fa-times');
+      }else{
+        mobileMenuIcon.classList.remove('fa-times');
+        mobileMenuIcon.classList.add('fa-bars');
+      }
+    });
+
+    mobileNav.querySelectorAll('a').forEach(link=>{
+      link.addEventListener('click',()=>{
+        mobileNav.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        mobileMenuIcon.classList.remove('fa-times');
+        mobileMenuIcon.classList.add('fa-bars');
+      });
+    });
+
+    document.addEventListener('click',function(e){
+      if(!mobileMenu.contains(e.target)&&!mobileNav.contains(e.target)){
+        mobileNav.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        mobileMenuIcon.classList.remove('fa-times');
+        mobileMenuIcon.classList.add('fa-bars');
+      }
+    });
+  </script>
+</body>
+</html>

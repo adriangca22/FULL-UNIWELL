@@ -43,7 +43,7 @@
 </head>
 <body>
 
-  <header id="header">
+ <header id="header">
     <div class="nav-container">
       <div class="logo">
         <img src="FU.png" alt="Logo de la empresa" class="logo-img" onerror="this.style.display='none'">
@@ -51,14 +51,24 @@
       <nav>
         <ul>
           <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="ourservices.html">Services</a></li>
-      <li><a href="location.html">Location</a></li>
-      <li><a href="ourteam.html">Our Team</a></li>
-       <li><a href="https://fulluniwell.blogspot.com/" target="_blank" rel="noopener noreferrer">Blog</a></li>
-      <li><a href="contacto.html">Contact</a></li>
-     
-    </ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="ourservices.html">Services</a></li>
+          <li><a href="location.html">Location</a></li>
+          <li><a href="ourteam.html">Our Team</a></li>
+          <li><a href="https://fulluniwell.blogspot.com/" target="_blank" rel="noopener noreferrer">Blog</a></li>
+          <li><a href="contacto.html">Contact</a></li>
+
+          <!-- ===== FINANCING (botón verde, estilos inline) ===== -->
+          <li>
+            <a href="financing.html"
+               style="display:inline-block;background:#5d9732;color:#fff;padding:7px 20px;border-radius:50px;box-shadow:0 4px 12px rgba(93,151,50,0.35);transition:all 0.3s ease;"
+               onmouseover="this.style.background='#4c7f27';this.style.color='#fff';this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 18px rgba(93,151,50,0.5)'"
+               onmouseout="this.style.background='#5d9732';this.style.color='#fff';this.style.transform='none';this.style.boxShadow='0 4px 12px rgba(93,151,50,0.35)'"
+               onmousedown="this.style.transform='scale(0.95)'"
+               onmouseup="this.style.transform='translateY(-2px)'">Financing</a>
+          </li>
+          <!-- ===== FIN FINANCING ===== -->
+
         </ul>
       </nav>
       <div class="mobile-menu" id="mobileMenuBtn">
@@ -76,13 +86,21 @@
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About Us</a></li>
-      
       <li><a href="ourservices.html">Services</a></li>
       <li><a href="location.html">Location</a></li>
-       <li><a href="ourteam.html">Our Team</a></li>
-       <li><a href="https://fulluniwell.blogspot.com/" target="_blank" rel="noopener noreferrer">Blog</a></li>
+      <li><a href="ourteam.html">Our Team</a></li>
+      <li><a href="https://fulluniwell.blogspot.com/" target="_blank" rel="noopener noreferrer">Blog</a></li>
       <li><a href="contacto.html">Contact</a></li>
-    
+
+      <!-- ===== FINANCING (botón verde, estilos inline) ===== -->
+      <li>
+        <a href="financing.html"
+           style="display:block;background:#5d9732;color:#fff;text-align:center;border-radius:8px;transition:all 0.3s ease;"
+           onmouseover="this.style.background='#4c7f27';this.style.color='#fff'"
+           onmouseout="this.style.background='#5d9732';this.style.color='#fff'">Financing</a>
+      </li>
+      <!-- ===== FIN FINANCING ===== -->
+
     </ul>
   </div>
 
@@ -234,9 +252,36 @@
     </div>
 
     <div class="fu-svc-layout">
+
+      <!-- ========== CARRUSEL AUTOMÁTICO (sin botones) ========== -->
       <div class="fu-svc-photo">
-        <img src="nuevita.png" alt="General contractors and consultants">
+        <div class="fu-svc-carousel">
+          <div class="fu-svc-carousel-track">
+
+            <!-- Imagen 1 -->
+            <div class="fu-svc-carousel-slide">
+              <img src="casco.png" alt="Construction 1" onerror="this.src='https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800'">
+            </div>
+
+            <!-- Imagen 2 -->
+            <div class="fu-svc-carousel-slide">
+              <img src="Services-02.png" alt="Construction 2" onerror="this.src='https://images.unsplash.com/photo-1503387762-592b58cfffbd?w=800'">
+            </div>
+
+            <!-- Imagen 3 -->
+            <div class="fu-svc-carousel-slide">
+              <img src="Services-03.png" alt="Construction 3" onerror="this.src='https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800'">
+            </div>
+
+            <!-- Clon de la imagen 1 (para que el loop sea continuo, NO borrar) -->
+            <div class="fu-svc-carousel-slide" aria-hidden="true">
+              <img src="casco.png" alt="" onerror="this.src='https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800'">
+            </div>
+
+          </div>
+        </div>
       </div>
+      <!-- ========== FIN CARRUSEL ========== -->
 
       <div class="fu-svc-list">
         <div class="fu-svc-card">
@@ -268,12 +313,8 @@
       </div>
     </div>
 
-    <div class="fu-svc-btn-wrap">
-      <a href="ourservices.html" class="fu-svc-btn"><i class="fas fa-th-large"></i> See All Services</a>
-    </div>
-
     <!-- ========== FINANCING BANNER (Con slider de texto) ========== -->
-    <div class="fu-fin-card">
+    <div class="fu-fin-card" style="margin-top:50px;">
       
       <!-- Logos arriba (Blanco) -->
       <div class="fu-fin-logos">
@@ -315,7 +356,7 @@
         </div>
         <!-- Fin del viewport -->
 
-        <a href="contacto.html" class="fu-fin-btn">Start my project today!</a>
+        <a href="financing.html" class="fu-fin-btn">Start my project today!</a>
       </div>
 
     </div>
@@ -342,6 +383,42 @@
       slides[current].classList.add('fu-fin-slide-active');
     }, 5000); // 5000 milisegundos = 5 segundos
   })();
+
+</script>
+
+<!-- Script del carrusel de imágenes (cambia cada 4 segundos) -->
+<script>
+  (function() {
+    const carousel = document.querySelector('.fu-svc-carousel');
+    const track = document.querySelector('.fu-svc-carousel-track');
+    if (!carousel || !track) return;
+
+    const total = track.children.length;      // 4 (3 imágenes + clon)
+    let index = 0;
+    let paused = false;
+
+    // Pausa al pasar el mouse
+    carousel.addEventListener('mouseenter', function() { paused = true; });
+    carousel.addEventListener('mouseleave', function() { paused = false; });
+
+    setInterval(function() {
+      if (paused) return;
+
+      index++;
+      track.style.transform = 'translateX(-' + (index * (100 / total)) + '%)';
+
+      // Si llegó al clon (idéntico a la imagen 1), regresa al inicio sin que se note
+      if (index === total - 1) {
+        setTimeout(function() {
+          track.classList.add('fu-svc-no-transition');
+          track.style.transform = 'translateX(0)';
+          index = 0;
+          void track.offsetWidth;               // fuerza el repintado
+          track.classList.remove('fu-svc-no-transition');
+        }, 900);
+      }
+    }, 4000); // 4000 milisegundos = 4 segundos
+  })();
 </script>
 <!-- ========== AFFORDABLE HOUSING PROGRAM ========== -->
 <section class="fu-ah-section" id="affordable-housing">
@@ -355,7 +432,7 @@
     <!-- Bloque ADU -->
     <div class="fu-ah-adu">
       <div class="fu-ah-adu-photo">
-        <img src="Services-03.png" alt="Backyard ADU Home">
+        <img src="casa-nueva.png" alt="Backyard ADU Home">
       </div>
 
       <div class="fu-ah-adu-text">
