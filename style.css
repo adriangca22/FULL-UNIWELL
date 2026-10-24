@@ -2086,560 +2086,435 @@ section h2 {
   box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 /* ========== AFFORDABLE HOUSING PROGRAM ========== */
-/* =====================================================
-   FU – SERVICES + FINANCING + AFFORDABLE HOUSING
-   CSS unificado. Prefijos únicos: fu-svc- / fu-fin- / fu-ah-
-   ===================================================== */
-
-/* =====================================================
-   1. OUR SERVICES
-   ===================================================== */
-.fu-svc-section {
-  width: 100%;
-  background: #ffffff;
-  padding: clamp(50px, 8vw, 80px) 20px 60px;
-  font-family: 'Poppins', sans-serif;
-}
-
-.fu-svc-container {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.fu-svc-header {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.fu-svc-label {
-  display: block;
-  font-size: 14px;
-  font-weight: 700;
-  color: #e00000;
-  margin-bottom: 10px;
-}
-
-.fu-svc-title {
-  font-size: clamp(22px, 3.2vw, 30px);
-  font-weight: 800;
-  line-height: 1.25;
-  color: #1E297A;
-  margin: 0;
-}
-
-.fu-svc-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 45px;
-  align-items: center;
-}
-
-/* Imagen PNG ya con su forma: sin recorte, sin bordes, sin sombra */
-.fu-svc-photo {
-  width: 100%;
-  line-height: 0;
-}
-
-.fu-svc-photo img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 0;
-  box-shadow: none;
-}
-
-.fu-svc-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-/* ---------- Tarjetas de servicio (con animación al presionar) ---------- */
-.fu-svc-card {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  background: #F3F5FB;
-  border-radius: 10px;
-  padding: 16px 18px;
-  cursor: pointer;
-  user-select: none;
-  -webkit-tap-highlight-color: transparent;
-  transition: transform 0.25s cubic-bezier(.34, 1.56, .64, 1),
-              box-shadow 0.25s ease,
-              background 0.25s ease;
-}
-
-.fu-svc-card:hover {
-  transform: translateY(-3px);
-  background: #ECEFF9;
-  box-shadow: 0 10px 22px rgba(30, 41, 122, 0.15);
-}
-
-/* Al presionar: la tarjeta se hunde y se pinta de azul */
-.fu-svc-card:active {
-  transform: scale(0.96);
-  background: #1E297A;
-  box-shadow: 0 2px 6px rgba(30, 41, 122, 0.35);
-  transition-duration: 0.08s;
-}
-
-.fu-svc-card:active .fu-svc-card-title,
-.fu-svc-card:active .fu-svc-card-icon {
-  color: #ffffff;
-}
-
-.fu-svc-card:active .fu-svc-card-text {
-  color: rgba(255, 255, 255, 0.85);
-}
-
-.fu-svc-card:focus-visible {
-  outline: 3px solid #e63946;
-  outline-offset: 3px;
-}
-
-.fu-svc-card-icon {
-  flex-shrink: 0;
-  width: 24px;
-  font-size: 18px;
-  color: #1E297A;
-  text-align: center;
-  line-height: 1.3;
-  transition: transform 0.3s cubic-bezier(.34, 1.56, .64, 1), color 0.2s ease;
-}
-
-.fu-svc-card:hover .fu-svc-card-icon {
-  transform: scale(1.2) rotate(-6deg);
-}
-
-.fu-svc-card:active .fu-svc-card-icon {
-  transform: scale(0.85);
-}
-
-.fu-svc-card-title {
-  font-size: 16px;
-  font-weight: 700;
-  color: #1E297A;
-  margin: 0 0 6px;
-  transition: color 0.2s ease;
-}
-
-.fu-svc-card-text {
-  font-size: 13px;
-  line-height: 1.55;
-  color: #5b6475;
-  margin: 0;
-  transition: color 0.2s ease;
-}
-
-/* ---------- Botón See All Services ---------- */
-.fu-svc-btn-wrap {
-  text-align: center;
-  margin: 35px 0 40px;
-}
-
-.fu-svc-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: #e63946;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 700;
-  text-decoration: none;
-  padding: 11px 26px;
-  border-radius: 50px;
-  box-shadow: 0 4px 12px rgba(230, 57, 70, 0.35);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.fu-svc-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 18px rgba(230, 57, 70, 0.5);
-}
-
-.fu-svc-btn:active {
-  transform: scale(0.93);
-  box-shadow: 0 2px 6px rgba(230, 57, 70, 0.4);
-  transition-duration: 0.08s;
-}
-
-/* =====================================================
-   2. FINANCING BANNER
-   ===================================================== */
-.fu-fin-card {
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto;
-  border-radius: 26px;
-  overflow: hidden;
-  background: #ffffff;
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
-}
-
-.fu-fin-card::before {
-  content: "";
-  position: absolute;
-  inset: 55px 0 0 0;
-  background: #4F922F;
-  clip-path: polygon(0 22%, 100% 0, 100% 100%, 0 100%);
-}
-
-.fu-fin-logos {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-  padding: 18px 20px 6px;
-  min-height: 70px;
-}
-
-.fu-fin-logo {
-  height: 34px;
-  width: auto;
-  object-fit: contain;
-}
-
-.fu-fin-body {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  color: #fff;
-  padding: 22px 30px 34px;
-}
-
-.fu-fin-title {
-  font-size: clamp(20px, 3vw, 26px);
-  font-weight: 800;
-  margin: 0 0 4px;
-}
-
-.fu-fin-sub {
-  font-size: clamp(14px, 2vw, 17px);
-  font-weight: 500;
-  margin: 0 0 12px;
-}
-
-.fu-fin-note {
-  font-size: 13px;
-  line-height: 1.5;
-  max-width: 440px;
-  margin: 0 auto 18px;
-  opacity: 0.95;
-}
-
-.fu-fin-btn {
-  display: inline-block;
-  background: #fff;
-  color: #1E297A;
-  font-size: 15px;
-  font-weight: 700;
-  text-decoration: none;
-  padding: 10px 32px;
-  border-radius: 50px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.fu-fin-btn:hover {
-  transform: translateY(-2px);
-}
-
-.fu-fin-btn:active {
-  transform: scale(0.93);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-  transition-duration: 0.08s;
-}
-
-/* =====================================================
-   3. AFFORDABLE HOUSING PROGRAM
-   ===================================================== */
-.fu-ah-section {
-  width: 100%;
+/* ========== AFFORDABLE HOUSING PROGRAM SECTION ========== */
+.affordable-housing {
+  padding: clamp(60px, 10vw, 100px) 20px;
   background: linear-gradient(135deg, #F5F7FB 0%, #E8ECF4 50%, #DCE3ED 100%);
-  padding: clamp(50px, 8vw, 70px) 20px 60px;
-  font-family: 'Poppins', sans-serif;
+  width: 100%;
 }
 
-.fu-ah-container {
-  max-width: 1000px;
+.housing-container {
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-.fu-ah-header {
+.housing-header {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 25px;
 }
 
-.fu-ah-title {
-  font-size: clamp(22px, 3vw, 28px);
+.housing-title {
+  font-size: 24px;
   font-weight: 800;
-  letter-spacing: 1px;
   color: #1E297A;
-  margin: 0 0 14px;
+  margin-bottom: 5px;
+  letter-spacing: 1px;
 }
 
-.fu-ah-intro {
-  font-size: 15px;
+.program-description-wrapper {
+  max-width: 800px;
+  margin: 0 auto 30px auto;
+  text-align: center;
+}
+
+.program-description {
+  font-size: 13px;
+  color: #2d3748;
   line-height: 1.5;
   font-weight: 500;
-  color: #2d3748;
-  max-width: 560px;
+  padding: 10px 20px;
+  text-align: center;
+  margin: 0;
+}
+
+.housing-program-section {
+  margin-bottom: 30px;
+}
+
+/* 🔹 CORRECCIÓN 1: Grid al 100% para alinearse con las imágenes de abajo */
+.program-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  width: 100%;
+  max-width: 100%; /* Antes era 800px. Ahora ocupa todo el ancho del contenedor */
   margin: 0 auto;
 }
 
-/* ---------- Bloque ADU ---------- */
-.fu-ah-adu {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 45px;
+/* Tarjeta de características */
+.program-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  height: 100%;
+  box-shadow: 
+    8px 10px 20px rgba(0, 0, 0, 0.15),
+    4px 6px 12px rgba(0, 0, 0, 0.1),
+    0 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex; /* Permite que el contenido interno se estire correctamente */
+}
+
+.program-card:hover {
+  transform: translateY(-4px) translateX(-2px);
+  box-shadow: 
+    12px 15px 28px rgba(0, 0, 0, 0.22),
+    6px 8px 16px rgba(0, 0, 0, 0.12),
+    0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+/* 🔹 CORRECCIÓN 2: Layout horizontal (Logo izquierda, texto derecha) */
+.program-card-content {
+  padding: 20px 25px;
+  display: flex;
+  flex-direction: row; /* Cambiado a horizontal */
   align-items: center;
-  margin-bottom: 50px;
-}
-
-/* Imagen PNG ya con su forma: sin recorte, sin bordes, sin sombra */
-.fu-ah-adu-photo {
+  gap: 20px;
+  height: 100%;
   width: 100%;
-  line-height: 0;
 }
 
-.fu-ah-adu-photo img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 0;
-  box-shadow: none;
+.program-logo {
+  flex-shrink: 0; /* Evita que el logo se encoja al agrandar la tarjeta */
+  margin-bottom: 0;
+  text-align: center;
 }
 
-.fu-ah-adu-heading {
-  font-size: clamp(20px, 2.6vw, 24px);
-  font-weight: 700;
-  line-height: 1.25;
-  color: #1E297A;
-  margin: 0 0 22px;
+.program-logo-img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  display: inline-block;
 }
 
-.fu-ah-adu-sub {
-  font-size: 18px;
+.program-features {
+  flex: 1; /* Ocupa el espacio restante a la derecha */
+}
+
+.program-features h4 {
+  font-size: 13px;
   font-weight: 700;
   color: #1E297A;
-  margin: 0 0 12px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.fu-ah-checklist {
+.program-features ul {
   list-style: none;
   padding: 0;
-  margin: 0 0 18px;
+  margin: 0;
 }
 
-.fu-ah-checklist li {
-  position: relative;
-  padding-left: 22px;
-  font-size: 14px;
-  line-height: 1.5;
+.program-features li {
+  font-size: 12px;
   color: #4a5568;
-  margin-bottom: 4px;
+  line-height: 1.5;
+  margin-bottom: 5px;
+  padding-left: 18px;
+  position: relative;
 }
 
-.fu-ah-checklist li::before {
+.program-features li::before {
   content: "✓";
   position: absolute;
   left: 0;
+  color: #e63946;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+/* Tarjeta de oferta */
+.program-card-offer {
+  background: linear-gradient(135deg, #1E297A, #141f63);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  height: 100%;
+  box-shadow: 
+    8px 10px 20px rgba(0, 0, 0, 0.22),
+    4px 6px 12px rgba(0, 0, 0, 0.12),
+    0 2px 4px rgba(0, 0, 0, 0.08);
+  display: flex;
+}
+
+.program-card-offer:hover {
+  transform: translateY(-4px) translateX(-2px);
+  box-shadow: 
+    12px 18px 30px rgba(0, 0, 0, 0.3),
+    6px 10px 18px rgba(0, 0, 0, 0.15),
+    0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.program-offer-content {
+  padding: 25px 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.program-offer-content h3 {
+  font-size: 20px;
+  font-weight: 800;
+  color: #e63946;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.program-offer-content p {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.btn-assessment {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #e63946, #c1121f);
+  color: white;
+  padding: 12px 28px;
+  border-radius: 50px;
+  text-decoration: none;
   font-weight: 700;
-  color: #4a5568;
+  font-size: 13px;
+  transition: all 0.3s ease;
+  margin: 0 auto;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(230, 57, 70, 0.4);
+  border: none;
+  cursor: pointer;
 }
 
-.fu-ah-adu-note {
-  font-size: 14px;
-  line-height: 1.55;
-  color: #4a5568;
-  margin: 0 0 0 22px;
+.btn-assessment:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(135deg, #c1121f, #a3151a);
+  box-shadow: 0 8px 20px rgba(230, 57, 70, 0.6);
 }
 
-/* ---------- Grid de 4 tarjetas (con animación al presionar) ---------- */
-.fu-ah-grid {
+.floating-icon {
+  display: inline-block;
+  animation: float-side 1.5s ease-in-out infinite;
+}
+
+@keyframes float-side {
+  0% { transform: translateX(0px); }
+  50% { transform: translateX(4px); }
+  100% { transform: translateX(0px); }
+}
+
+/* ========== HOUSING GRID - Imágenes cuadradas ========== */
+.housing-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
+  gap: 20px;
+  margin-top: 30px;
+  padding: 0; /* Alineación perfecta con el grid superior */
 }
 
-.fu-ah-card {
+.housing-card {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  overflow: visible;
+  transition: all 0.3s ease;
+  box-shadow: none;
   text-align: center;
-  cursor: pointer;
-  user-select: none;
-  -webkit-tap-highlight-color: transparent;
-  transition: transform 0.3s cubic-bezier(.34, 1.56, .64, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.fu-ah-card:hover {
+.housing-card:hover {
   transform: translateY(-5px);
+  box-shadow: none;
 }
 
-.fu-ah-card:active {
-  transform: scale(0.95);
-  transition-duration: 0.08s;
-}
-
-.fu-ah-card:focus-visible {
-  outline: 3px solid #e63946;
-  outline-offset: 4px;
-  border-radius: 14px;
-}
-
-.fu-ah-card-img {
+.housing-card-image {
   width: 100%;
-  aspect-ratio: 1 / 0.85;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
-  border-radius: 14px;
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
-  transition: box-shadow 0.3s ease;
+  background: transparent;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
 }
 
-.fu-ah-card:hover .fu-ah-card-img {
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
+.housing-card:hover .housing-card-image {
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.25);
 }
 
-.fu-ah-card:active .fu-ah-card-img {
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
-}
-
-.fu-ah-card-img img {
+.housing-card-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
   transition: transform 0.4s ease;
+  display: block;
 }
 
-.fu-ah-card:hover .fu-ah-card-img img {
+.housing-card:hover .housing-card-image img {
   transform: scale(1.06);
 }
 
-.fu-ah-card:active .fu-ah-card-img img {
-  transform: scale(1.02);
+.housing-card-content {
+  padding: 14px 8px 6px;
+  text-align: center;
 }
 
-.fu-ah-card-title {
+.housing-card-content h3 {
   font-size: 13px;
   font-weight: 700;
+  color: #1E297A;
+  margin-bottom: 6px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  color: #1E297A;
-  margin: 12px 0 5px;
-  transition: color 0.2s ease;
-}
-
-.fu-ah-card:active .fu-ah-card-title {
-  color: #e63946;
-}
-
-.fu-ah-card-text {
-  font-size: 12px;
-  line-height: 1.45;
-  color: #6b7280;
-  margin: 0;
-}
-
-/* ---------- Botón More info ---------- */
-.fu-ah-btn-wrap {
   text-align: center;
-  margin-top: 32px;
 }
 
-.fu-ah-btn {
-  display: inline-block;
-  background: #1E297A;
-  color: #fff;
-  font-size: 15px;
-  font-weight: 600;
-  text-decoration: none;
-  padding: 12px 44px;
-  border-radius: 50px;
-  box-shadow: 0 5px 14px rgba(30, 41, 122, 0.35);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+.housing-card-content p {
+  font-size: 11px;
+  color: #6b7280;
+  line-height: 1.45;
+  margin: 0;
+  text-align: center;
+  max-width: 100%;
 }
 
-.fu-ah-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 9px 20px rgba(30, 41, 122, 0.5);
-}
-
-.fu-ah-btn:active {
-  transform: scale(0.93);
-  box-shadow: 0 2px 6px rgba(30, 41, 122, 0.4);
-  transition-duration: 0.08s;
-}
-
-/* =====================================================
-   RESPONSIVE
-   ===================================================== */
-@media (max-width: 900px) {
-  .fu-ah-grid {
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1000px) {
+  .housing-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
+    padding: 0 20px;
   }
-
-  .fu-ah-card-title {
-    font-size: 14px;
+  
+  .program-grid {
+    gap: 20px;
   }
-
-  .fu-ah-card-text {
-    font-size: 13px;
+  
+  .program-card-content {
+    flex-direction: row;
+    gap: 15px;
+    padding: 15px 20px;
   }
 }
 
 @media (max-width: 768px) {
-  .fu-svc-layout,
-  .fu-ah-adu {
-    grid-template-columns: 1fr;
-    gap: 28px;
+  .program-grid {
+    grid-template-columns: 1fr; /* Se apila en móviles */
+    gap: 20px;
   }
-
-  .fu-svc-photo,
-  .fu-ah-adu-photo {
-    max-width: 420px;
-    margin: 0 auto;
+  
+  .housing-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 100%;
+    margin: 30px auto 0;
+    gap: 16px;
   }
-
-  .fu-svc-card-text,
-  .fu-ah-intro,
-  .fu-ah-checklist li,
-  .fu-ah-adu-note,
-  .fu-fin-note {
-    font-size: 14px;
+  
+  .housing-title {
+    font-size: 20px;
   }
-
-  .fu-fin-logos {
-    gap: 24px;
+  
+  .program-description {
+    font-size: 12px;
+    padding: 8px 15px;
   }
-
-  .fu-fin-logo {
-    height: 28px;
+  
+  /* En móvil volvemos a vertical para mejor lectura */
+  .program-card-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+    padding: 20px;
+  }
+  
+  .program-logo {
+    margin-bottom: 5px;
+  }
+  
+  .program-features li {
+    text-align: left;
+  }
+  
+  .program-offer-content {
+    padding: 20px 16px;
+  }
+  
+  .program-offer-content h3 {
+    font-size: 16px;
+  }
+  
+  .program-offer-content p {
+    font-size: 11px;
+  }
+  
+  .program-logo-img {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .btn-assessment {
+    padding: 8px 18px;
+    font-size: 11px;
+  }
+  
+  .housing-card-image {
+    border-radius: 14px;
+  }
+  
+  .housing-card-content h3 {
+    font-size: 10px;
+  }
+  
+  .housing-card-content p {
+    font-size: 8px;
   }
 }
 
 @media (max-width: 480px) {
-  .fu-ah-grid {
-    gap: 14px;
+  .housing-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
-
-  .fu-ah-card-text {
-    font-size: 12px;
+  
+  .program-description {
+    font-size: 11px;
+    padding: 8px 12px;
   }
-}
-
-/* Accesibilidad: sin animaciones si el usuario las desactiva */
-@media (prefers-reduced-motion: reduce) {
-  .fu-svc-card,
-  .fu-svc-card-icon,
-  .fu-svc-btn,
-  .fu-fin-btn,
-  .fu-ah-card,
-  .fu-ah-card-img img,
-  .fu-ah-btn {
-    transition: none;
+  
+  .housing-card-image {
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+  }
+  
+  .program-offer-content h3 {
+    font-size: 15px;
+  }
+  
+  .program-offer-content p {
+    font-size: 10px;
+  }
+  
+  .btn-assessment {
+    padding: 7px 16px;
+    font-size: 10px;
+  }
+  
+  .housing-card-content h3 {
+    font-size: 9px;
+  }
+  
+  .housing-card-content p {
+    font-size: 7px;
   }
 }
 /* ========== FOOTER ========== */
