@@ -2134,7 +2134,6 @@ section h2 {
   align-items: center;
 }
 
-/* Imagen PNG ya con su forma: sin recorte, sin bordes, sin sombra */
 .fu-svc-photo {
   width: 100%;
   line-height: 0;
@@ -2151,46 +2150,38 @@ section h2 {
 .fu-svc-list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 }
 
-/* ---------- Tarjetas de servicio (con animación al presionar) ---------- */
+/* ---------- Tarjetas de servicio ---------- */
 .fu-svc-card {
   display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  background: #F3F5FB;
-  border-radius: 10px;
-  padding: 16px 18px;
+  align-items: center; /* Centrado vertical para que el icono quede a la par del texto */
+  gap: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px 24px;
   cursor: pointer;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
-  transition: transform 0.25s cubic-bezier(.34, 1.56, .64, 1),
-              box-shadow 0.25s ease,
-              background 0.25s ease;
+  
+  /* Borde izquierdo invisible por defecto */
+  border-left: 4px solid transparent; 
+  
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
+/* Animación al pasar el mouse: Se eleva y aparece la línea roja */
 .fu-svc-card:hover {
-  transform: translateY(-3px);
-  background: #ECEFF9;
-  box-shadow: 0 10px 22px rgba(30, 41, 122, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  border-left-color: #e63946;
 }
 
-/* Al presionar: la tarjeta se hunde y se pinta de azul */
 .fu-svc-card:active {
-  transform: scale(0.96);
-  background: #1E297A;
-  box-shadow: 0 2px 6px rgba(30, 41, 122, 0.35);
-  transition-duration: 0.08s;
-}
-
-.fu-svc-card:active .fu-svc-card-title,
-.fu-svc-card:active .fu-svc-card-icon {
-  color: #ffffff;
-}
-
-.fu-svc-card:active .fu-svc-card-text {
-  color: rgba(255, 255, 255, 0.85);
+  transform: scale(0.98);
+  transition-duration: 0.1s;
 }
 
 .fu-svc-card:focus-visible {
@@ -2198,38 +2189,45 @@ section h2 {
   outline-offset: 3px;
 }
 
+/* =====================================================
+   AJUSTE DE LOS ICONOS (Imágenes más grandes y efecto float)
+   ===================================================== */
 .fu-svc-card-icon {
   flex-shrink: 0;
-  width: 24px;
-  font-size: 18px;
-  color: #1E297A;
-  text-align: center;
-  line-height: 1.3;
-  transition: transform 0.3s cubic-bezier(.34, 1.56, .64, 1), color 0.2s ease;
+  width: 60px;  /* Tamaño aumentado */
+  height: 60px; /* Tamaño aumentado */
+  object-fit: contain; /* Evita que las imágenes se deformen */
+  animation: floatIcon 6s ease-in-out infinite; /* Efecto flotante muy lento */
 }
 
+/* Keyframes para el movimiento de flotación */
+@keyframes floatIcon {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px); /* Sube suavemente 6px */
+  }
+}
+
+/* Pausar la flotación al pasar el mouse por la tarjeta */
 .fu-svc-card:hover .fu-svc-card-icon {
-  transform: scale(1.2) rotate(-6deg);
+  animation-play-state: paused;
 }
-
-.fu-svc-card:active .fu-svc-card-icon {
-  transform: scale(0.85);
-}
+/* ===================================================== */
 
 .fu-svc-card-title {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
   color: #1E297A;
-  margin: 0 0 6px;
-  transition: color 0.2s ease;
+  margin: 0 0 8px;
 }
 
 .fu-svc-card-text {
-  font-size: 13px;
-  line-height: 1.55;
+  font-size: 14px;
+  line-height: 1.6;
   color: #5b6475;
   margin: 0;
-  transition: color 0.2s ease;
 }
 
 /* ---------- Botón See All Services ---------- */
@@ -2269,7 +2267,7 @@ section h2 {
    ===================================================== */
 .fu-fin-card {
   position: relative;
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
   border-radius: 26px;
   overflow: hidden;
@@ -2310,14 +2308,42 @@ section h2 {
   padding: 22px 30px 34px;
 }
 
+/* Reglas del slider */
+.fu-fin-slides-viewport {
+  display: grid;
+  position: relative;
+  min-height: 160px;
+  align-items: center;
+}
+
+.fu-fin-slide {
+  grid-area: 1 / 1;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s ease;
+}
+
+.fu-fin-slide-active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.fu-fin-apr {
+  font-size: 0.6em;
+  vertical-align: super;
+}
+
 .fu-fin-title {
-  font-size: clamp(20px, 3vw, 26px);
+  font-size: clamp(22px, 3.2vw, 28px);
   font-weight: 800;
-  margin: 0 0 4px;
+  margin: 0 0 6px;
+  line-height: 1.2;
 }
 
 .fu-fin-sub {
-  font-size: clamp(14px, 2vw, 17px);
+  font-size: clamp(15px, 2vw, 18px);
   font-weight: 500;
   margin: 0 0 12px;
 }
@@ -2325,7 +2351,7 @@ section h2 {
 .fu-fin-note {
   font-size: 13px;
   line-height: 1.5;
-  max-width: 440px;
+  max-width: 500px;
   margin: 0 auto 18px;
   opacity: 0.95;
 }
@@ -2337,14 +2363,16 @@ section h2 {
   font-size: 15px;
   font-weight: 700;
   text-decoration: none;
-  padding: 10px 32px;
+  padding: 12px 36px;
   border-radius: 50px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  margin-top: 10px;
 }
 
 .fu-fin-btn:hover {
   transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
 }
 
 .fu-fin-btn:active {
@@ -2390,7 +2418,6 @@ section h2 {
   margin: 0 auto;
 }
 
-/* ---------- Bloque ADU ---------- */
 .fu-ah-adu {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -2399,7 +2426,6 @@ section h2 {
   margin-bottom: 50px;
 }
 
-/* Imagen PNG ya con su forma: sin recorte, sin bordes, sin sombra */
 .fu-ah-adu-photo {
   width: 100%;
   line-height: 0;
@@ -2458,7 +2484,6 @@ section h2 {
   margin: 0 0 0 22px;
 }
 
-/* ---------- Grid de 4 tarjetas (con animación al presionar) ---------- */
 .fu-ah-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -2542,7 +2567,6 @@ section h2 {
   margin: 0;
 }
 
-/* ---------- Botón More info ---------- */
 .fu-ah-btn-wrap {
   text-align: center;
   margin-top: 32px;
@@ -2580,14 +2604,8 @@ section h2 {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
-
-  .fu-ah-card-title {
-    font-size: 14px;
-  }
-
-  .fu-ah-card-text {
-    font-size: 13px;
-  }
+  .fu-ah-card-title { font-size: 14px; }
+  .fu-ah-card-text { font-size: 13px; }
 }
 
 @media (max-width: 768px) {
@@ -2603,34 +2621,37 @@ section h2 {
     margin: 0 auto;
   }
 
+  .fu-svc-card {
+    padding: 16px;
+    gap: 14px;
+  }
+
+  /* Ajuste del tamaño del icono en móviles */
+  .fu-svc-card-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .fu-svc-card-title { font-size: 16px; }
+
   .fu-svc-card-text,
   .fu-ah-intro,
   .fu-ah-checklist li,
   .fu-ah-adu-note,
-  .fu-fin-note {
-    font-size: 14px;
-  }
+  .fu-fin-note { font-size: 14px; }
 
-  .fu-fin-logos {
-    gap: 24px;
-  }
-
-  .fu-fin-logo {
-    height: 28px;
-  }
+  .fu-fin-logos { gap: 24px; }
+  .fu-fin-logo { height: 28px; }
+  .fu-fin-slides-viewport { min-height: 180px; }
 }
 
 @media (max-width: 480px) {
-  .fu-ah-grid {
-    gap: 14px;
-  }
-
-  .fu-ah-card-text {
-    font-size: 12px;
-  }
+  .fu-ah-grid { gap: 14px; }
+  .fu-ah-card-text { font-size: 12px; }
+  .fu-fin-slides-viewport { min-height: 200px; }
 }
 
-/* Accesibilidad: sin animaciones si el usuario las desactiva */
+/* Accesibilidad */
 @media (prefers-reduced-motion: reduce) {
   .fu-svc-card,
   .fu-svc-card-icon,
@@ -2638,8 +2659,10 @@ section h2 {
   .fu-fin-btn,
   .fu-ah-card,
   .fu-ah-card-img img,
-  .fu-ah-btn {
+  .fu-ah-btn,
+  .fu-fin-slide {
     transition: none;
+    animation: none; /* Desactiva el float si el usuario prefiere menos movimiento */
   }
 }
 /* ========== FOOTER ========== */

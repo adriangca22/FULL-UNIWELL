@@ -152,7 +152,9 @@
     </div>
   </section>
  <br><br> <br><br>
-  <section class="services" id="services">
+
+ 
+  <!--section class="services" id="services">
   <div class="services-container">
     <div class="services-header" data-aos="fade-up">
       <div class="our-servicess">Our Services</div>
@@ -222,7 +224,6 @@
 <link rel="stylesheet" href="fu-services-financing.css">
 <link rel="stylesheet" href="fu-affordable-housing.css">
 
-
 <!-- ========== OUR SERVICES ========== -->
 <section class="fu-svc-section" id="our-services">
   <div class="fu-svc-container">
@@ -239,7 +240,8 @@
 
       <div class="fu-svc-list">
         <div class="fu-svc-card">
-          <i class="fas fa-hard-hat fu-svc-card-icon"></i>
+          <!-- Icono viejo cambiado aquí -->
+          <img src="Asset 14.png" alt="General Contracting" class="fu-svc-card-icon">
           <div>
             <h3 class="fu-svc-card-title">General Contracting</h3>
             <p class="fu-svc-card-text">Complete ground up and renovation services with professional crews, code compliant execution, and efficient project delivery</p>
@@ -247,7 +249,8 @@
         </div>
 
         <div class="fu-svc-card">
-          <i class="fas fa-clipboard-list fu-svc-card-icon"></i>
+          <!-- Icono viejo cambiado aquí -->
+          <img src="Asset 22.png" alt="Project & Management" class="fu-svc-card-icon">
           <div>
             <h3 class="fu-svc-card-title">Project &amp; Management Consulting</h3>
             <p class="fu-svc-card-text">Budgeting, estimating, scheduling, tender packages, permitting coordination, and owner representation for residential and commercial projects</p>
@@ -255,7 +258,8 @@
         </div>
 
         <div class="fu-svc-card">
-          <i class="fas fa-file-alt fu-svc-card-icon"></i>
+          <!-- Icono viejo cambiado aquí -->
+          <img src="Asset 17.png" alt="Consulting & Support Services" class="fu-svc-card-icon">
           <div>
             <h3 class="fu-svc-card-title">Contracting &amp; Support Services</h3>
             <p class="fu-svc-card-text">Construction support, inspections, site supervision, punch out, and technical assistance for builders, investors, and property owners</p>
@@ -268,24 +272,77 @@
       <a href="ourservices.html" class="fu-svc-btn"><i class="fas fa-th-large"></i> See All Services</a>
     </div>
 
-    <!-- Financing banner -->
+    <!-- ========== FINANCING BANNER (Con slider de texto) ========== -->
     <div class="fu-fin-card">
+      
+      <!-- Logos arriba (Blanco) -->
       <div class="fu-fin-logos">
         <img src="logitis.png" alt="Regions Home Improvement Financing" class="fu-fin-logo">
         <img src="FU.png" alt="Full Unwell LLC" class="fu-fin-logo">
       </div>
+
+      <!-- Cuerpo verde con texto rotativo -->
       <div class="fu-fin-body">
-        <h3 class="fu-fin-title">12 Month Same-As-Cash*</h3>
-        <p class="fu-fin-sub">No payments, no interest for 12 months</p>
-        <p class="fu-fin-note">Interest starts accruing when funds are disbursed. Interest is waived if loan is repaid in full within the "same-as-cash" period.</p>
+        
+        <!-- Viewport que contiene los 4 textos -->
+        <div class="fu-fin-slides-viewport">
+          
+          <!-- Slide 1 -->
+          <div class="fu-fin-slide fu-fin-slide-active">
+            <h3 class="fu-fin-title">As low as 8.99%<sup class="fu-fin-apr">APR</sup></h3>
+            <p class="fu-fin-sub">Traditional Installment Loan*</p>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="fu-fin-slide">
+            <h3 class="fu-fin-title">9.99%<sup class="fu-fin-apr">APR</sup></h3>
+            <p class="fu-fin-sub">5 Year Loan*</p>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="fu-fin-slide">
+            <h3 class="fu-fin-title">12 Month Same-As-Cash*</h3>
+            <p class="fu-fin-sub">No payments, no interest for 12 months</p>
+            <p class="fu-fin-note">Interest starts accruing when funds are disbursed. Interest is waived if loan is repaid in full within the "same-as-cash" period.</p>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="fu-fin-slide">
+            <h3 class="fu-fin-title">Now offering convenient payment options to help you achieve the home of your dreams</h3>
+            <p class="fu-fin-sub">Contact us to learn more!</p>
+          </div>
+
+        </div>
+        <!-- Fin del viewport -->
+
         <a href="contacto.html" class="fu-fin-btn">Start my project today!</a>
       </div>
+
     </div>
+    <!-- Fin del Banner -->
 
   </div>
 </section>
 
-
+<!-- Script para hacer el cambio de texto cada 5 segundos -->
+<script>
+  (function() {
+    const slides = document.querySelectorAll('.fu-fin-slide');
+    if (!slides.length) return;
+    let current = 0;
+    
+    setInterval(function() {
+      // Quita la clase activa al slide actual
+      slides[current].classList.remove('fu-fin-slide-active');
+      
+      // Pasa al siguiente slide (vuelve al inicio si llega al final)
+      current = (current + 1) % slides.length;
+      
+      // Pone la clase activa al nuevo slide
+      slides[current].classList.add('fu-fin-slide-active');
+    }, 5000); // 5000 milisegundos = 5 segundos
+  })();
+</script>
 <!-- ========== AFFORDABLE HOUSING PROGRAM ========== -->
 <section class="fu-ah-section" id="affordable-housing">
   <div class="fu-ah-container">
