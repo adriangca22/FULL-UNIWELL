@@ -106,36 +106,17 @@
   width: 100%;
 }
 
-/* 
-  ==========================================
-  AJUSTE: Fabio - otro poquito más a la izquierda
-  ==========================================
-*/
 .team-row-top .team-member:last-child {
-  transform: translateX(20px);  /* De 24px a 20px */
+  transform: translateX(20px);
 }
 
-/* Fila inferior: Daniel, Jesús, Jesús Karawich (3 personas) */
+/* Fila inferior: Ahora son 4 personas */
 .team-row-bottom {
   display: flex;
   justify-content: center;
-  gap: 48px;
+  gap: 30px; /* Reducido el gap para que quepan los 4 bien centrados */
   flex-wrap: wrap;
   width: 100%;
-}
-
-/* 
-  ==========================================
-  AJUSTE: Jesús Karawich - otro poquito más a la izquierda
-  ==========================================
-*/
-.team-row-bottom .team-member:last-child {
-  transform: translateX(24px);  /* De 28px a 24px */
-}
-
-/* Pequeño ajuste al miembro del medio para equilibrio */
-.team-row-bottom .team-member:nth-child(2) {
-  transform: translateX(4px);   /* De 6px a 4px */
 }
 
 /* Tarjeta de cada miembro */
@@ -218,7 +199,7 @@
     gap: 60px;
   }
   .team-row-bottom {
-    gap: 36px;
+    gap: 30px;
   }
   .team-member {
     width: 200px;
@@ -230,12 +211,6 @@
   /* Reducimos desplazamiento en tablets */
   .team-row-top .team-member:last-child {
     transform: translateX(12px);
-  }
-  .team-row-bottom .team-member:last-child {
-    transform: translateX(14px);
-  }
-  .team-row-bottom .team-member:nth-child(2) {
-    transform: translateX(2px);
   }
 }
 
@@ -263,9 +238,7 @@
     min-height: auto;
   }
   /* En móvil eliminamos desplazamientos */
-  .team-row-top .team-member:last-child,
-  .team-row-bottom .team-member:last-child,
-  .team-row-bottom .team-member:nth-child(2) {
+  .team-row-top .team-member:last-child {
     transform: translateX(0);
   }
 }
@@ -766,14 +739,27 @@ footer::before {
       </a>
       <nav>
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
-          
+          <li><a href="index.html#home">Home</a></li>
+          <!-- QUITADO EL ACTIVE DE ABOUT US -->
+          <li><a href="index.html#about">About Us</a></li>
           <li><a href="ourservices.html">Services</a></li>
           <li><a href="location.html">Location</a></li>
+          <!-- AGREGADO EL ACTIVE A OUR TEAM -->
           <li><a href="ourteam.html" class="active">Our Team</a></li>
           <li><a href="https://fulluniwell.blogspot.com/" target="_blank" rel="noopener noreferrer">Blog</a></li>
           <li><a href="contacto.html">Contact</a></li>
+
+          <!-- ===== FINANCING (botón verde, estilos inline) ===== -->
+          <li>
+            <a href="financing.html"
+               style="display:inline-block;background:#5d9732;color:#fff;padding:7px 20px;border-radius:50px;box-shadow:0 4px 12px rgba(93,151,50,0.35);transition:all 0.3s ease;"
+               onmouseover="this.style.background='#4c7f27';this.style.color='#fff';this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 18px rgba(93,151,50,0.5)'"
+               onmouseout="this.style.background='#5d9732';this.style.color='#fff';this.style.transform='none';this.style.boxShadow='0 4px 12px rgba(93,151,50,0.35)'"
+               onmousedown="this.style.transform='scale(0.95)'"
+               onmouseup="this.style.transform='translateY(-2px)'">Financing</a>
+          </li>
+          <!-- ===== FIN FINANCING ===== -->
+
         </ul>
       </nav>
       <div class="mobile-menu" id="mobileMenu"><i class="fas fa-bars"></i></div>
@@ -781,16 +767,28 @@ footer::before {
     <div class="mobile-nav" id="mobileNav">
       <ul>
         <li><a href="index.html#home">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        
+        <!-- QUITADO EL ACTIVE DE ABOUT US EN MOVIL -->
+        <li><a href="index.html#about">About Us</a></li>
         <li><a href="ourservices.html">Services</a></li>
         <li><a href="index.html#location">Location</a></li>
+        <!-- AGREGADO EL ACTIVE A OUR TEAM EN MOVIL -->
         <li><a href="ourteam.html" class="active">Our Team</a></li>
         <li><a href="https://fulluniwell.blogspot.com/" target="_blank" rel="noopener noreferrer">Blog</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="contacto.html">Contact</a></li>
+
+        <!-- ===== FINANCING (botón verde, estilos inline) ===== -->
+        <li>
+          <a href="financing.html"
+             style="display:block;background:#5d9732;color:#fff;text-align:center;"
+             onmouseover="this.style.background='#4c7f27';this.style.color='#fff'"
+             onmouseout="this.style.background='#5d9732';this.style.color='#fff'">Financing</a>
+        </li>
+        <!-- ===== FIN FINANCING ===== -->
+
       </ul>
     </div>
   </header>
+
 
   <!-- ========== OUR TEAM SECTION ========== -->
   <section class="team-section" id="team">
@@ -806,36 +804,52 @@ footer::before {
 
       <div class="team-grid">
         <!-- Fila superior: 2 miembros -->
-   <div class="team-row-top">
-  <div class="team-member">
-    <div class="team-member-img">
-      <img src="img/Andrelina-Professional-Profile(1).jpg" alt="Andrelina Mujica">
-    </div>
-    <h3 class="team-member-name">ANDRELINA MUJICA</h3>
-    <p class="team-member-title">Bachelor Civil Engineer &  <br>Certified General Contractor<br>CGC1540242</p>
-    <a href="mailto:andrelina@fulluniwell.com" class="team-member-email">andrelina@fulluniwell.com</a>
-  </div>
+        <div class="team-row-top">
+          <div class="team-member">
+            <div class="team-member-img">
+              <img src="Andrelina.jpg" alt="Andrelina Mujica">
+            </div>
+            <h3 class="team-member-name">ANDRELINA MUJICA</h3>
+            <p class="team-member-title">Bachelor Civil Engineer, <br>Certified General & Roofing Contractor
+<br>CGC1540242 - CCC1338135</p>
+            <a href="mailto:andrelina@fulluniwell.com" class="team-member-email">andrelina@fulluniwell.com</a>
+          </div>
 
-  <div class="team-member">
-    <div class="team-member-img">
-      <img src="img/Fabio-Professional-Profile(1).jpg" alt="Fabio Vargas">
-    </div>
-    <h3 class="team-member-name">FABIO VARGAS</h3>
-    <p class="team-member-title">Bachelor in Accounting, Senior Project Manager,<br>and Certified Home Inspector<br> HI17901</p>
-    <a href="mailto:fabio@fulluniwell.com" class="team-member-email">fabio@fulluniwell.com</a>
-  </div>
-</div>
-        <!-- Fila inferior: 3 miembros -->
+          <div class="team-member">
+            <div class="team-member-img">
+              <img src="Fabio.jpg" alt="Fabio Vargas">
+            </div>
+            <h3 class="team-member-name">FABIO VARGAS</h3>
+            <p class="team-member-title">Bachelor in Accounting, Senior Project Manager,<br>and Certified Home Inspector<br> HI17901</p>
+            <a href="mailto:fabio@fulluniwell.com" class="team-member-email">fabio@fulluniwell.com</a>
+          </div>
+        </div>
+
+        <!-- Fila inferior: Ahora 4 miembros (David agregado antes de Daniel) -->
         <div class="team-row-bottom">
+          
+          <!-- DAVID LEONARDI -->
+          <div class="team-member">
+            <div class="team-member-img">
+              <!-- Cambia el src por el nombre exacto de tu foto -->
+              <img src="David-Leonardi.jpg" alt="David Leonardi">
+            </div>
+            <h3 class="team-member-name">DAVID LEONARDI</h3>
+            <p class="team-member-title">Administrative Manager</p>
+            <a href="mailto:management@fulluniwell.com" class="team-member-email">management@fulluniwell.com</a>
+          </div>
+
+          <!-- DANIEL CANAS -->
           <div class="team-member">
             <div class="team-member-img">
               <img src="img/Daniel-Professional-Profile(1).jpg" alt="Daniel Canas">
             </div>
             <h3 class="team-member-name">DANIEL CANAS</h3>
             <p class="team-member-title">CAD Designer</p>
-            <a href="mailto:daniel@fulluniwell.com" class="team-member-email">designer@fulluniwell.com
+            <a href="mailto:designer@fulluniwell.com" class="team-member-email">designer@fulluniwell.com</a>
           </div>
 
+          <!-- JESUS MUJICA -->
           <div class="team-member">
             <div class="team-member-img">
               <img src="img/Jesus-Mujica-Professional-Profile(1).jpg" alt="Jesus Mujica">
@@ -845,6 +859,7 @@ footer::before {
             <a href="mailto:info@fulluniwell.com" class="team-member-email">info@fulluniwell.com</a>
           </div>
 
+          <!-- JESUS KARAWICH -->
           <div class="team-member">
             <div class="team-member-img">
               <img src="img/Jesús-Karawich-Professional-Profile(1).jpg" alt="Jesus Karawich">
@@ -854,6 +869,7 @@ footer::before {
             <a href="mailto:systems@fulluniwell.com" class="team-member-email">systems@fulluniwell.com</a>
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -916,7 +932,27 @@ footer::before {
     mobileMenu.addEventListener('click',function(){mobileNav.classList.toggle('active');mobileMenu.classList.toggle('active');if(mobileNav.classList.contains('active')){mobileMenuIcon.classList.remove('fa-bars');mobileMenuIcon.classList.add('fa-times')}else{mobileMenuIcon.classList.remove('fa-times');mobileMenuIcon.classList.add('fa-bars')}});
     mobileNav.querySelectorAll('a').forEach(link=>{link.addEventListener('click',()=>{mobileNav.classList.remove('active');mobileMenu.classList.remove('active');mobileMenuIcon.classList.remove('fa-times');mobileMenuIcon.classList.add('fa-bars')})});
     document.addEventListener('click',function(e){if(!mobileMenu.contains(e.target)&&!mobileNav.contains(e.target)){mobileNav.classList.remove('active');mobileMenu.classList.remove('active');mobileMenuIcon.classList.remove('fa-times');mobileMenuIcon.classList.add('fa-bars')}});
-    document.addEventListener('DOMContentLoaded',function(){const currentPath=window.location.pathname.split('/').pop();const currentHash=window.location.hash;if(currentPath==='ourteam.html'||currentPath===''){document.querySelectorAll('nav a[href="ourteam.html"], .mobile-nav a[href="ourteam.html"]').forEach(link=>{link.classList.add('active')})}if(currentPath==='index.html'||currentPath===''){document.querySelectorAll('nav a, .mobile-nav a').forEach(link=>{const href=link.getAttribute('href');if(href&&href.startsWith('index.html')&&href.includes(currentHash)){link.classList.add('active')}})}});
+    
+    // JS ajustado para asegurar que solo el enlace actual tenga la clase active
+    document.addEventListener('DOMContentLoaded',function(){
+      const currentPath=window.location.pathname.split('/').pop();
+      const currentHash=window.location.hash;
+      
+      // Primero limpiamos todos los active
+      document.querySelectorAll('nav a, .mobile-nav a').forEach(link=>{link.classList.remove('active')});
+
+      if(currentPath==='ourteam.html'||currentPath===''){
+        document.querySelectorAll('nav a[href="ourteam.html"], .mobile-nav a[href="ourteam.html"]').forEach(link=>{link.classList.add('active')})
+      }
+      if(currentPath==='index.html'||currentPath===''){
+        document.querySelectorAll('nav a, .mobile-nav a').forEach(link=>{
+          const href=link.getAttribute('href');
+          if(href&&href.startsWith('index.html')&&href.includes(currentHash)){
+            link.classList.add('active')
+          }
+        })
+      }
+    });
   </script>
 </body>
 </html>
